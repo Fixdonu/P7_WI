@@ -19,8 +19,24 @@ namespace RobotParser
       RobotManager();
     }
 
+    public bool IgnoreCheck(string txt)
+    {
+      string[] ignoreArray = { "#", "host", "sitemap" };
+      txt = txt.Replace(" ", "");
+
+      foreach (var x in ignoreArray)
+      {
+        if (txt.StartsWith(x))
+        {
+          return true;
+        }
+      }
+      return false;
+    }
+
     private string robotsTxt;
     private string crawlerName;
+    
     private List<string> allowList = new List<string>();
     private List<string> disallowList = new List<string>();
     private List<string> rulesList = new List<string>();
@@ -106,7 +122,7 @@ namespace RobotParser
       while (!r.EndOfStream)
       {
         txt = r.ReadLine().ToLower();
-        if (txt.StartsWith("#"))
+        if (IgnoreCheck(txt))
           continue;
 
         if (txt.StartsWith("user-agent: " + crawlerName) && !r.EndOfStream)
@@ -117,7 +133,7 @@ namespace RobotParser
           {
 
             txt = r.ReadLine();
-            if (String.IsNullOrEmpty(txt) || txt.StartsWith("#"))
+            if (String.IsNullOrEmpty(txt) || IgnoreCheck(txt.ToLower()))
               continue;
 
             txt = txt.ToLower();
