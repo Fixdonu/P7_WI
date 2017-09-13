@@ -3,3 +3,8 @@ C:\Users\Ejer\documents\visual studio 2015\Projects\RobotParser\RobotParser\bin\
 C:\Users\Ejer\documents\visual studio 2015\Projects\RobotParser\RobotParser\bin\Debug\RobotParser.pdb
 C:\Users\Ejer\documents\visual studio 2015\Projects\RobotParser\RobotParser\obj\Debug\RobotParser.exe
 C:\Users\Ejer\documents\visual studio 2015\Projects\RobotParser\RobotParser\obj\Debug\RobotParser.pdb
+D:\GitGudHub\P7_WI\RobotParser\RobotParser\bin\Debug\RobotParser.exe.config
+D:\GitGudHub\P7_WI\RobotParser\RobotParser\bin\Debug\RobotParser.exe
+D:\GitGudHub\P7_WI\RobotParser\RobotParser\bin\Debug\RobotParser.pdb
+D:\GitGudHub\P7_WI\RobotParser\RobotParser\obj\Debug\RobotParser.exe
+D:\GitGudHub\P7_WI\RobotParser\RobotParser\obj\Debug\RobotParser.pdb
