@@ -1,0 +1,5 @@
+c:\users\ejer\documents\visual studio 2015\Projects\Shinkling\Shinkling\bin\Debug\Shinkling.exe.config
+c:\users\ejer\documents\visual studio 2015\Projects\Shinkling\Shinkling\bin\Debug\Shinkling.exe
+c:\users\ejer\documents\visual studio 2015\Projects\Shinkling\Shinkling\bin\Debug\Shinkling.pdb
+c:\users\ejer\documents\visual studio 2015\Projects\Shinkling\Shinkling\obj\Debug\Shinkling.exe
+c:\users\ejer\documents\visual studio 2015\Projects\Shinkling\Shinkling\obj\Debug\Shinkling.pdb
