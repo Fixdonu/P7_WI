@@ -10,7 +10,8 @@ namespace RobotParser
     {
         static void Main(string[] args)
         {
-            Parser p = new Parser("http://www.reddit.com", "googlebot-ihrrhrmage");
+            Parser p = new Parser("wikipedia", "googlebot-ihrrhrmage");
         }
     }
 }
+

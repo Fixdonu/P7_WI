@@ -13,6 +13,16 @@ namespace RobotParser
   {
     public Parser(string url, string crawlerName)
     {
+      //move to a library. Can take most inputs except ones without .com, .org etc.
+      url = url.Replace("http://", "").Replace("https://", "").Replace("www.", "");
+      if (url.Contains("/"))
+      {
+        url = url.Remove(url.IndexOf("/"));
+      }
+      url = "http://www." + url;
+      
+
+
       this.robotsTxt = url + "/robots.txt";
       this.crawlerName = crawlerName;
 
