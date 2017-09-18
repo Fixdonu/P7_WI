@@ -10,7 +10,9 @@ namespace RobotParser
     {
         static void Main(string[] args)
         {
-            Parser p = new Parser("wikipedia", "googlebot-ihrrhrmage");
+          Console.WriteLine("Insert target");
+          string target = Console.ReadLine();
+          Parser p = new Parser(target, "googlebot-ihrrhrmage");
         }
     }
 }
