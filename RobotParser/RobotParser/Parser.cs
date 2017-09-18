@@ -16,16 +16,12 @@ namespace RobotParser
       //move to a library. Can take most inputs but will not work if the toplevel domain is not inputted and is not .com
       url = url.Replace("http://", "").Replace("https://", "").Replace("www.", "");
       if (url.Contains("/"))
-      {
         url = url.Remove(url.IndexOf("/"));
-      }
       if (!url.Contains("."))
       {
         url = url + ".com"; //If the user has not written a toplevel domain, we just try with .com
       }
       url = "http://www." + url;
-      
-
 
       this.robotsTxt = url + "/robots.txt";
       this.crawlerName = crawlerName;
