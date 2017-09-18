@@ -30,14 +30,22 @@ namespace MyCrawler
 
         void Crawl()
         {
-            //while (crawledPages < 40 || frontierP.Count == 0)
+            while (crawledPages < 40 || frontierP.Count == 0)
             {
-                string val = frontierP.First.Value;
+                string url = frontierP.First.Value;
                 frontierP.RemoveFirst();
-                RequestPage(val);
+
+                Console.WriteLine("verifing robot.txt: " + url);
+                if (!rtp.IsDisallowed(url))
+                {
+                    System.Threading.Thread.Sleep(crawlerDelay);
+                    RequestPage(url);
+                }
+
                 Console.WriteLine("Crawled: " + crawledPages);
                 System.Threading.Thread.Sleep(crawlerDelay);
-            }
+            }        
+
             Console.WriteLine(frontierP.Count);
 
             for (int i = 0; i < frontierP.Count; i++)

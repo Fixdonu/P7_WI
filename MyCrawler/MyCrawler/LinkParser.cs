@@ -28,7 +28,7 @@ namespace MyCrawler
             {
                 url = url + ".com";
             }
-            url = "http://www." + url;
+            url = "http://www." + url + "/";
 
             return url;
         }
@@ -36,7 +36,7 @@ namespace MyCrawler
         void FindRobotTxt(string notBaseP)
         {
             string basePage = CreateBaseP(notBaseP);
-            rtp.RequestRobotTxt(basePage);
+            //rtp.RequestRobotTxt(basePage);
         }
 
         public void ParseLink (Page page, string sourceUrl)

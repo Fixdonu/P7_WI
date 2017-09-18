@@ -13,13 +13,15 @@ namespace MyCrawler
     {
         private string crawlerName;
 
-        public List<string> allowList = new List<string>();
-        public List<string> disallowList = new List<string>();
-        public List<string> rulesList = new List<string>();
+        List<string> allowList;
+        List<string> disallowList;
+        List<string> rulesList;
 
         public RobotTxtParser(string crawlerName)
         {
             this.crawlerName = crawlerName;
+
+
         }
 
         public bool IgnoreCheck(string txt)
@@ -37,7 +39,8 @@ namespace MyCrawler
             return false;
         }
 
-        public void RequestRobotTxt(string url)
+
+        void RequestRobotTxt(string url)
         {
             try
             {
@@ -64,7 +67,7 @@ namespace MyCrawler
 
                     using (readStream)
                     {
-                        ParseRobotTxt(readStream);
+                        ParseRobotTxt(readStream, url);
                     }
 
                     response.Close();
@@ -77,9 +80,13 @@ namespace MyCrawler
             }
         }
 
-        void ParseRobotTxt(System.IO.StreamReader r)
+        void ParseRobotTxt(System.IO.StreamReader r, string url)
         {
             string txt;
+
+            allowList = new List<string>();
+            disallowList = new List<string>();
+            rulesList = new List<string>();
 
             while (!r.EndOfStream)
             {
@@ -117,6 +124,34 @@ namespace MyCrawler
                     while (!txt.StartsWith("user-agent: ") && !r.EndOfStream);
                 }
             }
+
+            
+        }
+
+        public bool IsDisallowed(string url)
+        {
+            bool isDisallowed = false;
+
+            RequestRobotTxt(url);
+
+            System.Threading.Thread.Sleep(10000);
+
+            // verify that we are allowed
+            // needs more work
+            if (disallowList != null || disallowList.Count != 0)
+            {
+                foreach (string item in disallowList)
+                {
+                    if (url.Contains(item))
+                    {
+                        isDisallowed = true;
+                        break;
+                    }
+                }
+            }
+            
+            Console.WriteLine("am i disallowed?: " + isDisallowed);
+            return isDisallowed;
         }
     }
 }
