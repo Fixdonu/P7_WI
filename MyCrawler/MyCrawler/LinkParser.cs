@@ -11,11 +11,15 @@ namespace MyCrawler
         {
             this.rtp = rtp;
         }
-        
+
         RobotTxtParser rtp;
-        string linkRegex = "<a .*?href=([\"'])(?<Link>.*?)\\1.*?>";
-        //string linkRegex = "href=\"[a-zA-Z./:&\\d_-]+\"";
+        //string linkRegex = "<a .*?href=([\"'])(?<Link>.*?)\\1.*?>";
+
         List<string> goodUrls = new List<string>();
+        List<string> newUrls;
+
+        public List<string> GoodUrls { get; }
+        
 
         string CreateBaseP(string url)
         {
@@ -39,57 +43,42 @@ namespace MyCrawler
             //rtp.RequestRobotTxt(basePage);
         }
 
-        public void ParseLink (Page page, string sourceUrl)
+        public string ParseLink(Page page, string sourceUrl)
         {
-            MatchCollection matches = Regex.Matches(page.txt, linkRegex);
+            //MatchCollection matches = Regex.Matches(page.txt, linkRegex);
+            string parsedLink = "";
 
-            foreach  (Match item in matches)
+            if (sourceUrl == null)
             {
-                if (item.Value == string.Empty)
-                {
-                    // Bad url
-                    continue;
-                }
 
-                if (item.Value.Contains(".asp"))
-                {
-                    continue;
-                }
+            }
+            else if (sourceUrl.Contains(".asp") || sourceUrl.Contains("@"))
+            {
 
-                string foundHref = null;
+            }
+            else
+            {
 
-                try
+                if (!goodUrls.Contains(sourceUrl))
                 {
-                    foundHref = item.Value.Replace("href=\"", "");
-                    foundHref = foundHref.Substring(0, foundHref.IndexOf("\""));
-                }
-                catch (Exception e)
-                {
-                    //exceptions.Add(e.Message);
-                }
-
-                if (!goodUrls.Contains(foundHref))
-                {
-                    if (IsExternalUrl(foundHref))
+                    if (IsExternalUrl(sourceUrl))
                     {
-                        goodUrls.Add(foundHref);
+                        goodUrls.Add(sourceUrl);
+                        parsedLink = sourceUrl;
                     }
-                    else if (!IsAWebPage(foundHref))
+                    else if (!IsAWebPage(sourceUrl))
                     {
 
                     }
                     else
                     {
-                        goodUrls.Add(CreateBaseP(page.url)+ sourceUrl);
+                        goodUrls.Add(CreateBaseP(page.url) + sourceUrl);
+                        parsedLink = CreateBaseP(page.url) + sourceUrl;
                     }
                 }
             }
 
-            foreach (var item in goodUrls)
-            {
-                Console.WriteLine(item);
-            }
-
+            return parsedLink;
         }
 
         bool IsExternalUrl(string url)

@@ -133,9 +133,7 @@ namespace MyCrawler
             bool isDisallowed = false;
 
             RequestRobotTxt(url);
-
-            System.Threading.Thread.Sleep(10000);
-
+            
             // verify that we are allowed
             // needs more work
             if (disallowList != null || disallowList.Count != 0)
@@ -149,8 +147,7 @@ namespace MyCrawler
                     }
                 }
             }
-            
-            Console.WriteLine("am i disallowed?: " + isDisallowed);
+
             return isDisallowed;
         }
     }

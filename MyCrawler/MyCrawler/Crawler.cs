@@ -13,8 +13,7 @@ namespace MyCrawler
         LinkParser lp;
         int crawledPages = 0;
         RobotTxtParser rtp;
-        string seedP = "https://www.nike.com";
-        string NotBaseP = "";
+
         string crawlerName;
         LinkedList<string> frontierP = new LinkedList<string>();
         int crawlerDelay = 1000;
@@ -24,7 +23,7 @@ namespace MyCrawler
             this.crawlerName = crawlerName;
             this.rtp = rtp;
             lp = new LinkParser(rtp);
-            frontierP.AddLast("http://www.chilkatsoft.com");
+            frontierP.AddLast("http://wikipedia.org");
             Crawl();
         }
 
@@ -35,6 +34,7 @@ namespace MyCrawler
                 string url = frontierP.First.Value;
                 frontierP.RemoveFirst();
 
+                //Verify with robot.txt before requesting entry
                 Console.WriteLine("verifing robot.txt: " + url);
                 if (!rtp.IsDisallowed(url))
                 {
@@ -47,11 +47,6 @@ namespace MyCrawler
             }        
 
             Console.WriteLine(frontierP.Count);
-
-            for (int i = 0; i < frontierP.Count; i++)
-            {
-                Console.WriteLine(frontierP.ToString());
-            }
 
             Console.WriteLine("Done with crawling for now");
         }
@@ -88,6 +83,7 @@ namespace MyCrawler
         {
             Page page = new Page(url, r.ReadToEnd());
 
+            string parsedLink;
             string regex = "<a .*?href=([\"'])(?<Link>.*?)\\1.*?>";
             //string regex2 = "href =\"[a-zA-Z./:&\\d_-]+\"";
 
@@ -98,13 +94,19 @@ namespace MyCrawler
             {
                 foreach (Match item in matches)
                 {
-
                     string extractedUrl = WebUtility.UrlDecode(item.ToString().Split('"')[1]);
+                    parsedLink = lp.ParseLink(page, extractedUrl);
 
-                    lp.ParseLink(page, extractedUrl);
-                    //Console.WriteLine(extractedUrl);
+                    if (!String.IsNullOrWhiteSpace(parsedLink))
+                    {
+                        frontierP.AddLast(parsedLink);
+                    }
+                    
                 }
+
+                System.Threading.Thread.Sleep(1000);
             }
+
         }
     }
 }
