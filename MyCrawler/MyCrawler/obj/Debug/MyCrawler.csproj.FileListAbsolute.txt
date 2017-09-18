@@ -1,0 +1,5 @@
+c:\users\ejer\documents\visual studio 2015\Projects\MyCrawler\MyCrawler\bin\Debug\MyCrawler.exe.config
+c:\Users\Ejer\Documents\Visual Studio 2015\Projects\MyCrawler\MyCrawler\bin\Debug\MyCrawler.exe
+c:\Users\Ejer\Documents\Visual Studio 2015\Projects\MyCrawler\MyCrawler\bin\Debug\MyCrawler.pdb
+c:\Users\Ejer\Documents\Visual Studio 2015\Projects\MyCrawler\MyCrawler\obj\Debug\MyCrawler.exe
+c:\Users\Ejer\Documents\Visual Studio 2015\Projects\MyCrawler\MyCrawler\obj\Debug\MyCrawler.pdb
