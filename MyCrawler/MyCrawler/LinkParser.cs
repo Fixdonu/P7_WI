@@ -32,7 +32,7 @@ namespace MyCrawler
             {
                 url = url + ".com";
             }
-            url = "http://www." + url + "/";
+            url = "http://www." + url;
 
             return url;
         }
@@ -52,7 +52,11 @@ namespace MyCrawler
             {
 
             }
-            else if (sourceUrl.Contains(".asp") || sourceUrl.Contains("@"))
+            if (rtp.IgnoreCheck(sourceUrl))
+            {
+
+            }
+            else if (sourceUrl.Contains(".asp") || sourceUrl.Contains("@") || sourceUrl.EndsWith(".jpg"))
             {
 
             }
@@ -63,8 +67,10 @@ namespace MyCrawler
                 {
                     if (IsExternalUrl(sourceUrl))
                     {
+
                         goodUrls.Add(sourceUrl);
                         parsedLink = sourceUrl;
+                        Console.WriteLine(sourceUrl + " added to the frontier");
                     }
                     else if (!IsAWebPage(sourceUrl))
                     {
@@ -72,6 +78,9 @@ namespace MyCrawler
                     }
                     else
                     {
+                        Console.WriteLine(" ");
+                        Console.WriteLine("Combined: " + CreateBaseP(page.url) + sourceUrl);
+
                         goodUrls.Add(CreateBaseP(page.url) + sourceUrl);
                         parsedLink = CreateBaseP(page.url) + sourceUrl;
                     }

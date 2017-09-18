@@ -20,8 +20,6 @@ namespace MyCrawler
         public RobotTxtParser(string crawlerName)
         {
             this.crawlerName = crawlerName;
-
-
         }
 
         public bool IgnoreCheck(string txt)

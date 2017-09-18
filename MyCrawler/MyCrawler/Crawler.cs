@@ -23,7 +23,7 @@ namespace MyCrawler
             this.crawlerName = crawlerName;
             this.rtp = rtp;
             lp = new LinkParser(rtp);
-            frontierP.AddLast("http://wikipedia.org");
+            frontierP.AddLast("https://chilkatsoft.com/");
             Crawl();
         }
 
@@ -82,6 +82,7 @@ namespace MyCrawler
         void ParsePage(StreamReader r, string url)
         {
             Page page = new Page(url, r.ReadToEnd());
+
 
             string parsedLink;
             string regex = "<a .*?href=([\"'])(?<Link>.*?)\\1.*?>";
