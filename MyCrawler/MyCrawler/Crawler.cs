@@ -9,52 +9,43 @@ namespace MyCrawler
 {
     class Crawler
     {
+
+        LinkParser lp;
         int crawledPages = 0;
-        RobotTxtParser p;
+        RobotTxtParser rtp;
         string seedP = "https://www.nike.com";
         string NotBaseP = "";
+        string crawlerName;
         LinkedList<string> frontierP = new LinkedList<string>();
         int crawlerDelay = 1000;
 
-        public Crawler(RobotTxtParser p)
+        public Crawler(RobotTxtParser rtp, string crawlerName)
         {
-            this.p = p;
-
-            RequestPage("https://en.wikipedia.org/wiki/1986%E2%80%9387_UCLA_Bruins_men%27s_basketball_team");
+            this.crawlerName = crawlerName;
+            this.rtp = rtp;
+            lp = new LinkParser(rtp);
+            frontierP.AddLast("http://www.chilkatsoft.com");
+            Crawl();
         }
 
         void Crawl()
         {
-            if (crawledPages < 40)
+            //while (crawledPages < 40 || frontierP.Count == 0)
             {
                 string val = frontierP.First.Value;
                 frontierP.RemoveFirst();
                 RequestPage(val);
+                Console.WriteLine("Crawled: " + crawledPages);
+                System.Threading.Thread.Sleep(crawlerDelay);
             }
+            Console.WriteLine(frontierP.Count);
+
+            for (int i = 0; i < frontierP.Count; i++)
+            {
+                Console.WriteLine(frontierP.ToString());
+            }
+
             Console.WriteLine("Done with crawling for now");
-
-        }
-
-        string CreateBaseP(string url)
-        {
-            url = url.Replace("http://", "").Replace("https://", "").Replace("www.", "");
-            if (url.Contains("/"))
-            {
-                url = url.Remove(url.IndexOf("/"));
-            }
-            if (!url.Contains("."))
-            {
-                url = url + ".com";
-            }
-            url = "http://www." + url;
-
-            return url;
-        }
-
-        void FindRobotTxt(string notBaseP)
-        {
-            seedP = CreateBaseP(NotBaseP);
-            p.RequestRobotTxt(seedP);
         }
 
         void RequestPage(string url)
@@ -62,7 +53,7 @@ namespace MyCrawler
             try
             {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                request.UserAgent = "ParserBot";
+                request.UserAgent = crawlerName;
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
                 if (response.StatusCode == HttpStatusCode.OK)
@@ -90,22 +81,22 @@ namespace MyCrawler
             Page page = new Page(url, r.ReadToEnd());
 
             string regex = "<a .*?href=([\"'])(?<Link>.*?)\\1.*?>";
+            //string regex2 = "href =\"[a-zA-Z./:&\\d_-]+\"";
 
             Regex reg = new Regex(regex);
-            MatchCollection match = reg.Matches(page.txt);
+            MatchCollection matches = reg.Matches(page.txt);
 
-            if (match.Count > 0)
+            if (matches.Count > 0)
             {
-                foreach (var item in match)
+                foreach (Match item in matches)
                 {
 
-                    string tmp = item.ToString();
+                    string extractedUrl = WebUtility.UrlDecode(item.ToString().Split('"')[1]);
 
-                    frontierP.AddLast(tmp.Split('"')[1]);
-                    Console.WriteLine(WebUtility.UrlDecode(tmp.Split('"')[1]));
+                    lp.ParseLink(page, extractedUrl);
+                    //Console.WriteLine(extractedUrl);
                 }
             }
-            Crawl();
         }
     }
 }

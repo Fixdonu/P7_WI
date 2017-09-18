@@ -10,8 +10,10 @@ namespace MyCrawler
     {
         static void Main(string[] args)
         {
-            RobotTxtParser rtp = new RobotTxtParser("Sw709");
-            Crawler c = new Crawler(rtp);
+            string crawlerName = "sw709Bot";
+
+            RobotTxtParser rtp = new RobotTxtParser(crawlerName);
+            Crawler c = new Crawler(rtp, crawlerName);
         }
     }
 }

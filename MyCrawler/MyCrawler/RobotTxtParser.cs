@@ -42,7 +42,7 @@ namespace MyCrawler
             try
             {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                request.UserAgent = "ParserBot";
+                request.UserAgent = crawlerName;
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
 

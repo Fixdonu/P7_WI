@@ -1,25 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Configuration;
 
 namespace MyCrawler
 {
     class LinkParser
     {
-        LinkParser() {}
-
-        //string linkRegex = "<a .*?href=([\"'])(?<Link>.*?)\\1.*?>";
-        string linkRegex = "href=\"[a-zA-Z./:&\\d_-]+\"";
+        public LinkParser(RobotTxtParser rtp)
+        {
+            this.rtp = rtp;
+        }
+        
+        RobotTxtParser rtp;
+        string linkRegex = "<a .*?href=([\"'])(?<Link>.*?)\\1.*?>";
+        //string linkRegex = "href=\"[a-zA-Z./:&\\d_-]+\"";
         List<string> goodUrls = new List<string>();
-        List<string> externalUrls = new List<string>();
-        List<string> exceptions = new List<string>();
 
+        string CreateBaseP(string url)
+        {
+            url = url.Replace("http://", "").Replace("https://", "").Replace("www.", "");
+            if (url.Contains("/"))
+            {
+                url = url.Remove(url.IndexOf("/"));
+            }
+            if (!url.Contains("."))
+            {
+                url = url + ".com";
+            }
+            url = "http://www." + url;
 
+            return url;
+        }
 
-        void ParseLink (Page page, string sourceUrl)
+        void FindRobotTxt(string notBaseP)
+        {
+            string basePage = CreateBaseP(notBaseP);
+            rtp.RequestRobotTxt(basePage);
+        }
+
+        public void ParseLink (Page page, string sourceUrl)
         {
             MatchCollection matches = Regex.Matches(page.txt, linkRegex);
 
@@ -27,11 +47,17 @@ namespace MyCrawler
             {
                 if (item.Value == string.Empty)
                 {
-                    // Bad string
+                    // Bad url
+                    continue;
+                }
+
+                if (item.Value.Contains(".asp"))
+                {
                     continue;
                 }
 
                 string foundHref = null;
+
                 try
                 {
                     foundHref = item.Value.Replace("href=\"", "");
@@ -39,14 +65,14 @@ namespace MyCrawler
                 }
                 catch (Exception e)
                 {
-                    exceptions.Add(e.Message);
+                    //exceptions.Add(e.Message);
                 }
 
                 if (!goodUrls.Contains(foundHref))
                 {
                     if (IsExternalUrl(foundHref))
                     {
-                        externalUrls.Add(foundHref);
+                        goodUrls.Add(foundHref);
                     }
                     else if (!IsAWebPage(foundHref))
                     {
@@ -54,27 +80,42 @@ namespace MyCrawler
                     }
                     else
                     {
-                        goodUrls.Add(foundHref);
+                        goodUrls.Add(CreateBaseP(page.url)+ sourceUrl);
                     }
                 }
             }
+
+            foreach (var item in goodUrls)
+            {
+                Console.WriteLine(item);
+            }
+
         }
 
         bool IsExternalUrl(string url)
         {
-
+            if (url.Substring(0, 7) == "http://" || url.Substring(0, 3) == "www" || url.Substring(0, 7) == "https://")
+            {
+                return true;
+            }
 
             return false;
         }
 
         bool IsAWebPage(string url)
         {
-            return false;
+            if (url.IndexOf("javascript:") == 0)
+                return false;
+
+            string extension = url.Substring(url.LastIndexOf(".") + 1, url.Length - url.LastIndexOf(".") - 1);
+            switch (extension)
+            {
+                case "jpg":
+                case "css":
+                    return false;
+                default:
+                    return true;
+            }
         }
-
-
-
-
-
     }
 }
