@@ -13,7 +13,7 @@ namespace MyCrawler
         LinkParser lp;
         int crawledPages = 0;
         RobotTxtParser rtp;
-
+        int n = 0;
         string crawlerName;
         LinkedList<string> frontierP = new LinkedList<string>();
         int crawlerDelay = 1000;
@@ -23,7 +23,7 @@ namespace MyCrawler
             this.crawlerName = crawlerName;
             this.rtp = rtp;
             lp = new LinkParser(rtp);
-            frontierP.AddLast("https://chilkatsoft.com/");
+            frontierP.AddLast("http://cknotes.com");
             Crawl();
         }
 
@@ -36,7 +36,7 @@ namespace MyCrawler
 
                 //Verify with robot.txt before requesting entry
                 Console.WriteLine("verifing robot.txt: " + url);
-                if (!rtp.IsDisallowed(url))
+                if (!rtp.IsDisallowed(lp.FindRobotTxt(url)))
                 {
                     System.Threading.Thread.Sleep(crawlerDelay);
                     RequestPage(url);
@@ -57,6 +57,7 @@ namespace MyCrawler
             {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.UserAgent = crawlerName;
+                //request.Credentials
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
                 if (response.StatusCode == HttpStatusCode.OK)
@@ -82,7 +83,20 @@ namespace MyCrawler
         void ParsePage(StreamReader r, string url)
         {
             Page page = new Page(url, r.ReadToEnd());
+            //page.txt
 
+            //not a relative path
+            string path = @"C:/Users/Ejer/Desktop/WebCrawlerFolder";
+            string filename = "/file" + n;
+            Console.WriteLine("creating file:" + path + filename);
+            if (!File.Exists(path + filename))
+            {
+                // Create a file to write to.
+                string createText = page.txt;
+                File.WriteAllText(path, createText);
+                n++;
+            }
+            System.Threading.Thread.Sleep(12000);
 
             string parsedLink;
             string regex = "<a .*?href=([\"'])(?<Link>.*?)\\1.*?>";

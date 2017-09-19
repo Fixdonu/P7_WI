@@ -30,17 +30,17 @@ namespace MyCrawler
             }
             if (!url.Contains("."))
             {
-                url = url + ".com";
+                url = url + ".com/";
             }
             url = "http://www." + url;
 
             return url;
         }
 
-        void FindRobotTxt(string notBaseP)
+        public string FindRobotTxt(string notBaseP)
         {
             string basePage = CreateBaseP(notBaseP);
-            //rtp.RequestRobotTxt(basePage);
+            return (basePage + "/robots.txt");
         }
 
         public string ParseLink(Page page, string sourceUrl)
@@ -80,7 +80,9 @@ namespace MyCrawler
                     {
                         Console.WriteLine(" ");
                         Console.WriteLine("Combined: " + CreateBaseP(page.url) + sourceUrl);
-
+                        Console.WriteLine(sourceUrl);
+                        Console.WriteLine(CreateBaseP(page.url));
+                        
                         goodUrls.Add(CreateBaseP(page.url) + sourceUrl);
                         parsedLink = CreateBaseP(page.url) + sourceUrl;
                     }

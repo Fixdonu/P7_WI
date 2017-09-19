@@ -42,6 +42,8 @@ namespace MyCrawler
         {
             try
             {
+                Console.WriteLine(url);
+
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.UserAgent = crawlerName;
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -51,7 +53,6 @@ namespace MyCrawler
                 {
 
                     Stream receiveStream = response.GetResponseStream();
-
                     StreamReader readStream = null;
 
                     if (response.CharacterSet == null)

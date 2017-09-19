@@ -11,13 +11,11 @@ namespace MyCrawler
         public Tester(string url)
         {
             this.url = url;
-
-            Console.WriteLine(CreateBaseP(url));
+            IsContained(url);
+            //Console.WriteLine(CreateBaseP(url));
         }
 
         string url;
-
-
 
 
         string CreateBaseP(string url)
@@ -34,6 +32,29 @@ namespace MyCrawler
             url = "http://www." + url + "/";
 
             return url;
+        }
+        void IsContained(string url)
+        {
+            bool isDisallowed = false;
+            List<string> disallowList = new List<string>();
+            disallowList.Add("/ajax/");
+            disallowList.Add("/album.php");
+            //disallowList.Add("/");
+
+
+
+            if (disallowList != null || disallowList.Count != 0)
+            {
+                foreach (string item in disallowList)
+                {
+                    if (url.Contains(item))
+                    {
+                        isDisallowed = true;
+                        break;
+                    }
+                }
+            }
+            Console.WriteLine(isDisallowed);
         }
 
 
