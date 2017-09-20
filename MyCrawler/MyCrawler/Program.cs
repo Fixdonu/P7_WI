@@ -18,6 +18,8 @@ namespace MyCrawler
 
             RobotTxtParser rtp = new RobotTxtParser(crawlerName);
             Crawler c = new Crawler(rtp, crawlerName);
+
+            
         }
     }
 }
