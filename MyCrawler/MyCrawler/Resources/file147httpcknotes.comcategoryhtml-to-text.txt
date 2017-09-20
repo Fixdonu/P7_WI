@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) & !(IE 7) & !(IE 8)]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>HTML-to-Text | Chilkat Tech Notes</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="http://cknotes.com/wp-content/themes/twentyeleven/style.css" />
+<link rel="pingback" href="http://cknotes.com/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="http://cknotes.com/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//s.gravatar.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Chilkat Tech Notes &raquo; Feed" href="http://cknotes.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Chilkat Tech Notes &raquo; Comments Feed" href="http://cknotes.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Chilkat Tech Notes &raquo; HTML-to-Text Category Feed" href="http://cknotes.com/category/html-to-text/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/cknotes.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.1"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b===c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='jetpack_css-css'  href='http://cknotes.com/wp-content/plugins/jetpack/css/jetpack.css?ver=5.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://cknotes.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://cknotes.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='http://cknotes.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://cknotes.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://cknotes.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.8.1" />
+
+<link rel='dns-prefetch' href='//v0.wordpress.com'>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+<link rel="icon" href="http://cknotes.com/wp-content/uploads/2016/10/cropped-dudeNpm-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="http://cknotes.com/wp-content/uploads/2016/10/cropped-dudeNpm-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="http://cknotes.com/wp-content/uploads/2016/10/cropped-dudeNpm-180x180.jpg" />
+<meta name="msapplication-TileImage" content="http://cknotes.com/wp-content/uploads/2016/10/cropped-dudeNpm-270x270.jpg" />
+</head>
+
+<body class="archive category category-html-to-text category-236 single-author two-column right-sidebar">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="http://cknotes.com/" rel="home">Chilkat Tech Notes</a></span></h1>
+				<h2 id="site-description">Chilkat Software Tech Notes</h2>
+			</hgroup>
+
+			
+								<form method="get" id="searchform" action="http://cknotes.com/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search" />
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+	</form>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="#content">Skip to primary content</a></div>
+									<div class="skip-link"><a class="assistive-text" href="#secondary">Skip to secondary content</a></div>
+												<div class="menu"><ul>
+<li ><a href="http://cknotes.com/">Home</a></li></ul></div>
+			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<section id="primary">
+			<div id="content" role="main">
+
+			
+				<header class="page-header">
+					<h1 class="page-title">Category Archives: <span>HTML-to-Text</span></h1>
+
+									</header>
+
+				
+								
+					
+	<article id="post-455" class="post-455 post type-post status-publish format-standard hentry category-html-to-text category-html-to-xml category-pre-release-notes tag-html-to-text tag-html-to-xml tag-pre-release">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/94110-pre-release-html-to-textxml-span-tag-fix/" rel="bookmark">9.4.1.10 pre-release, HTML-to-Text/XML SPAN tag fix</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/94110-pre-release-html-to-textxml-span-tag-fix/" title="6:29 am" rel="bookmark"><time class="entry-date" datetime="2013-04-27T06:29:37+00:00">April 27, 2013</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>Fixed HTML-to-XML/Text regarding SPAN tags and maintaining SPACE chars before and after the SPAN tags.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/html-to-text/" rel="category tag">HTML-to-Text</a>, <a href="http://cknotes.com/category/html-to-xml/" rel="category tag">HTML-to-XML</a>, <a href="http://cknotes.com/category/pre-release-notes/" rel="category tag">pre-release notes</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/html-to-text/" rel="tag">HTML-to-Text</a>, <a href="http://cknotes.com/tag/html-to-xml/" rel="tag">HTML-to-XML</a>, <a href="http://cknotes.com/tag/pre-release/" rel="tag">pre-release</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-455 -->
+
+				
+					
+	<article id="post-231" class="post-231 post type-post status-publish format-standard hentry category-email category-html-to-text tag-email tag-html-to-text">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/possible-to-use-email-in-non-html-mode-only/" rel="bookmark">Possible to use Email in non-HTML Mode Only?</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/possible-to-use-email-in-non-html-mode-only/" title="12:47 pm" rel="bookmark"><time class="entry-date" datetime="2009-09-24T12:47:53+00:00">September 24, 2009</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><strong>Question:</strong></p>
+<p>Is it possible to use the email component in non-HTML mode only? For instance, I don&#8217;t want to be seeing HTML in the .Body after downloading the message from the server.<br />
+<strong><br />
+Answer:</strong></p>
+<p>Any given email can have a plain-text body, an HTML body, or both.  The emailObject.Body property will contain the HTML body if present, or the plain-text body if not present.  (Note: If you downloaded headers-only, the Body property will be empty or partial if using POP3.)  This example shows how to get the plain-text or HTML body:</p>
+<p><a href="http://www.example-code.com/asp/email_body.asp">ASP: Email Body &#8211; Plain Text and/or HTML</a><br />
+<a href="http://www.example-code.com/sql/email_body.asp">SQL Server: Email Body &#8211; Plain Text and/or HTML</a><br />
+<a href="http://www.example-code.com/csharp/email_body.asp">C#: Email Body &#8211; Plain Text and/or HTML</a><br />
+<a href="http://www.example-code.com/vcpp/email_body.asp">C++: Email Body &#8211; Plain Text and/or HTML</a><br />
+<a href="http://www.example-code.com/mfc/email_body.asp">MFC: Email Body &#8211; Plain Text and/or HTML</a><br />
+<a href="http://www.example-code.com/C/email_body.asp">C: Email Body &#8211; Plain Text and/or HTML</a><br />
+<a href="http://www.example-code.com/delphi/email_body.asp">Delphi: Email Body &#8211; Plain Text and/or HTML</a><br />
+<a href="http://www.example-code.com/foxpro/email_body.asp">Visual FoxPro: Email Body &#8211; Plain Text and/or HTML</a><br />
+<a href="http://www.example-code.com/java/email_body.asp">Java: Email Body &#8211; Plain Text and/or HTML</a><br />
+<a href="http://www.example-code.com/perl/email_body.asp">Perl: Email Body &#8211; Plain Text and/or HTML</a><br />
+<a href="http://www.example-code.com/php/email_body.asp">PHP: Email Body &#8211; Plain Text and/or HTML</a><br />
+<a href="http://www.example-code.com/python/email_body.asp">Python: Email Body &#8211; Plain Text and/or HTML</a><br />
+<a href="http://www.example-code.com/ruby/email_body.asp">Ruby: Email Body &#8211; Plain Text and/or HTML</a><br />
+<a href="http://www.example-code.com/vbdotnet/email_body.asp">VB.NET: Email Body &#8211; Plain Text and/or HTML</a><br />
+<a href="http://www.example-code.com/vb/email_body.asp">Visual Basic: Email Body &#8211; Plain Text and/or HTML</a><br />
+<a href="http://www.example-code.com/vbscript/email_body.asp">VBScript: Email Body &#8211; Plain Text and/or HTML</a></p>
+<p>For an email that contains only an HTML body, your will need to convert the HTML to plain-text.  This example shows how (using the HTML-to-XML/Text component)</p>
+<p><a href="http://www.example-code.com/asp/htmlToText_simple.asp">ASP: Convert HTML to plain-text</a><br />
+<a href="http://www.example-code.com/csharp/htmlToText_simple.asp">C#: Convert HTML to plain-text</a><br />
+<a href="http://www.example-code.com/vcpp/htmlToText_simple.asp">C++: Convert HTML to plain-text</a><br />
+<a href="http://www.example-code.com/mfc/htmlToText_simple.asp">MFC: Convert HTML to plain-text</a><br />
+<a href="http://www.example-code.com/C/htmlToText_simple.asp">C: Convert HTML to plain-text</a><br />
+<a href="http://www.example-code.com/delphi/htmlToText_simple.asp">Delphi: Convert HTML to plain-text</a><br />
+<a href="http://www.example-code.com/foxpro/htmlToText_simple.asp">Visual FoxPro: Convert HTML to plain-text</a><br />
+<a href="http://www.example-code.com/java/htmlToText_simple.asp">Java: Convert HTML to plain-text</a><br />
+<a href="http://www.example-code.com/perl/htmlToText_simple.asp">Perl: Convert HTML to plain-text</a><br />
+<a href="http://www.example-code.com/php/htmlToText_simple.asp">PHP: Convert HTML to plain-text</a><br />
+<a href="http://www.example-code.com/python/htmlToText_simple.asp">Python: Convert HTML to plain-text</a><br />
+<a href="http://www.example-code.com/ruby/htmlToText_simple.asp">Ruby: Convert HTML to plain-text</a><br />
+<a href="http://www.example-code.com/vbdotnet/htmlToText_simple.asp">VB.NET: Convert HTML to plain-text</a><br />
+<a href="http://www.example-code.com/vb/htmlToText_simple.asp">Visual Basic: Convert HTML to plain-text</a><br />
+<a href="http://www.example-code.com/vbscript/htmlToText_simple.asp">VBScript: Convert HTML to plain-text</a></p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/email/" rel="category tag">email</a>, <a href="http://cknotes.com/category/html-to-text/" rel="category tag">HTML-to-Text</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/email/" rel="tag">email</a>, <a href="http://cknotes.com/tag/html-to-text/" rel="tag">HTML-to-Text</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-231 -->
+
+				
+				
+			
+			</div><!-- #content -->
+		</section><!-- #primary -->
+
+		<div id="secondary" class="widget-area" role="complementary">
+			<aside id="linkcat-2" class="widget widget_links"><h3 class="widget-title">Blogroll</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://cknotes.com/chilkat-binary-encoding-list/" title="Lists the Encoding Modes Supported by the Chilkat API.">Chilkat Binary Encodings</a></li>
+<li><a href="http://cknotes.com/chilkat-charsets-character-encodings-supported/" title="Lists the Charsets (Character Encodings) supported by the Chilkat API.">Chilkat Character Encodings</a></li>
+<li><a href="http://www.chilkatforum.com" title="Chilkat Forum">Chilkat Forum</a></li>
+<li><a href="http://www.chilkatsoft.com/" title="Chilkat Software Home Page">Chilkat Home</a></li>
+<li><a href="http://www.example-code.com/" title="Programming Examples">Example Code</a></li>
+<li><a href="http://cknotes.com/?p=282" title="How to Determine FTP2 Connection Settings">How to Determine FTP Connection Settings</a></li>
+<li><a href="http://cknotes.com/?p=361" title="How to Register ActiveX DLLs using regsvr32">How To Register ActiveX DLLs</a></li>
+<li><a href="http://cknotes.com/chilkat-net-assemblies-matching-visual-studio-versions-to-net-framework-versions-to-vc-runtime-versions/" title="Chilkat .NET Assemblies – Matching Visual Studio versions to .NET Framework Versions to VC++ Runtime Versions.">MSVC Runtimes for .NET Assemblies</a></li>
+<li><a href="http://www.chilkatsoft.com/p/pIndex.asp" title="More Chilkat Technical Notes">Old Blog Posts</a></li>
+<li><a href="http://www.chilkatsoft.com/refdoc" title="Chilkat Reference Documentation">Reference Documentation</a></li>
+<li><a href="http://cknotes.com/?cat=100" title="Release Notes">Release Notes</a></li>
+<li><a href="http://cknotes.com/?p=302" title="Must-Know Concepts for Socket Programming">Socket Programming Must-Know Concepts</a></li>
+
+	</ul>
+</aside>
+<aside id="tag_cloud-2" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><a href="http://cknotes.com/tag/net/" class="tag-cloud-link tag-link-84 tag-link-position-1" style="font-size: 8.9655172413793pt;" aria-label=".NET (5 items)">.NET</a>
+<a href="http://cknotes.com/tag/64-bit/" class="tag-cloud-link tag-link-99 tag-link-position-2" style="font-size: 8.9655172413793pt;" aria-label="64-bit (5 items)">64-bit</a>
+<a href="http://cknotes.com/tag/activex/" class="tag-cloud-link tag-link-433 tag-link-position-3" style="font-size: 15.965517241379pt;" aria-label="ActiveX (22 items)">ActiveX</a>
+<a href="http://cknotes.com/tag/asp/" class="tag-cloud-link tag-link-455 tag-link-position-4" style="font-size: 9.8103448275862pt;" aria-label="asp (6 items)">asp</a>
+<a href="http://cknotes.com/tag/async/" class="tag-cloud-link tag-link-425 tag-link-position-5" style="font-size: 9.8103448275862pt;" aria-label="async (6 items)">async</a>
+<a href="http://cknotes.com/tag/asynchronous/" class="tag-cloud-link tag-link-494 tag-link-position-6" style="font-size: 11.620689655172pt;" aria-label="asynchronous (9 items)">asynchronous</a>
+<a href="http://cknotes.com/tag/c/" class="tag-cloud-link tag-link-448 tag-link-position-7" style="font-size: 16.448275862069pt;" aria-label="C# (24 items)">C#</a>
+<a href="http://cknotes.com/tag/charset/" class="tag-cloud-link tag-link-473 tag-link-position-8" style="font-size: 8.9655172413793pt;" aria-label="charset (5 items)">charset</a>
+<a href="http://cknotes.com/tag/delphi/" class="tag-cloud-link tag-link-517 tag-link-position-9" style="font-size: 9.8103448275862pt;" aria-label="Delphi (6 items)">Delphi</a>
+<a href="http://cknotes.com/tag/email/" class="tag-cloud-link tag-link-472 tag-link-position-10" style="font-size: 14.396551724138pt;" aria-label="email (16 items)">email</a>
+<a href="http://cknotes.com/tag/encryption/" class="tag-cloud-link tag-link-431 tag-link-position-11" style="font-size: 13.793103448276pt;" aria-label="Encryption (14 items)">Encryption</a>
+<a href="http://cknotes.com/tag/error-messages/" class="tag-cloud-link tag-link-435 tag-link-position-12" style="font-size: 18.862068965517pt;" aria-label="error messages (39 items)">error messages</a>
+<a href="http://cknotes.com/tag/errors/" class="tag-cloud-link tag-link-174 tag-link-position-13" style="font-size: 8.9655172413793pt;" aria-label="errors (5 items)">errors</a>
+<a href="http://cknotes.com/tag/events/" class="tag-cloud-link tag-link-443 tag-link-position-14" style="font-size: 15.48275862069pt;" aria-label="events (20 items)">events</a>
+<a href="http://cknotes.com/tag/exchange-server/" class="tag-cloud-link tag-link-458 tag-link-position-15" style="font-size: 10.413793103448pt;" aria-label="exchange server (7 items)">exchange server</a>
+<a href="http://cknotes.com/tag/ftp/" class="tag-cloud-link tag-link-440 tag-link-position-16" style="font-size: 19.103448275862pt;" aria-label="FTP (41 items)">FTP</a>
+<a href="http://cknotes.com/tag/gmail/" class="tag-cloud-link tag-link-499 tag-link-position-17" style="font-size: 8.9655172413793pt;" aria-label="GMail (5 items)">GMail</a>
+<a href="http://cknotes.com/tag/http/" class="tag-cloud-link tag-link-428 tag-link-position-18" style="font-size: 17.896551724138pt;" aria-label="HTTP (32 items)">HTTP</a>
+<a href="http://cknotes.com/tag/imap/" class="tag-cloud-link tag-link-452 tag-link-position-19" style="font-size: 16.810344827586pt;" aria-label="IMAP (26 items)">IMAP</a>
+<a href="http://cknotes.com/tag/ios/" class="tag-cloud-link tag-link-541 tag-link-position-20" style="font-size: 12.586206896552pt;" aria-label="IOS (11 items)">IOS</a>
+<a href="http://cknotes.com/tag/java/" class="tag-cloud-link tag-link-430 tag-link-position-21" style="font-size: 12.586206896552pt;" aria-label="Java (11 items)">Java</a>
+<a href="http://cknotes.com/tag/lasterrortext/" class="tag-cloud-link tag-link-493 tag-link-position-22" style="font-size: 8.9655172413793pt;" aria-label="LastErrorText (5 items)">LastErrorText</a>
+<a href="http://cknotes.com/tag/linking/" class="tag-cloud-link tag-link-450 tag-link-position-23" style="font-size: 12.103448275862pt;" aria-label="Linking (10 items)">Linking</a>
+<a href="http://cknotes.com/tag/mht/" class="tag-cloud-link tag-link-480 tag-link-position-24" style="font-size: 9.8103448275862pt;" aria-label="MHT (6 items)">MHT</a>
+<a href="http://cknotes.com/tag/mime/" class="tag-cloud-link tag-link-429 tag-link-position-25" style="font-size: 8pt;" aria-label="MIME (4 items)">MIME</a>
+<a href="http://cknotes.com/tag/pop3/" class="tag-cloud-link tag-link-445 tag-link-position-26" style="font-size: 15.241379310345pt;" aria-label="pop3 (19 items)">pop3</a>
+<a href="http://cknotes.com/tag/port-forwarding/" class="tag-cloud-link tag-link-477 tag-link-position-27" style="font-size: 10.413793103448pt;" aria-label="port-forwarding (7 items)">port-forwarding</a>
+<a href="http://cknotes.com/tag/pre-release/" class="tag-cloud-link tag-link-372 tag-link-position-28" style="font-size: 9.8103448275862pt;" aria-label="pre-release (6 items)">pre-release</a>
+<a href="http://cknotes.com/tag/regsvr32/" class="tag-cloud-link tag-link-510 tag-link-position-29" style="font-size: 12.948275862069pt;" aria-label="regsvr32 (12 items)">regsvr32</a>
+<a href="http://cknotes.com/tag/release-notes/" class="tag-cloud-link tag-link-471 tag-link-position-30" style="font-size: 22pt;" aria-label="release notes (71 items)">release notes</a>
+<a href="http://cknotes.com/tag/rsa/" class="tag-cloud-link tag-link-460 tag-link-position-31" style="font-size: 9.8103448275862pt;" aria-label="RSA (6 items)">RSA</a>
+<a href="http://cknotes.com/tag/sftp/" class="tag-cloud-link tag-link-487 tag-link-position-32" style="font-size: 18.620689655172pt;" aria-label="SFTP (37 items)">SFTP</a>
+<a href="http://cknotes.com/tag/smtp/" class="tag-cloud-link tag-link-426 tag-link-position-33" style="font-size: 16.810344827586pt;" aria-label="SMTP (26 items)">SMTP</a>
+<a href="http://cknotes.com/tag/smtpq/" class="tag-cloud-link tag-link-439 tag-link-position-34" style="font-size: 8.9655172413793pt;" aria-label="smtpq (5 items)">smtpq</a>
+<a href="http://cknotes.com/tag/socket/" class="tag-cloud-link tag-link-488 tag-link-position-35" style="font-size: 12.103448275862pt;" aria-label="socket (10 items)">socket</a>
+<a href="http://cknotes.com/tag/ssh/" class="tag-cloud-link tag-link-476 tag-link-position-36" style="font-size: 16.448275862069pt;" aria-label="SSH (24 items)">SSH</a>
+<a href="http://cknotes.com/tag/ssl/" class="tag-cloud-link tag-link-453 tag-link-position-37" style="font-size: 10.413793103448pt;" aria-label="SSL (7 items)">SSL</a>
+<a href="http://cknotes.com/tag/tls/" class="tag-cloud-link tag-link-454 tag-link-position-38" style="font-size: 8.9655172413793pt;" aria-label="TLS (5 items)">TLS</a>
+<a href="http://cknotes.com/tag/tunnel/" class="tag-cloud-link tag-link-114 tag-link-position-39" style="font-size: 10.413793103448pt;" aria-label="tunnel (7 items)">tunnel</a>
+<a href="http://cknotes.com/tag/upload/" class="tag-cloud-link tag-link-456 tag-link-position-40" style="font-size: 9.8103448275862pt;" aria-label="upload (6 items)">upload</a>
+<a href="http://cknotes.com/tag/vbnet/" class="tag-cloud-link tag-link-505 tag-link-position-41" style="font-size: 8.9655172413793pt;" aria-label="VB.NET (5 items)">VB.NET</a>
+<a href="http://cknotes.com/tag/vb6/" class="tag-cloud-link tag-link-474 tag-link-position-42" style="font-size: 11.620689655172pt;" aria-label="vb6 (9 items)">vb6</a>
+<a href="http://cknotes.com/tag/vc/" class="tag-cloud-link tag-link-520 tag-link-position-43" style="font-size: 10.413793103448pt;" aria-label="VC++ (7 items)">VC++</a>
+<a href="http://cknotes.com/tag/x64/" class="tag-cloud-link tag-link-467 tag-link-position-44" style="font-size: 11.620689655172pt;" aria-label="x64 (9 items)">x64</a>
+<a href="http://cknotes.com/tag/zip/" class="tag-cloud-link tag-link-478 tag-link-position-45" style="font-size: 14.034482758621pt;" aria-label="zip (15 items)">zip</a></div>
+</aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-421"><a href="http://cknotes.com/category/net/" >.NET</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="http://cknotes.com/category/3des/" >3DES</a>
+</li>
+	<li class="cat-item cat-item-295"><a href="http://cknotes.com/category/40-framework/" >4.0 Framework</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="http://cknotes.com/category/activex/" >ActiveX</a>
+</li>
+	<li class="cat-item cat-item-97"><a href="http://cknotes.com/category/aes/" >aes</a>
+</li>
+	<li class="cat-item cat-item-69"><a href="http://cknotes.com/category/amazon-s3/" >Amazon S3</a>
+</li>
+	<li class="cat-item cat-item-316"><a href="http://cknotes.com/category/android/" >Android</a>
+</li>
+	<li class="cat-item cat-item-304"><a href="http://cknotes.com/category/announcements/" >announcements</a>
+</li>
+	<li class="cat-item cat-item-561"><a href="http://cknotes.com/category/any-cpu/" >Any CPU</a>
+</li>
+	<li class="cat-item cat-item-60"><a href="http://cknotes.com/category/asp/" >asp</a>
+</li>
+	<li class="cat-item cat-item-282"><a href="http://cknotes.com/category/asp-ftp/" >ASP FTP</a>
+</li>
+	<li class="cat-item cat-item-48"><a href="http://cknotes.com/category/asp-upload/" >ASP Upload</a>
+</li>
+	<li class="cat-item cat-item-27"><a href="http://cknotes.com/category/aspnet/" >asp.net</a>
+</li>
+	<li class="cat-item cat-item-28"><a href="http://cknotes.com/category/assembly/" >assembly</a>
+</li>
+	<li class="cat-item cat-item-597"><a href="http://cknotes.com/category/async/" >async</a>
+</li>
+	<li class="cat-item cat-item-165"><a href="http://cknotes.com/category/asynchronous/" >asynchronous</a>
+</li>
+	<li class="cat-item cat-item-112"><a href="http://cknotes.com/category/atl/" >ATL</a>
+</li>
+	<li class="cat-item cat-item-133"><a href="http://cknotes.com/category/attachments/" >attachments</a>
+</li>
+	<li class="cat-item cat-item-330"><a href="http://cknotes.com/category/azure/" >Azure</a>
+</li>
+	<li class="cat-item cat-item-279"><a href="http://cknotes.com/category/bcc/" >BCC</a>
+</li>
+	<li class="cat-item cat-item-25"><a href="http://cknotes.com/category/blowfish/" >blowfish</a>
+</li>
+	<li class="cat-item cat-item-159"><a href="http://cknotes.com/category/bounce/" >bounce</a>
+</li>
+	<li class="cat-item cat-item-158"><a href="http://cknotes.com/category/bounced-email/" >Bounced Email</a>
+</li>
+	<li class="cat-item cat-item-345"><a href="http://cknotes.com/category/c-language/" >C language</a>
+</li>
+	<li class="cat-item cat-item-47"><a href="http://cknotes.com/category/c/" >C#</a>
+</li>
+	<li class="cat-item cat-item-291"><a href="http://cknotes.com/category/c-builder/" >C++ Builder</a>
+</li>
+	<li class="cat-item cat-item-333"><a href="http://cknotes.com/category/cades/" >CAdES</a>
+</li>
+	<li class="cat-item cat-item-578"><a href="http://cknotes.com/category/callbacks/" >callbacks</a>
+</li>
+	<li class="cat-item cat-item-419"><a href="http://cknotes.com/category/certchain/" >CertChain</a>
+</li>
+	<li class="cat-item cat-item-182"><a href="http://cknotes.com/category/certificate/" >certificate</a>
+</li>
+	<li class="cat-item cat-item-204"><a href="http://cknotes.com/category/certificates/" >certificates</a>
+</li>
+	<li class="cat-item cat-item-104"><a href="http://cknotes.com/category/character/" >character</a>
+</li>
+	<li class="cat-item cat-item-107"><a href="http://cknotes.com/category/charset/" >charset</a>
+</li>
+	<li class="cat-item cat-item-220"><a href="http://cknotes.com/category/ckstring/" >CkString</a>
+</li>
+	<li class="cat-item cat-item-603"><a href="http://cknotes.com/category/classic-asp/" >classic ASP</a>
+</li>
+	<li class="cat-item cat-item-331"><a href="http://cknotes.com/category/cocoa/" >cocoa</a>
+</li>
+	<li class="cat-item cat-item-188"><a href="http://cknotes.com/category/compression/" >compression</a>
+</li>
+	<li class="cat-item cat-item-343"><a href="http://cknotes.com/category/cpp/" >cpp</a>
+</li>
+	<li class="cat-item cat-item-178"><a href="http://cknotes.com/category/createobject/" >CreateObject</a>
+</li>
+	<li class="cat-item cat-item-169"><a href="http://cknotes.com/category/csp/" >csp</a>
+</li>
+	<li class="cat-item cat-item-161"><a href="http://cknotes.com/category/debugging/" >debugging</a>
+</li>
+	<li class="cat-item cat-item-249"><a href="http://cknotes.com/category/delphi/" >Delphi</a>
+</li>
+	<li class="cat-item cat-item-39"><a href="http://cknotes.com/category/deployment/" >deployment</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="http://cknotes.com/category/des-encryption/" >DES Encryption</a>
+</li>
+	<li class="cat-item cat-item-129"><a href="http://cknotes.com/category/diffie-hellman/" >Diffie-Hellman</a>
+</li>
+	<li class="cat-item cat-item-237"><a href="http://cknotes.com/category/dispose/" >Dispose</a>
+</li>
+	<li class="cat-item cat-item-210"><a href="http://cknotes.com/category/dkim/" >DKIM</a>
+</li>
+	<li class="cat-item cat-item-191"><a href="http://cknotes.com/category/dll/" >DLL</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="http://cknotes.com/category/dsn/" >DSN</a>
+</li>
+	<li class="cat-item cat-item-369"><a href="http://cknotes.com/category/dso/" >DSO</a>
+</li>
+	<li class="cat-item cat-item-410"><a href="http://cknotes.com/category/edifact/" >edifact</a>
+</li>
+	<li class="cat-item cat-item-101"><a href="http://cknotes.com/category/email/" >email</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://cknotes.com/category/encoding/" >Encoding</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="http://cknotes.com/category/encryption/" >Encryption</a>
+</li>
+	<li class="cat-item cat-item-23"><a href="http://cknotes.com/category/error-messages/" >error messages</a>
+</li>
+	<li class="cat-item cat-item-35"><a href="http://cknotes.com/category/events/" >events</a>
+</li>
+	<li class="cat-item cat-item-67"><a href="http://cknotes.com/category/exchange-server/" >exchange server</a>
+</li>
+	<li class="cat-item cat-item-75"><a href="http://cknotes.com/category/file-io/" >FILE IO</a>
+</li>
+	<li class="cat-item cat-item-349"><a href="http://cknotes.com/category/forum/" >forum</a>
+</li>
+	<li class="cat-item cat-item-34"><a href="http://cknotes.com/category/foxpro/" >FoxPro</a>
+</li>
+	<li class="cat-item cat-item-31"><a href="http://cknotes.com/category/ftp/" >FTP</a>
+</li>
+	<li class="cat-item cat-item-179"><a href="http://cknotes.com/category/gmail/" >GMail</a>
+</li>
+	<li class="cat-item cat-item-613"><a href="http://cknotes.com/category/google/" >Google</a>
+</li>
+	<li class="cat-item cat-item-126"><a href="http://cknotes.com/category/gzip/" >gzip</a>
+</li>
+	<li class="cat-item cat-item-198"><a href="http://cknotes.com/category/hashing/" >Hashing</a>
+</li>
+	<li class="cat-item cat-item-68"><a href="http://cknotes.com/category/hmac/" >HMAC</a>
+</li>
+	<li class="cat-item cat-item-53"><a href="http://cknotes.com/category/html-email/" >HTML Email</a>
+</li>
+	<li class="cat-item cat-item-236 current-cat"><a href="http://cknotes.com/category/html-to-text/" >HTML-to-Text</a>
+</li>
+	<li class="cat-item cat-item-124"><a href="http://cknotes.com/category/html-to-xml/" >HTML-to-XML</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://cknotes.com/category/http/" >HTTP</a>
+</li>
+	<li class="cat-item cat-item-87"><a href="http://cknotes.com/category/iis/" >IIS</a>
+</li>
+	<li class="cat-item cat-item-55"><a href="http://cknotes.com/category/imap/" >IMAP</a>
+</li>
+	<li class="cat-item cat-item-280"><a href="http://cknotes.com/category/incorrect-format/" >incorrect format</a>
+</li>
+	<li class="cat-item cat-item-323"><a href="http://cknotes.com/category/ios/" >IOS</a>
+</li>
+	<li class="cat-item cat-item-253"><a href="http://cknotes.com/category/japanese/" >Japanese</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="http://cknotes.com/category/java/" >Java</a>
+</li>
+	<li class="cat-item cat-item-276"><a href="http://cknotes.com/category/java-digital-signature/" >Java digital signature</a>
+</li>
+	<li class="cat-item cat-item-609"><a href="http://cknotes.com/category/json/" >JSON</a>
+</li>
+	<li class="cat-item cat-item-163"><a href="http://cknotes.com/category/lasterrortext/" >LastErrorText</a>
+</li>
+	<li class="cat-item cat-item-322"><a href="http://cknotes.com/category/licensing/" >licensing</a>
+</li>
+	<li class="cat-item cat-item-49"><a href="http://cknotes.com/category/linking/" >Linking</a>
+</li>
+	<li class="cat-item cat-item-308"><a href="http://cknotes.com/category/linux/" >Linux</a>
+</li>
+	<li class="cat-item cat-item-311"><a href="http://cknotes.com/category/mac-os-x/" >MAC OS X</a>
+</li>
+	<li class="cat-item cat-item-284"><a href="http://cknotes.com/category/managed-c/" >managed C++</a>
+</li>
+	<li class="cat-item cat-item-119"><a href="http://cknotes.com/category/mht/" >MHT</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://cknotes.com/category/mime/" >MIME</a>
+</li>
+	<li class="cat-item cat-item-313"><a href="http://cknotes.com/category/mingw/" >MinGW</a>
+</li>
+	<li class="cat-item cat-item-403"><a href="http://cknotes.com/category/mono/" >Mono</a>
+</li>
+	<li class="cat-item cat-item-572"><a href="http://cknotes.com/category/msi/" >msi</a>
+</li>
+	<li class="cat-item cat-item-568"><a href="http://cknotes.com/category/multi-hop/" >multi-hop</a>
+</li>
+	<li class="cat-item cat-item-94"><a href="http://cknotes.com/category/multi-threading/" >multi-threading</a>
+</li>
+	<li class="cat-item cat-item-565"><a href="http://cknotes.com/category/node-js/" >Node.js</a>
+</li>
+	<li class="cat-item cat-item-382"><a href="http://cknotes.com/category/nuget/" >nuget</a>
+</li>
+	<li class="cat-item cat-item-307"><a href="http://cknotes.com/category/oauth/" >OAUTH</a>
+</li>
+	<li class="cat-item cat-item-593"><a href="http://cknotes.com/category/oauth2/" >OAuth2</a>
+</li>
+	<li class="cat-item cat-item-327"><a href="http://cknotes.com/category/objective-c/" >Objective-C</a>
+</li>
+	<li class="cat-item cat-item-310"><a href="http://cknotes.com/category/openssl/" >openssl</a>
+</li>
+	<li class="cat-item cat-item-66"><a href="http://cknotes.com/category/outlook/" >outlook</a>
+</li>
+	<li class="cat-item cat-item-411"><a href="http://cknotes.com/category/p7m/" >p7m</a>
+</li>
+	<li class="cat-item cat-item-202"><a href="http://cknotes.com/category/performance/" >performance</a>
+</li>
+	<li class="cat-item cat-item-166"><a href="http://cknotes.com/category/perl/" >Perl</a>
+</li>
+	<li class="cat-item cat-item-181"><a href="http://cknotes.com/category/pfx/" >pfx</a>
+</li>
+	<li class="cat-item cat-item-45"><a href="http://cknotes.com/category/php/" >PHP</a>
+</li>
+	<li class="cat-item cat-item-122"><a href="http://cknotes.com/category/pki/" >PKI</a>
+</li>
+	<li class="cat-item cat-item-318"><a href="http://cknotes.com/category/pocket-pc-2003/" >Pocket PC 2003</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="http://cknotes.com/category/pop3/" >pop3</a>
+</li>
+	<li class="cat-item cat-item-115"><a href="http://cknotes.com/category/port-forwarding/" >port-forwarding</a>
+</li>
+	<li class="cat-item cat-item-231"><a href="http://cknotes.com/category/powershell/" >PowerShell</a>
+</li>
+	<li class="cat-item cat-item-371"><a href="http://cknotes.com/category/pre-release-notes/" >pre-release notes</a>
+</li>
+	<li class="cat-item cat-item-180"><a href="http://cknotes.com/category/private-key/" >private key</a>
+</li>
+	<li class="cat-item cat-item-85"><a href="http://cknotes.com/category/progress-monitoring/" >progress monitoring</a>
+</li>
+	<li class="cat-item cat-item-79"><a href="http://cknotes.com/category/proxy/" >Proxy</a>
+</li>
+	<li class="cat-item cat-item-309"><a href="http://cknotes.com/category/python/" >Python</a>
+</li>
+	<li class="cat-item cat-item-205"><a href="http://cknotes.com/category/regsvr32/" >regsvr32</a>
+</li>
+	<li class="cat-item cat-item-100"><a href="http://cknotes.com/category/release-notes/" >release notes</a>
+</li>
+	<li class="cat-item cat-item-72"><a href="http://cknotes.com/category/rsa/" >RSA</a>
+</li>
+	<li class="cat-item cat-item-203"><a href="http://cknotes.com/category/ruby/" >Ruby</a>
+</li>
+	<li class="cat-item cat-item-243"><a href="http://cknotes.com/category/sample-code/" >sample code</a>
+</li>
+	<li class="cat-item cat-item-157"><a href="http://cknotes.com/category/self-extracting-exe/" >self-extracting EXE</a>
+</li>
+	<li class="cat-item cat-item-137"><a href="http://cknotes.com/category/sftp/" >SFTP</a>
+</li>
+	<li class="cat-item cat-item-298"><a href="http://cknotes.com/category/signature/" >Signature</a>
+</li>
+	<li class="cat-item cat-item-170"><a href="http://cknotes.com/category/smartcard/" >smartcard</a>
+</li>
+	<li class="cat-item cat-item-281"><a href="http://cknotes.com/category/sms/" >SMS</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://cknotes.com/category/smtp/" >SMTP</a>
+</li>
+	<li class="cat-item cat-item-30"><a href="http://cknotes.com/category/smtpq/" >smtpq</a>
+</li>
+	<li class="cat-item cat-item-423"><a href="http://cknotes.com/category/soap/" >SOAP</a>
+</li>
+	<li class="cat-item cat-item-138"><a href="http://cknotes.com/category/socket/" >socket</a>
+</li>
+	<li class="cat-item cat-item-218"><a href="http://cknotes.com/category/socks-proxy-server/" >SOCKS Proxy Server</a>
+</li>
+	<li class="cat-item cat-item-317"><a href="http://cknotes.com/category/solaris/" >Solaris</a>
+</li>
+	<li class="cat-item cat-item-358"><a href="http://cknotes.com/category/sql/" >SQL</a>
+</li>
+	<li class="cat-item cat-item-113"><a href="http://cknotes.com/category/ssh/" >SSH</a>
+</li>
+	<li class="cat-item cat-item-242"><a href="http://cknotes.com/category/ssh-keys/" >SSH keys</a>
+</li>
+	<li class="cat-item cat-item-136"><a href="http://cknotes.com/category/ssh-tunnel/" >SSH Tunnel</a>
+</li>
+	<li class="cat-item cat-item-206"><a href="http://cknotes.com/category/ssis/" >ssis</a>
+</li>
+	<li class="cat-item cat-item-56"><a href="http://cknotes.com/category/ssl/" >SSL</a>
+</li>
+	<li class="cat-item cat-item-96"><a href="http://cknotes.com/category/stream/" >stream</a>
+</li>
+	<li class="cat-item cat-item-162"><a href="http://cknotes.com/category/support/" >support</a>
+</li>
+	<li class="cat-item cat-item-251"><a href="http://cknotes.com/category/tchar/" >TCHAR</a>
+</li>
+	<li class="cat-item cat-item-321"><a href="http://cknotes.com/category/tcpip/" >TCP/IP</a>
+</li>
+	<li class="cat-item cat-item-58"><a href="http://cknotes.com/category/tls/" >TLS</a>
+</li>
+	<li class="cat-item cat-item-415"><a href="http://cknotes.com/category/trustedroots/" >TrustedRoots</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://cknotes.com/category/uncategorized/" >Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-32"><a href="http://cknotes.com/category/unicode/" >unicode</a>
+</li>
+	<li class="cat-item cat-item-187"><a href="http://cknotes.com/category/unlockcomponent/" >UnlockComponent</a>
+</li>
+	<li class="cat-item cat-item-61"><a href="http://cknotes.com/category/upload/" >upload</a>
+</li>
+	<li class="cat-item cat-item-287"><a href="http://cknotes.com/category/user-interface/" >user-interface</a>
+</li>
+	<li class="cat-item cat-item-117"><a href="http://cknotes.com/category/utf-8/" >utf-8</a>
+</li>
+	<li class="cat-item cat-item-190"><a href="http://cknotes.com/category/vbnet/" >VB.NET</a>
+</li>
+	<li class="cat-item cat-item-108"><a href="http://cknotes.com/category/vb6/" >vb6</a>
+</li>
+	<li class="cat-item cat-item-15"><a href="http://cknotes.com/category/vbscript/" >VBScript</a>
+</li>
+	<li class="cat-item cat-item-270"><a href="http://cknotes.com/category/vc/" >VC++</a>
+</li>
+	<li class="cat-item cat-item-88"><a href="http://cknotes.com/category/vista/" >Vista</a>
+</li>
+	<li class="cat-item cat-item-366"><a href="http://cknotes.com/category/visual-studio/" >Visual Studio</a>
+</li>
+	<li class="cat-item cat-item-352"><a href="http://cknotes.com/category/webdav/" >WebDAV</a>
+</li>
+	<li class="cat-item cat-item-354"><a href="http://cknotes.com/category/website/" >website</a>
+</li>
+	<li class="cat-item cat-item-347"><a href="http://cknotes.com/category/windows-8/" >Windows 8</a>
+</li>
+	<li class="cat-item cat-item-588"><a href="http://cknotes.com/category/windows-firewall/" >Windows Firewall</a>
+</li>
+	<li class="cat-item cat-item-396"><a href="http://cknotes.com/category/windows-phone/" >Windows Phone</a>
+</li>
+	<li class="cat-item cat-item-132"><a href="http://cknotes.com/category/wsaewouldblock/" >WSAEWOULDBLOCK</a>
+</li>
+	<li class="cat-item cat-item-93"><a href="http://cknotes.com/category/x64/" >x64</a>
+</li>
+	<li class="cat-item cat-item-324"><a href="http://cknotes.com/category/xcode/" >XCode</a>
+</li>
+	<li class="cat-item cat-item-91"><a href="http://cknotes.com/category/xml/" >XML</a>
+</li>
+	<li class="cat-item cat-item-420"><a href="http://cknotes.com/category/xmlcertvault/" >XmlCertVault</a>
+</li>
+	<li class="cat-item cat-item-116"><a href="http://cknotes.com/category/zip/" >zip</a>
+</li>
+		</ul>
+</aside>		</div><!-- #secondary .widget-area -->
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="https://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+	<div style="display:none">
+	</div>
+<script type='text/javascript' src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201738'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2017Sepaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://cknotes.com/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://cknotes.com/wp-includes/js/wp-embed.min.js?ver=4.8.1'></script>
+<script type='text/javascript' src='https://stats.wp.com/e-201738.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:5.1',blog:'1',post:'0',tz:'-7',srv:'cknotes.com'} ]);
+	_stq.push([ 'clickTrackerInit', '1', '0' ]);
+</script>
+
+</body>
+</html>

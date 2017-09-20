@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) & !(IE 7) & !(IE 8)]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Chilkat Tech Notes | Chilkat Software Tech Notes</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="http://cknotes.com/wp-content/themes/twentyeleven/style.css" />
+<link rel="pingback" href="http://cknotes.com/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="http://cknotes.com/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//s.gravatar.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Chilkat Tech Notes &raquo; Feed" href="http://cknotes.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Chilkat Tech Notes &raquo; Comments Feed" href="http://cknotes.com/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/cknotes.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.1"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b===c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='jetpack_css-css'  href='http://cknotes.com/wp-content/plugins/jetpack/css/jetpack.css?ver=5.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://cknotes.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://cknotes.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='http://cknotes.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://cknotes.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://cknotes.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.8.1" />
+<link rel='shortlink' href='http://wp.me/1' />
+
+<link rel='dns-prefetch' href='//v0.wordpress.com'>
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Chilkat Tech Notes" />
+<meta property="og:description" content="Chilkat Software Tech Notes" />
+<meta property="og:url" content="http://cknotes.com/" />
+<meta property="og:site_name" content="Chilkat Tech Notes" />
+<meta property="og:image" content="http://cknotes.com/wp-content/uploads/2016/10/cropped-dudeNpm-270x270.jpg" />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta property="og:locale" content="en_US" />
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+<link rel="icon" href="http://cknotes.com/wp-content/uploads/2016/10/cropped-dudeNpm-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="http://cknotes.com/wp-content/uploads/2016/10/cropped-dudeNpm-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="http://cknotes.com/wp-content/uploads/2016/10/cropped-dudeNpm-180x180.jpg" />
+<meta name="msapplication-TileImage" content="http://cknotes.com/wp-content/uploads/2016/10/cropped-dudeNpm-270x270.jpg" />
+</head>
+
+<body class="home blog single-author two-column right-sidebar">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="http://cknotes.com/" rel="home">Chilkat Tech Notes</a></span></h1>
+				<h2 id="site-description">Chilkat Software Tech Notes</h2>
+			</hgroup>
+
+			
+								<form method="get" id="searchform" action="http://cknotes.com/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search" />
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+	</form>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="#content">Skip to primary content</a></div>
+									<div class="skip-link"><a class="assistive-text" href="#secondary">Skip to secondary content</a></div>
+												<div class="menu"><ul>
+<li class="current_page_item"><a href="http://cknotes.com/">Home</a></li></ul></div>
+			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+			
+						<nav id="nav-above">
+			<h3 class="assistive-text">Post navigation</h3>
+			<div class="nav-previous"><a href="http://cknotes.com/page/2/" ><span class="meta-nav">&larr;</span> Older posts</a></div>
+			<div class="nav-next"></div>
+		</nav><!-- #nav-above -->
+	
+								
+					
+	<article id="post-1027" class="post-1027 post type-post status-publish format-standard hentry category-release-notes tag-release-notes">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/chilkat-v9-5-0-69-release-notes/" rel="bookmark">Chilkat v9.5.0.69 Release Notes</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/chilkat-v9-5-0-69-release-notes/" title="6:31 am" rel="bookmark"><time class="entry-date" datetime="2017-09-11T06:31:35+00:00">September 11, 2017</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The v9.5.0.68 release notes are available here:  <a href="http://cknotes.com/chilkat-v9-5-0-68-release-notes/">Chilkat v9.5.0.68 Release Notes</a></p>
+<h2>v9.5.0.69 Release Notes:</h2>
+<ul>
+<li><strong>XML Digital Signatures</strong> Chilkat introduces two new classes for creating and verifying XML Digital Signatures: <strong>XmlDSig</strong> (for verification) and <strong>XmlDSigGen</strong> for generating XML signatures.   More examples will be available soon.</li>
+<li><strong>S/MIME</strong> The ability to get the digest and encryption algorithms encountered when verifying signatures and decrypting S/MIME. See <a href="https://www.example-code.com/csharp/smime_get_algorithms.asp">S/MIME Get Algorithms</a> for a C# example.  (The same example is available in all the other programming languages at example-code.com.)</li>
+<li><strong>Rest</strong> Added the Rest.ClearAuth method.</li>
+<li><strong>StringBuilder</strong> Fixed a bug in the LastNLines method.</li>
+<li><strong>General</strong> Fixed issues having to do with the XFS Linux filesystem.  (Most Linux boxes do not use XFS, and thus the problems were not often encountered.)</li>
+<li><strong>CkDateTime</strong> The DiffSeconds method returned 0 when it should&#8217;ve returned a negative number.  See <a href="http://www.chilkatforum.com/questions/12493/ckdatetime-diffseconds-returns-0-when-negative-is-expected">DiffSeconds</a></li>
+<li><strong>SFTP</strong> In rare cases, when aborting a high-speed download, the LastErrorText would become filled with a repeated message &#8220;Socket recv aborted by application.&#8221;.  This was fixed.</li>
+<li><strong>Crypt2</strong> The GenerateUuid method should now correctly generate a v4 UUID (as opposed to a completely random UUID).</li>
+<li><strong>SFTP</strong> Added a workaround for a glitch in the &#8220;SSH-2.0-Connect:Enterprise_UNIX_2.4.04 Build 00&#8221; SSH server.</li>
+<li><strong>Http</strong> Added the LastStatusText property.</li>
+<li><strong>PureBasic</strong> Fixed errors in the generated .pb wrappers.  For example, in CkJsonObject.pb, the following syntax error occurred when building: &#8220;[COMPILER] Line 54: A variable can&#8217;t be named the same as a keyword: data.&#8221;</li>
+<li><strong>Socket</strong> Added the SendWakeOnLan method.</li>
+<li><strong>Certificates</strong> Chilkat now fully supports certificates that use the RSASSA-PSS signature algorithm.</li>
+<li><strong>Socket</strong> Fixed the BuildHttpGetRequest method.</li>
+<li><strong>Ssh</strong>  Fixed: calling the method QuickShell() generates an Access Violation when the LAN connection has been severed.</li>
+<li><strong>SFTP</strong>  Fixed (rare) problem such that on some downloads, an unexpected message is received from the server after the download is completed and when closing the handle.</li>
+<li><strong>IMAP</strong>  Fixed a rare internal IMAP message parsing error in FetchSingleHeader.</li>
+<li><strong>ZipEntry</strong>  Added the IsAesEncrypted and EncryptionKeyLen properties.</li>
+<li><strong>AWS/S3/Http</strong>  Fixed problems with pre-signing URLs having to do with 8bit non-us-ascii chars in the filename, or &#8220;.&#8221; chars in the bucket name.</li>
+<li><strong>AuthAws</strong>  Fixed: The CanonicalizedResourceV2 property implementation took the whole string and encoded the entire subresource part by escaping reserved (as defined in rfc2396) characters, but the &#8216;?&#8217; and &#8216;&#038;&#8217; characters should not have been escaped.</li>
+<li><strong>Mime</strong>  When a message contained 8bit message/rfc822 parts, the GetMime method did not properly emit the MIME.  This was fixed.</li>
+<li><strong>AWS/S3</strong>  Fixed: In certain situations, the Content-MD5 header was added twice, which caused the AWS Signature format v2 to fail.</li>
+<li><strong>Rest</strong>  The AddMwsSignature method did not compute the signature properly when a query param value contained a &#8220;/&#8221; char.  This was fixed.</li>
+<li><strong>Ftp2</strong>  Fixed a PBSZ issue that occurred for some FTP servers.</li>
+<li><strong>MailMan</strong>  Fixed some HTTP proxy issues.</li>
+<li><strong>Certificates</strong>  Fixed an issue with automatically locating pre-installed Windows certificates (for encryption) when<br />
+the email address stored within the certificate used uppercase letters.</li>
+<li><strong>Socket</strong>  Added the BindAndListenPortRange method.</li>
+<li><strong>OAuth2</strong>  Added the ListenPortRangeEnd property.</li>
+<li><strong>Ftp2</strong>  Fixed the GetCreateDtByName for the following situation.  If the value of the ListPattern property changes, then the internal cache of remote file information needed to be automatically cleared so that GetCreateDtByName would not return null and would instead fetch the information from the server.</li>
+<li><strong>Http</strong>  Added the PTextSb and PBinaryBd methods.</li>
+<li><strong>FileAccess</strong>  Fixed: The GetLastModified method did not work for directories.</li>
+<li><strong>Zip</strong>  Fixed the ZipAppendOneFileOrDir method for the case when a UNC path is passed.</li>
+<li><strong>Imap</strong>  Fixed the GetMailAttachFilename method for cases where Q/B encoding was used in an IMAP response.</li>
+</ul>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/release-notes/" rel="category tag">release notes</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/release-notes/" rel="tag">release notes</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-1027 -->
+
+				
+					
+	<article id="post-979" class="post-979 post type-post status-publish format-standard hentry category-google tag-google tag-google-drive">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/setup-google-account-for-google-drive-api-walkthrough/" rel="bookmark">Setup Google Account for Google Drive API Walkthrough</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/setup-google-account-for-google-drive-api-walkthrough/" title="6:40 am" rel="bookmark"><time class="entry-date" datetime="2017-07-23T06:40:48+00:00">July 23, 2017</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>A software developer had trouble getting started using Chilkat with his application for Google Drive. He gave me his login/password to help get him started. This blog post is a recording of the steps I&#8217;ve taken to set things up on the Google side to allow an application to access Google Drive files using a Client_ID and Client_Secret.</p>
+<p>A Client_ID/Secret implies that the developer will need to create a <strong>Project</strong> in Google. Once created, we may need to generate keys.</p>
+<p><strong>Step 1: Log in to the Google Account and get our Bearings</strong></p>
+<p>Ok, I logged into the customer&#8217;s Google account. (I notify the customer before doing so, just so he knows exactly when I&#8217;m working on it, and I notify the customer when I&#8217;m finished.) Often logging in requires the customer to allow it because Google will send a text message or some other notification indicating a login from an unknown device&#8230;</p>
+<p>OK.. so the login is OK, and I go to Google Drive and see 2 JPG files and a Getting Started PDF that was created by Google. When I run my test application, my goal is to see these 2 JPG files listed..</p>
+<p><strong>Step 2: Possibly Create an Project in Google</strong></p>
+<p>We may need to create a <strong>Project</strong> in Google to correspond to our actual application written in some programming language (VB6, C#, C++, Perl, Java, Ruby, &#8230;) which uses Chilkat.</p>
+<p>I go to <a href="https://console.developers.google.com/?authuser=1">https://console.developers.google.com/?authuser=1</a> The top right portion of the web page looks like this:</p>
+<p><img src="http://cknotes.com/wp-content/uploads/2017/07/consoleDeveloperGoogle.jpg" /></p>
+<p>Notice the &#8220;My Project&#8221; dropdown at the top of the web page, just to the left of the &#8220;Google APIs&#8221; logo. This shows the currently selected project. Google likely automatically added the &#8220;My Project&#8221;. You may create a new project by clicking on the dropdown and following the links. I&#8217;ll use &#8220;My Project&#8221; for my testing..</p>
+<p><strong>Step 3: Enable the Google Drive API</strong></p>
+<p>I find that the customer already enabled the Google Drive API. That&#8217;s good. If it&#8217;s not enabled, then click on the &#8220;Enable API&#8221; link, find Google Drive, and enable it.</p>
+<p><strong>Step 4: Do we have Credentials Setup?</strong></p>
+<p>Click on the &#8220;Credentials&#8221; link in the left rail. I find 2 credentials already created: One listed under &#8220;API Keys&#8221;, and the other listed under OAuth 2.0 client IDs. Here&#8217;s a screenshot. I omitted most of the API key for security. The client ID does not need to be kept secret.</p>
+<p><img src="http://cknotes.com/wp-content/uploads/2017/07/credentials.jpg" /></p>
+<p>We&#8217;ll need an <strong>OAuth 2.0 client ID</strong>, but it must be the correct type. We won&#8217;t be using anything listed under the &#8220;API keys&#8221;. In this case, the Client ID named &#8220;Other client 1&#8221; has the type &#8220;other&#8221;, and is not the type of Client ID we need.</p>
+<p>Even though our application may not be a web app, we&#8217;ll still need an OAuth client ID for a web application. (Our application could be a desktop app, such as C#, VB6, Delphi, C++, Java, etc., or it could be a script in Perl, Python, PHP, Ruby, VBScript, etc.)</p>
+<p><strong>Step 5: Create Credentials of the Correct Type.</strong></p>
+<p>Click on the Create Credentials dropdown and choose <strong>OAuth client ID</strong>.</p>
+<p><a href="http://cknotes.com/wp-content/uploads/2017/07/createCredentials2.jpg"><img class="alignnone size-full wp-image-1001" src="http://cknotes.com/wp-content/uploads/2017/07/createCredentials2.jpg" alt="" width="448" height="303" srcset="http://cknotes.com/wp-content/uploads/2017/07/createCredentials2.jpg 448w, http://cknotes.com/wp-content/uploads/2017/07/createCredentials2-300x203.jpg 300w, http://cknotes.com/wp-content/uploads/2017/07/createCredentials2-444x300.jpg 444w" sizes="(max-width: 448px) 100vw, 448px" /></a></p>
+<p>As shown below, choose &#8220;Web application&#8221; (even though your app is a desktop app or script), and add an Authorized redirect URIs using &#8220;localhost&#8221;, such as <strong>&#8220;http://localhost:55568/&#8221;</strong>.   The 55568 is a port number.  You may choose any port that is likely not already used on the system.  Choose a port in the <a href="https://en.wikipedia.org/wiki/Ephemeral_port">ephemeral port range</a>.  Note: The redirect URL must end in a &#8220;/&#8221;.  Do not use &#8220;https&#8221;, use &#8220;http&#8221;.  (This is not a security issue because the callback is from the browser to  your app running on the same system.)</p>
+<p><a href="http://cknotes.com/wp-content/uploads/2017/07/createClientID2.jpg"><img class="alignnone size-full wp-image-1005" src="http://cknotes.com/wp-content/uploads/2017/07/createClientID2.jpg" alt="" width="578" height="662" srcset="http://cknotes.com/wp-content/uploads/2017/07/createClientID2.jpg 578w, http://cknotes.com/wp-content/uploads/2017/07/createClientID2-262x300.jpg 262w" sizes="(max-width: 578px) 100vw, 578px" /></a></p>
+<p>Looking at our credentials again, we can see the Client ID we just created:</p>
+<p><a href="http://cknotes.com/wp-content/uploads/2017/07/credentialsCreated.jpg"><img class="alignnone size-full wp-image-1006" src="http://cknotes.com/wp-content/uploads/2017/07/credentialsCreated.jpg" alt="" width="843" height="510" srcset="http://cknotes.com/wp-content/uploads/2017/07/credentialsCreated.jpg 843w, http://cknotes.com/wp-content/uploads/2017/07/credentialsCreated-300x181.jpg 300w, http://cknotes.com/wp-content/uploads/2017/07/credentialsCreated-768x465.jpg 768w, http://cknotes.com/wp-content/uploads/2017/07/credentialsCreated-496x300.jpg 496w" sizes="(max-width: 843px) 100vw, 843px" /></a></p>
+<p><strong>Step 6: Get the Client ID and Client Secret.</strong></p>
+<p>Click on &#8220;Chilkat test 1&#8221; to get the Client ID and Client Secret.  These are the strings we&#8217;ll need to fetch an OAuth2 access token.  We&#8217;ll only need to fetch it once.  The access token can be saved to a file, database, etc. and then used with our API calls, even for the next time we run our application.  In other words, you may persist the access token.</p>
+<p><a href="http://cknotes.com/wp-content/uploads/2017/07/showClientId.jpg"><img class="alignnone size-full wp-image-1008" src="http://cknotes.com/wp-content/uploads/2017/07/showClientId.jpg" alt="" width="483" height="586" srcset="http://cknotes.com/wp-content/uploads/2017/07/showClientId.jpg 483w, http://cknotes.com/wp-content/uploads/2017/07/showClientId-247x300.jpg 247w" sizes="(max-width: 483px) 100vw, 483px" /></a></p>
+<p><strong>Step 7: Use the Client ID and Client Secret to get an Access Token.</strong></p>
+<p>Here&#8217;s sample code demonstrating how to do it:</p>
+<p><a href="http://www.example-code.com/C/google_oauth2_access_token.asp">C: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/chilkat2-python/google_oauth2_access_token.asp">Chilkat2-Python: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/cpp/google_oauth2_access_token.asp">C++: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/csharp/google_oauth2_access_token.asp">C#: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/dataflex/google_oauth2_access_token.asp">DataFlex: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/delphiAx/google_oauth2_access_token.asp">Delphi ActiveX: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/delphiDll/google_oauth2_access_token.asp">Delphi DLL: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/dotnet-core/google_oauth2_access_token.asp">.NET Core C#: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/excel/google_oauth2_access_token.asp">Excel: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/foxpro/google_oauth2_access_token.asp">Visual FoxPro: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/java/google_oauth2_access_token.asp">Java: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/lianja/google_oauth2_access_token.asp">Lianja: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/mfc/google_oauth2_access_token.asp">MFC: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/mono/google_oauth2_access_token.asp">Mono C#: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/nodejs/google_oauth2_access_token.asp">Node.js: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/objc/google_oauth2_access_token.asp">Objective-C: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/perl/google_oauth2_access_token.asp">Perl: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/phpAx/google_oauth2_access_token.asp">PHP ActiveX: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/phpExt/google_oauth2_access_token.asp">PHP Extension: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/powerbuilder/google_oauth2_access_token.asp">PowerBuilder: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/powershell/google_oauth2_access_token.asp">PowerShell: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/purebasic/google_oauth2_access_token.asp">PureBasic: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/python/google_oauth2_access_token.asp">Python: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/ruby/google_oauth2_access_token.asp">Ruby: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/swift/google_oauth2_access_token.asp">Swift: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/tcl/google_oauth2_access_token.asp">Tcl: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/unicodeC/google_oauth2_access_token.asp">Unicode C: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/unicodeCpp/google_oauth2_access_token.asp">Unicode C++: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/vb6/google_oauth2_access_token.asp">Visual Basic 6.0: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/vbnet/google_oauth2_access_token.asp">VB.NET: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/vbscript/google_oauth2_access_token.asp">VBScript: Google OAuth2 Access Token</a><br />
+<a href="http://www.example-code.com/xojo/google_oauth2_access_token.asp">Xojo Plugin: Google OAuth2 Access Token</a></p>
+<p><strong>Step 8: Use the Access Token in an API Call</strong></p>
+<p><a href="http://www.example-code.com/C/google_drive_list_files.asp">C: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/chilkat2-python/google_drive_list_files.asp">Chilkat2-Python: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/cpp/google_drive_list_files.asp">C++: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/csharp/google_drive_list_files.asp">C#: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/dataflex/google_drive_list_files.asp">DataFlex: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/delphiAx/google_drive_list_files.asp">Delphi ActiveX: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/delphiDll/google_drive_list_files.asp">Delphi DLL: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/dotnet-core/google_drive_list_files.asp">.NET Core C#: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/excel/google_drive_list_files.asp">Excel: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/foxpro/google_drive_list_files.asp">Visual FoxPro: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/java/google_drive_list_files.asp">Java: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/lianja/google_drive_list_files.asp">Lianja: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/mfc/google_drive_list_files.asp">MFC: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/mono/google_drive_list_files.asp">Mono C#: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/nodejs/google_drive_list_files.asp">Node.js: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/objc/google_drive_list_files.asp">Objective-C: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/perl/google_drive_list_files.asp">Perl: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/phpAx/google_drive_list_files.asp">PHP ActiveX: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/phpExt/google_drive_list_files.asp">PHP Extension: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/powerbuilder/google_drive_list_files.asp">PowerBuilder: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/powershell/google_drive_list_files.asp">PowerShell: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/purebasic/google_drive_list_files.asp">PureBasic: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/python/google_drive_list_files.asp">Python: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/ruby/google_drive_list_files.asp">Ruby: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/swift/google_drive_list_files.asp">Swift: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/tcl/google_drive_list_files.asp">Tcl: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/unicodeC/google_drive_list_files.asp">Unicode C: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/unicodeCpp/google_drive_list_files.asp">Unicode C++: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/vb6/google_drive_list_files.asp">Visual Basic 6.0: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/vbnet/google_drive_list_files.asp">VB.NET: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/vbscript/google_drive_list_files.asp">VBScript: List Files in Google Drive</a><br />
+<a href="http://www.example-code.com/xojo/google_drive_list_files.asp">Xojo Plugin: List Files in Google Drive</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/google/" rel="category tag">Google</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/google/" rel="tag">google</a>, <a href="http://cknotes.com/tag/google-drive/" rel="tag">google drive</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-979 -->
+
+				
+					
+	<article id="post-973" class="post-973 post type-post status-publish format-standard hentry category-uncategorized">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/java-to-copy-byte-tofrom-a-ckbytearray/" rel="bookmark">Java to copy byte[] to/from a CkByteArray</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/java-to-copy-byte-tofrom-a-ckbytearray/" title="8:14 am" rel="bookmark"><time class="entry-date" datetime="2017-07-19T08:14:49+00:00">July 19, 2017</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The Chilkat online reference documentation for the CkByteData class, concerning the methods for copying Java byte arrays into and out of a CkByteData object, are incorrect.</p>
+<p>This is the correct way to do it:</p>
+<pre class="brush: java; title: ; notranslate" title="">
+CkByteData byteData = new CkByteData();
+
+// Create a Java byte array with some bytes..
+byte[] myData = &quot;Any String you want&quot;.getBytes();
+
+// Copy the bytes from the Java byte array into the CkByteData.
+byteData.appendByteArray(myData);
+
+// Copy the bytes from the CkByteData to a new Java byte array.
+byte[] myData2 = byteData.toByteArray();
+</pre>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/uncategorized/" rel="category tag">Uncategorized</a>			</span>
+															
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-973 -->
+
+				
+					
+	<article id="post-969" class="post-969 post type-post status-publish format-standard hentry category-release-notes tag-release-notes">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/chilkat-v9-5-0-68-release-notes/" rel="bookmark">Chilkat v9.5.0.68 Release Notes</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/chilkat-v9-5-0-68-release-notes/" title="8:21 am" rel="bookmark"><time class="entry-date" datetime="2017-05-26T08:21:37+00:00">May 26, 2017</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The v9.5.0.67 release notes are available here:  <a href="http://cknotes.com/chilkat-v9-5-0-67-release-notes/">Chilkat v9.5.0.67 Release Notes</a></p>
+<h2>v9.5.0.68 Release Notes:</h2>
+<p>Version 9.5.0.68 is virtually the same as 9.5.0.67, but with one important bug fix in the JsonOjbect.UpdateString method that warranted a new release.  Some additional methods were added to JsonObject and Http to help in handling potentially large amounts of data.</p>
+<ul>
+<li><strong>JsonObject.UpdateString</strong> &#8212; The passed-in string was not being JSON escaped like it was for JsonObject.AppendString.  This would cause problems for non-usascii chars, or certain special chars that need to be escaped, such as double-quotes, LF&#8217;s, CR&#8217;s, etc.</li>
+<li><strong>JsonObject</strong>:  Added the following methods:  <strong>StringOfSb, BytesOf, UpdateSb, and UpdateBd</strong>.  The need for these methods became apparent when writing examples for Microsoft Graph / Outlook.  The purpose of the methods is to access a potentially large amount of data within JSON without needing to pass the data back/forth in arguments or return values.  Passing StringBuilder or BinData object references is far more efficient than passing the actual data.</li>
+<li><strong>Http</strong>:  Added the <strong>PostJson3</strong> method.  This is the same as PostJson2, except rather than passing the JSON as a string (which could be a potentially large string), we simply pass the JsonObject reference.</li>
+</ul>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/release-notes/" rel="category tag">release notes</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/release-notes/" rel="tag">release notes</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-969 -->
+
+				
+					
+	<article id="post-960" class="post-960 post type-post status-publish format-standard hentry category-net tag-net tag-mono tag-visual-studio">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/using-chilkat-mono-in-a-visual-studio-c-project/" rel="bookmark">Using Chilkat Mono in a Visual Studio C# Project</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/using-chilkat-mono-in-a-visual-studio-c-project/" title="9:38 am" rel="bookmark"><time class="entry-date" datetime="2017-05-11T09:38:14+00:00">May 11, 2017</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The Chilkat Mono assembly can be used in a Visual Studio project (any version of Visual Studio).</p>
+<p>(From a programming perspective, using the Chilkat Mono classes is the same as using the Chilkat .NET classes. The Chilkat .NET assemblies (available from <a href="https://www.chilkatsoft.com/downloads_DotNet.asp">Chilkat .NET Downloads</a> are mixed-mode assemblies. The outer-layer is fully managed, and the inner core contains the native C++ implementation. The Chilkat Mono solution is different: The .NET/Mono assembly is 100% managed, and there is a 2nd DLL that contains the native C++ implementation. The 100% managed assembly (internally) calls into the native DLL using P/Invoke.)</p>
+<p>Actually.. you don&#8217;t even need to build the 100% managed assembly.  You can instead just add the Chilkat *.cs source files to your project directly.  (If you open one of the .cs source files, you&#8217;ll see how P/Invoke is used.)</p>
+<ol>
+<li>Created a Visual Studio project in C:\MyProject</li>
+<li>Downloaded the Chilkat Mono .zip from <a href="https://www.chilkatsoft.com/mono.asp">https://www.chilkatsoft.com/mono.asp</a>  and unzipped in C:\MyProject</li>
+<li>You now have a directory c:\MyProject\chilkatMono-9.5.0.    Within that directory, I have a chilkatCs directory, and a nativeDll directory.</li>
+<li>Add all of the .cs source files from chilkatCs to your Visual Studio C# project.  (Note: If you find an &#8220;Accounts.cs&#8221; source file, delete it and do not add it.)</li>
+<li>You don&#8217;t necessarily need to add all of the .cs sources, but you must add whatever is necessary to resolve all references.  For example, if you add MailMan.cs, you&#8217;ll certainly need to add Email.cs, and that in turn will require Cert.cs, etc.  A good strategy is to add everything, then delete various things that are likely unreferenced by other things.  For example, you can safely get rid of Csr.cs if not using CSR&#8217;s.</li>
+<li>Add code to your app.  For example:<br />
+<blockquote><p>Chilkat.Zip zip = new Chilkat.Zip();<br />
+MessageBox.Show(zip.Version);</p></blockquote>
+</li>
+<li>You can try building and running, but it&#8217;ll fail because the native DLL won&#8217;t be found..</li>
+<li>Copy the desired 32-bit or 64-bit native DLL into the same directory where your .exe is created.  For example, copy c:\MyProject\chilkatMono-9.5.0\nativeDll\windows\x64\chilkatMono-9_5_0.dll to c:\MyProject\bin\Debug</li>
+<li>Assuming your Visual Studio project is &#8220;Any CPU&#8221;, and you don&#8217;t have a &#8220;Prefer 32-bit&#8221; checkbox checked (in Project Settings), and that you&#8217;re running on a 64-bit system, then the .NET runtime should locate and load the 64-bit chilkatMono-9_5_0.dll, and your program runs fine.</li>
+</ol>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/net/" rel="category tag">.NET</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/net/" rel="tag">.NET</a>, <a href="http://cknotes.com/tag/mono/" rel="tag">Mono</a>, <a href="http://cknotes.com/tag/visual-studio/" rel="tag">Visual Studio</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-960 -->
+
+				
+					
+	<article id="post-955" class="post-955 post type-post status-publish format-standard hentry category-release-notes tag-release-notes">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/chilkat-v9-5-0-67-release-notes/" rel="bookmark">Chilkat v9.5.0.67 Release Notes</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/chilkat-v9-5-0-67-release-notes/" title="8:59 am" rel="bookmark"><time class="entry-date" datetime="2017-04-13T08:59:01+00:00">April 13, 2017</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The v9.5.0.66 release notes are available here:  <a href="http://cknotes.com/chilkat-v9-5-0-66-release-notes/">Chilkat v9.5.0.66 Release Notes</a></p>
+<h2>v9.5.0.67 Release Notes:</h2>
+<ul>
+<li><strong>HTTP</strong>: Fixed a problem when auto-following redirects from HTTP to HTTPS.  If the cached connection existed for long enough, and the server closed the connection at some previous point, then the redirect would fail.</li>
+<li><strong>SFtp</strong>: Added the <strong>FileExists</strong> method.</li>
+<li><strong>HTTP</strong>: Fixed redirects requiring an authentication header.  Chilkat automatically removes the Authorization header when automatically following a redirect.  This caused problems for redirects within the same domain where the Authorization is needed.  Chilkat now removes the Authorization header if the redirect is to a different domain, but keeps it if the redirect is within the same domain.</li>
+<li><strong>Spider</strong>: Fixed the AddMustMatchPattern method.</li>
+<li><strong>BinData</strong>: Added the <strong>GetString </strong>method.</li>
+<li><strong>Mime</strong>: Added the <strong>GetBodyBd</strong> method.</li>
+<li><strong>Email</strong>: Added the <strong>GetAttachmentBd</strong> and <strong>GetAlternativeBodyBd</strong> methods.</li>
+<li><strong>Gzip</strong>: Added the <strong>CompressBd</strong> and <strong>UncompressBd</strong> methods.</li>
+<li><strong>Email, Crypt2, Mime</strong>: Added the <strong>OaepPadding</strong> and <strong>OaepHash</strong> properties.</li>
+<li><strong>Tar</strong>: Fixed a problem caused when a file to be added to the .tar is exactly 4294967295 bytes in size (which made the file size look like -1 when the 4-byte integer is interpreted as a signed integer).</li>
+<li><strong>JsonObject</strong>: Added new methods: <strong>EmitWithSubs, Predefine, LoadPredefined.</strong></li>
+<li><strong>Http</strong>: Added the <strong>AuthToken</strong> property.</li>
+<li><strong>Http</strong>: Added the <strong>SetUrlVar</strong> and <strong>ClearUrlVars</strong> methods.</li>
+<li><strong>HtmlToXml</strong>: Better handles HTML with unclosed tags in certain situations.</li>
+<li><strong>Http</strong>: For keepalive connections, fixed the internal auto-recovery (in certain situations) if the connection is discovered broken upon sending the request.  For example, if a request/response occurs and the connection is keep-alive, then time passes, the HTTP server closes the connection, and the client (your app) sends the next request.  Chilkat will discover the connection is non-existent and will automatically re-connect.</li>
+<li><strong>SFtp</strong>: Fixed the ReadFileBytes method for the case where one tries to read more bytes than what exists in the remote file.</li>
+<li><strong>Ssh</strong>: Added the StripColorCodes property.</li>
+<li>Added the &#8220;base64_mime&#8221; to the list of possible encodings.  This is the same as &#8220;base64&#8221;, but causes the base64 to be emitted in lines just like it would be found in MIME or in a PEM.</li>
+<li><strong>Crypt2</strong>: Added the following BinData/StringBuilder methods:  VerifySbENC, VerifyBdENC, SignSbENC, SignBdENC, OpaqueVerifyBd, OpaqueSignBd, EncryptSb, EncryptBd, DecryptSb, DecryptBd.</li>
+<li>Added <strong>RSASSA-PSS </strong>and<strong> RSAES-OAEP</strong> capabilities for signed and encrypted email.  This was spurred by customer needs to satisfy new requirements in Germany that apparently go into effect on 1-June-2017 regarding email signatures and encryption.</li>
+<li><strong>Apple tvOS</strong>:  Added a build for tvOS.</li>
+<li><strong>ZipEntry</strong>: Added methods <strong>UnzipToStream</strong>, <strong>UnzipToBd</strong>, and <strong>UnzipToSb</strong>.</li>
+<li><strong>Stream</strong>: Added methods <strong>ReadBd, ReadSb, WriteBd, WriteSb</strong></li>
+<li><strong>NTLM Proxy Authorizations</strong>: Fixed some HTTP NTLM proxy authorization issues, especially when TLS is involved.</li>
+<li><strong>Ftp2</strong>: Added the <strong>GetFileToStream</strong> method</li>
+<li><strong>CkDateTime</strong>: Added the <strong>ExpiresWithin</strong> and <strong>OlderThan</strong> methods.</li>
+<li><strong>OAuth2</strong>: Added the <strong>Resource</strong> property.</li>
+<li><strong>JsonObject</strong>: Added the <strong>AppendStringArray</strong> property.</li>
+<li><strong>MailMan</strong>: Added the <strong>StartTLSifPossible</strong> property.</li>
+<li><strong>PublicKey</strong>: Added the <strong>KeySize</strong> property.</li>
+<li><strong>VC++ 7.1</strong>:  Added a build for VC++ 7.1.</li>
+<li><strong>Tar</strong>: Fixed the &#8220;Invalid octal string for file size&#8221; error.</li>
+<li><strong>JsonObject</strong>: Added the <strong>FindObjectWithMember</strong> method.</li>
+<li><strong>Certificates</strong>:  Chilkat now fully supports <strong>ECC certificates</strong> in all ways.</li>
+</ul>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/release-notes/" rel="category tag">release notes</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/release-notes/" rel="tag">release notes</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-955 -->
+
+				
+					
+	<article id="post-944" class="post-944 post type-post status-publish format-standard hentry category-c category-json tag-c tag-json tag-treeview">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/c-load-a-treeview-from-json-save-a-treeview-to-json/" rel="bookmark">C# &#8212; Load a TreeView from JSON, Save a TreeView to JSON</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/c-load-a-treeview-from-json-save-a-treeview-to-json/" title="8:58 am" rel="bookmark"><time class="entry-date" datetime="2017-03-24T08:58:48+00:00">March 24, 2017</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>Here are a few snippets of code I needed for internal tools&#8230;</p>
+<p><strong>TreeView &#8211;> JSON</strong></p>
+<pre class="brush: csharp; title: ; notranslate" title="">
+private void recurseTree(TreeNode treeNode, Chilkat.JsonObject json)
+    {
+    string tag;
+    if (treeNode.Tag == null)
+        {
+        tag = treeNode.Name;
+        }
+    else
+        {
+        tag = treeNode.Tag.ToString();
+        if (tag.Length == 0)
+            {
+            tag = treeNode.Name;
+            }
+        }
+
+    int numChildren = treeNode.Nodes.Count;
+    if (numChildren == 0)
+        {
+        json.AppendString(tag, treeNode.Text);
+        return;
+        }
+
+    Chilkat.JsonObject jObj = json.AppendObject(tag);
+
+    foreach (TreeNode tn in treeNode.Nodes)
+        {
+        recurseTree(tn,jObj);
+        }
+    }
+
+private void btnTreeViewToJson_Click(object sender, EventArgs e)
+    {
+    // Convert treeview1 to JSON.
+    Chilkat.JsonObject json = new Chilkat.JsonObject();
+
+    TreeNodeCollection nodes = treeView1.Nodes;
+    foreach (TreeNode n in nodes)
+        {
+        recurseTree(n,json);
+        }
+
+    json.EmitCompact = false;
+    textBox1.Text = json.Emit();
+    }
+</pre>
+<p><strong>JSON &#8211;> TreeView</strong></p>
+<pre class="brush: csharp; title: ; notranslate" title="">
+void buildTreeView(TreeNode node, Chilkat.JsonObject json)
+    {
+    int i;
+    int n = json.Size;
+    for (i = 0; i &lt; n; i++)
+        {
+        if (json.TypeAt(i) == 3)
+            {
+            TreeNode tn = new TreeNode();
+            
+            tn.Tag = json.NameAt(i);
+            tn.Name = json.NameAt(i);
+            tn.Text = json.NameAt(i);
+            node.Nodes.Add(tn);
+
+            Chilkat.JsonObject jObj = json.ObjectAt(i);
+            buildTreeView(tn, jObj);
+            }
+        else
+            {
+            // This is a string.
+            TreeNode tn = new TreeNode();
+            tn.Tag = json.NameAt(i);
+            tn.Name = json.NameAt(i);
+            tn.Text = json.StringAt(i);
+            node.Nodes.Add(tn);
+            }
+        }
+    }
+
+private void loadTreeView()
+    {
+    treeView1.BeginUpdate();
+
+    Chilkat.JsonObject json = new Chilkat.JsonObject();
+
+    json.LoadFile(&quot;c:/ck2000/appData/builder/treeView.json&quot;);
+
+    // recursively add the JSON nodes to the treeview.
+    TreeNode tn = new TreeNode();
+    tn.Tag = json.NameAt(0);
+    tn.Name = json.NameAt(0);
+    tn.Text = json.NameAt(0);
+    treeView1.Nodes.Add(tn);
+
+    Chilkat.JsonObject jObj = json.ObjectAt(0);
+    buildTreeView(tn, jObj);
+
+    treeView1.EndUpdate();
+    }
+
+treeView1.Nodes.Clear();
+loadTreeView();
+...
+
+</pre>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/c/" rel="category tag">C#</a>, <a href="http://cknotes.com/category/json/" rel="category tag">JSON</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/c/" rel="tag">C#</a>, <a href="http://cknotes.com/tag/json/" rel="tag">JSON</a>, <a href="http://cknotes.com/tag/treeview/" rel="tag">treeview</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-944 -->
+
+				
+					
+	<article id="post-938" class="post-938 post type-post status-publish format-standard hentry category-c category-vbnet tag-c-vb-net-binary">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/never-try-to-handle-binary-data-as-a-string/" rel="bookmark">Never Try to Handle Binary Data as a String</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/never-try-to-handle-binary-data-as-a-string/" title="10:34 am" rel="bookmark"><time class="entry-date" datetime="2017-03-23T10:34:48+00:00">March 23, 2017</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>This issue comes up frequently, and hopefully this C# and VB.NET example will help people to understand what not to do..</p>
+<p><strong>Here&#8217;s the C# example (the VB.NET example is further below..)</strong></p>
+<pre class="brush: csharp; title: ; notranslate" title="">
+
+// Never try to store non-text binary data as a string.
+// This applies to all programming languages where the string data type is
+// an object, such as C#, VB.NET, Java, VB6, FoxPro, etc.
+//
+// If the semantics of the programming language are such that a &quot;string&quot;
+// is just a sequence of bytes terminated by a 0 byte, such as in C/C++,
+// there are still problems because the 1st 0 byte in the non-text data (such as JPG, or PDF)
+// would terminate the &quot;string&quot;.
+
+// Both C# and VB.NET are languages where strings are objects.  If you wish to
+// set the contents of a C# or VB.NET string from a byte array, you MUST tell .NET
+// the character encoding of the byte array -- otherwise it does not know how
+// to interpret the bytes.  (For example, the bytes might be utf-8, iso-8859-1, Shift_JIS, etc.)
+// The bytes don't actually represent characters (such as image data, or a zip archive), then
+// it makes no sense to be trying to convert the bytes into &quot;chars&quot; because there will be innumerable
+// sequences of bytes that don't represent any possible char in the charset encoding.
+
+// For example, this is OK:
+
+byte[] utf8Bytes = System.IO.File.ReadAllBytes(&quot;utf8_sampler.htm&quot;);
+byte[] jpgBytes = System.IO.File.ReadAllBytes(&quot;starfish.jpg&quot;);
+
+textBox1.Text = &quot;num utf8 bytes = &quot; + utf8Bytes.Length.ToString() + &quot;\r\n&quot;;
+textBox1.Text += &quot;num JPG bytes = &quot; + jpgBytes.Length.ToString() + &quot;\r\n&quot;;
+
+// Interpret the bytes according to the utf-8 encoding and return the string object:
+// The number of chars in the string may be different than the number of bytes if there
+// were chars with multi-byte utf-8 representations.
+string s1 = Encoding.UTF8.GetString(utf8Bytes);
+textBox1.Text += &quot;num chars = &quot; + s1.Length + &quot;\r\n&quot;;
+
+// This is garbage, because the JPG bytes don't represent chars in the utf-8 encoding.
+string s2 = Encoding.UTF8.GetString(jpgBytes);
+textBox1.Text += &quot;num chars = &quot; + s2.Length + &quot;\r\n&quot;;
+
+// Go back to utf-8 bytes:
+byte[] utf8Bytes2 = Encoding.UTF8.GetBytes(s1);
+byte[] jpgBytes2 = Encoding.UTF8.GetBytes(s2);
+
+textBox1.Text += &quot;num utf8 bytes 2 = &quot; + utf8Bytes2.Length.ToString() + &quot;\r\n&quot;;
+textBox1.Text += &quot;num JPG bytes 2 = &quot; + jpgBytes2.Length.ToString() + &quot;\r\n&quot;;
+
+// Here's the output of this program:
+//num utf8 bytes = 62417
+//num JPG bytes = 6229
+//num chars = 55731
+//num chars = 5962
+//num utf8 bytes 2 = 62417
+//num JPG bytes 2 = 10710
+
+</pre>
+<p>VB.NET Example:</p>
+<pre class="brush: vb; title: ; notranslate" title="">
+' Never try to store non-text binary data as a string.
+' This applies to all programming languages where the string data type is
+' an object, such as C#, VB.NET, Java, VB6, FoxPro, etc.
+'
+' If the semantics of the programming language are such that a &quot;string&quot;
+' is just a sequence of bytes terminated by a 0 byte, such as in C/C++,
+' there are still problems because the 1st 0 byte in the non-text data (such as JPG, or PDF)
+' would terminate the &quot;string&quot;.
+
+' But C# and VB.NET are languages where strings are objects.  If you wish to 
+' set the contents of a C# or VB.NET string from a byte array, you MUST tell .NET
+' the character encoding of the byte array -- otherwise it does not know how
+' to interpret the bytes.  (For example, the bytes might be utf-8, iso-8859-1, Shift_JIS, etc.)
+' The bytes don't actually represent characters (such as image data, or a zip archive), then
+' it makes no sense to be trying to convert the bytes into &quot;chars&quot; because there will be innumerable
+' sequences of bytes that don't represent any possible char in the charset encoding.
+
+' For example, this is OK:
+
+Dim utf8Bytes As Byte() = System.IO.File.ReadAllBytes(&quot;utf8_sampler.htm&quot;)
+Dim jpgBytes As Byte() = System.IO.File.ReadAllBytes(&quot;starfish.jpg&quot;)
+
+textBox1.Text = &quot;num utf8 bytes = &quot; + utf8Bytes.Length.ToString() + vbCr &amp; vbLf
+textBox1.Text += &quot;num JPG bytes = &quot; + jpgBytes.Length.ToString() + vbCr &amp; vbLf
+
+' Interpret the bytes according to the utf-8 encoding and return the string object:
+' The number of chars in the string may be different than the number of bytes if there
+' were chars with multi-byte utf-8 representations.
+Dim s1 As String = Encoding.UTF8.GetString(utf8Bytes)
+textBox1.Text += &quot;num chars = &quot; + s1.Length + vbCr &amp; vbLf
+
+' This is garbage, because the JPG bytes don't represent chars in the utf-8 encoding.
+Dim s2 As String = Encoding.UTF8.GetString(jpgBytes)
+textBox1.Text += &quot;num chars = &quot; + s2.Length + vbCr &amp; vbLf
+
+' Go back to utf-8 bytes:
+Dim utf8Bytes2 As Byte() = Encoding.UTF8.GetBytes(s1)
+Dim jpgBytes2 As Byte() = Encoding.UTF8.GetBytes(s2)
+
+textBox1.Text += &quot;num utf8 bytes 2 = &quot; + utf8Bytes2.Length.ToString() + vbCr &amp; vbLf
+textBox1.Text += &quot;num JPG bytes 2 = &quot; + jpgBytes2.Length.ToString() + vbCr &amp; vbLf
+
+' Here's the output of this program:
+'num utf8 bytes = 62417
+'num JPG bytes = 6229
+'num chars = 55731
+'num chars = 5962
+'num utf8 bytes 2 = 62417
+'num JPG bytes 2 = 10710
+</pre>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/c/" rel="category tag">C#</a>, <a href="http://cknotes.com/category/vbnet/" rel="category tag">VB.NET</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/c-vb-net-binary/" rel="tag">c# vb.net binary</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-938 -->
+
+				
+					
+	<article id="post-934" class="post-934 post type-post status-publish format-standard hentry category-ssh-tunnel tag-ssh tag-ssh-tunnel tag-tunnel">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/understanding-chilkats-ssh-tunnel-class/" rel="bookmark">Understanding Chilkat&#8217;s SSH Tunnel Class</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/understanding-chilkats-ssh-tunnel-class/" title="7:02 am" rel="bookmark"><time class="entry-date" datetime="2017-02-13T07:02:15+00:00">February 13, 2017</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><span style="font-family: Calibri;">Before Chilkat&#8217;s SSH Tunnel, your app would need to connect to a tunnel process/service running either on the local machine or on some computer on the LAN, and then tunnel out to the remote server.  It would look like this:</p>
+<p>App &#8212;&#8212;(1)&#8212;&#8212;&gt;  TunnelService &#8212;-(2)&#8212;&#8212;&gt; SshServer &#8212;-(3)&#8212;&#8211;&gt; SomeDestServerSuchAsSQL</p>
+<p>You can wrap a non-encrypted TCP connection, or a TLS connection within the SSH Tunnel.<br />
+For example, if you connect with TLS, then (1) and (3) are TLS, and (2) is TLS wrapped inside SSH.<br />
+The (1) connection is within your LAN, the (3) connection is within the LAN on the server-side, and the (2) connection is over the Internet.</p>
+<p>With Chilkat, the TunnelService is no longer a separate service running somewhere on your LAN.<br />
+Rather, it&#8217;s a background thread of your app.  Thus.. you can run your app anywhere and tunnel without needing to pre-install some SSH tunnel service on the LAN.  (In effect, you&#8217;re app is carrying the TunnelService in it&#8217;s back pocket..)<br />
+</span></p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/ssh-tunnel/" rel="category tag">SSH Tunnel</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/ssh/" rel="tag">SSH</a>, <a href="http://cknotes.com/tag/ssh-tunnel/" rel="tag">SSH Tunnel</a>, <a href="http://cknotes.com/tag/tunnel/" rel="tag">tunnel</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-934 -->
+
+				
+					
+	<article id="post-929" class="post-929 post type-post status-publish format-standard hentry category-cpp category-zip tag-appenddata tag-appendstring2 tag-c tag-zip">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/c-zip-example-to-append-in-memory-binary-and-string-data/" rel="bookmark">C++ Zip Example to Append In-Memory Binary and String Data</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/c-zip-example-to-append-in-memory-binary-and-string-data/" title="7:31 am" rel="bookmark"><time class="entry-date" datetime="2017-01-26T07:31:52+00:00">January 26, 2017</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<pre class="brush: cpp; title: ; notranslate" title="">
+
+void qa_create_zip_from_data(void)
+{
+CkZip zip;
+
+zip.NewZip(&quot;qa_output/test.zip&quot;);
+
+// This is the content of the files to be added to the .zip
+const char *fileContents = &quot;The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog.&quot;;
+
+// AppendString2 returns a CkZipEntry, so make sure to get it and delete it if not needed..
+// If NULL is returned, then the AppendString2 failed.
+CkZipEntry *ent = zip.AppendString2(&quot;quickBrownFox1.txt&quot;,fileContents,&quot;ansi&quot;);
+if (ent) { delete ent; ent = 0; }
+
+// Another way of adding in-memory data to a .zip is by calling AppendData. This is good for binary (non-text) data.
+// In this case, we'll use the bytes of fileContents.
+size_t szContent = strlen(fileContents);
+
+CkByteData binaryContent;
+// It is possible to let the CkByteData &quot;borrow&quot; data.  This avoid copying the bytes, which is good if the amount
+// of data is large.
+binaryContent.borrowData(fileContents,szContent);
+
+// Add the binaryContent to the zip.
+ent = zip.AppendData(&quot;quickBrownFox2.txt&quot;,binaryContent);
+if (ent) { delete ent; ent = 0; }
+
+// We now have a zip object (not yet a file on disk) that contains 2 entries: quickBrownFox1.txt and quickBrownFox2.txt
+// Write the .zip to a file  (this is where the actual compression occurs)
+// This writes the .zip to &quot;qa_output/test.zip&quot;
+bool success = zip.WriteZipAndClose();
+if (!success)
+    {
+    printf(&quot;%s\n&quot;,zip.lastErrorText());
+    }
+else
+    {
+    printf(&quot;success.\n&quot;);
+    }
+}
+
+</pre>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/cpp/" rel="category tag">cpp</a>, <a href="http://cknotes.com/category/zip/" rel="category tag">zip</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/appenddata/" rel="tag">AppendData</a>, <a href="http://cknotes.com/tag/appendstring2/" rel="tag">AppendString2</a>, <a href="http://cknotes.com/tag/c/" rel="tag">C#</a>, <a href="http://cknotes.com/tag/zip/" rel="tag">zip</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-929 -->
+
+				
+						<nav id="nav-below">
+			<h3 class="assistive-text">Post navigation</h3>
+			<div class="nav-previous"><a href="http://cknotes.com/page/2/" ><span class="meta-nav">&larr;</span> Older posts</a></div>
+			<div class="nav-next"></div>
+		</nav><!-- #nav-above -->
+	
+			
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+		<div id="secondary" class="widget-area" role="complementary">
+			<aside id="linkcat-2" class="widget widget_links"><h3 class="widget-title">Blogroll</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://cknotes.com/chilkat-binary-encoding-list/" title="Lists the Encoding Modes Supported by the Chilkat API.">Chilkat Binary Encodings</a></li>
+<li><a href="http://cknotes.com/chilkat-charsets-character-encodings-supported/" title="Lists the Charsets (Character Encodings) supported by the Chilkat API.">Chilkat Character Encodings</a></li>
+<li><a href="http://www.chilkatforum.com" title="Chilkat Forum">Chilkat Forum</a></li>
+<li><a href="http://www.chilkatsoft.com/" title="Chilkat Software Home Page">Chilkat Home</a></li>
+<li><a href="http://www.example-code.com/" title="Programming Examples">Example Code</a></li>
+<li><a href="http://cknotes.com/?p=282" title="How to Determine FTP2 Connection Settings">How to Determine FTP Connection Settings</a></li>
+<li><a href="http://cknotes.com/?p=361" title="How to Register ActiveX DLLs using regsvr32">How To Register ActiveX DLLs</a></li>
+<li><a href="http://cknotes.com/chilkat-net-assemblies-matching-visual-studio-versions-to-net-framework-versions-to-vc-runtime-versions/" title="Chilkat .NET Assemblies – Matching Visual Studio versions to .NET Framework Versions to VC++ Runtime Versions.">MSVC Runtimes for .NET Assemblies</a></li>
+<li><a href="http://www.chilkatsoft.com/p/pIndex.asp" title="More Chilkat Technical Notes">Old Blog Posts</a></li>
+<li><a href="http://www.chilkatsoft.com/refdoc" title="Chilkat Reference Documentation">Reference Documentation</a></li>
+<li><a href="http://cknotes.com/?cat=100" title="Release Notes">Release Notes</a></li>
+<li><a href="http://cknotes.com/?p=302" title="Must-Know Concepts for Socket Programming">Socket Programming Must-Know Concepts</a></li>
+
+	</ul>
+</aside>
+<aside id="tag_cloud-2" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><a href="http://cknotes.com/tag/net/" class="tag-cloud-link tag-link-84 tag-link-position-1" style="font-size: 8.9655172413793pt;" aria-label=".NET (5 items)">.NET</a>
+<a href="http://cknotes.com/tag/64-bit/" class="tag-cloud-link tag-link-99 tag-link-position-2" style="font-size: 8.9655172413793pt;" aria-label="64-bit (5 items)">64-bit</a>
+<a href="http://cknotes.com/tag/activex/" class="tag-cloud-link tag-link-433 tag-link-position-3" style="font-size: 15.965517241379pt;" aria-label="ActiveX (22 items)">ActiveX</a>
+<a href="http://cknotes.com/tag/asp/" class="tag-cloud-link tag-link-455 tag-link-position-4" style="font-size: 9.8103448275862pt;" aria-label="asp (6 items)">asp</a>
+<a href="http://cknotes.com/tag/async/" class="tag-cloud-link tag-link-425 tag-link-position-5" style="font-size: 9.8103448275862pt;" aria-label="async (6 items)">async</a>
+<a href="http://cknotes.com/tag/asynchronous/" class="tag-cloud-link tag-link-494 tag-link-position-6" style="font-size: 11.620689655172pt;" aria-label="asynchronous (9 items)">asynchronous</a>
+<a href="http://cknotes.com/tag/c/" class="tag-cloud-link tag-link-448 tag-link-position-7" style="font-size: 16.448275862069pt;" aria-label="C# (24 items)">C#</a>
+<a href="http://cknotes.com/tag/charset/" class="tag-cloud-link tag-link-473 tag-link-position-8" style="font-size: 8.9655172413793pt;" aria-label="charset (5 items)">charset</a>
+<a href="http://cknotes.com/tag/delphi/" class="tag-cloud-link tag-link-517 tag-link-position-9" style="font-size: 9.8103448275862pt;" aria-label="Delphi (6 items)">Delphi</a>
+<a href="http://cknotes.com/tag/email/" class="tag-cloud-link tag-link-472 tag-link-position-10" style="font-size: 14.396551724138pt;" aria-label="email (16 items)">email</a>
+<a href="http://cknotes.com/tag/encryption/" class="tag-cloud-link tag-link-431 tag-link-position-11" style="font-size: 13.793103448276pt;" aria-label="Encryption (14 items)">Encryption</a>
+<a href="http://cknotes.com/tag/error-messages/" class="tag-cloud-link tag-link-435 tag-link-position-12" style="font-size: 18.862068965517pt;" aria-label="error messages (39 items)">error messages</a>
+<a href="http://cknotes.com/tag/errors/" class="tag-cloud-link tag-link-174 tag-link-position-13" style="font-size: 8.9655172413793pt;" aria-label="errors (5 items)">errors</a>
+<a href="http://cknotes.com/tag/events/" class="tag-cloud-link tag-link-443 tag-link-position-14" style="font-size: 15.48275862069pt;" aria-label="events (20 items)">events</a>
+<a href="http://cknotes.com/tag/exchange-server/" class="tag-cloud-link tag-link-458 tag-link-position-15" style="font-size: 10.413793103448pt;" aria-label="exchange server (7 items)">exchange server</a>
+<a href="http://cknotes.com/tag/ftp/" class="tag-cloud-link tag-link-440 tag-link-position-16" style="font-size: 19.103448275862pt;" aria-label="FTP (41 items)">FTP</a>
+<a href="http://cknotes.com/tag/gmail/" class="tag-cloud-link tag-link-499 tag-link-position-17" style="font-size: 8.9655172413793pt;" aria-label="GMail (5 items)">GMail</a>
+<a href="http://cknotes.com/tag/http/" class="tag-cloud-link tag-link-428 tag-link-position-18" style="font-size: 17.896551724138pt;" aria-label="HTTP (32 items)">HTTP</a>
+<a href="http://cknotes.com/tag/imap/" class="tag-cloud-link tag-link-452 tag-link-position-19" style="font-size: 16.810344827586pt;" aria-label="IMAP (26 items)">IMAP</a>
+<a href="http://cknotes.com/tag/ios/" class="tag-cloud-link tag-link-541 tag-link-position-20" style="font-size: 12.586206896552pt;" aria-label="IOS (11 items)">IOS</a>
+<a href="http://cknotes.com/tag/java/" class="tag-cloud-link tag-link-430 tag-link-position-21" style="font-size: 12.586206896552pt;" aria-label="Java (11 items)">Java</a>
+<a href="http://cknotes.com/tag/lasterrortext/" class="tag-cloud-link tag-link-493 tag-link-position-22" style="font-size: 8.9655172413793pt;" aria-label="LastErrorText (5 items)">LastErrorText</a>
+<a href="http://cknotes.com/tag/linking/" class="tag-cloud-link tag-link-450 tag-link-position-23" style="font-size: 12.103448275862pt;" aria-label="Linking (10 items)">Linking</a>
+<a href="http://cknotes.com/tag/mht/" class="tag-cloud-link tag-link-480 tag-link-position-24" style="font-size: 9.8103448275862pt;" aria-label="MHT (6 items)">MHT</a>
+<a href="http://cknotes.com/tag/mime/" class="tag-cloud-link tag-link-429 tag-link-position-25" style="font-size: 8pt;" aria-label="MIME (4 items)">MIME</a>
+<a href="http://cknotes.com/tag/pop3/" class="tag-cloud-link tag-link-445 tag-link-position-26" style="font-size: 15.241379310345pt;" aria-label="pop3 (19 items)">pop3</a>
+<a href="http://cknotes.com/tag/port-forwarding/" class="tag-cloud-link tag-link-477 tag-link-position-27" style="font-size: 10.413793103448pt;" aria-label="port-forwarding (7 items)">port-forwarding</a>
+<a href="http://cknotes.com/tag/pre-release/" class="tag-cloud-link tag-link-372 tag-link-position-28" style="font-size: 9.8103448275862pt;" aria-label="pre-release (6 items)">pre-release</a>
+<a href="http://cknotes.com/tag/regsvr32/" class="tag-cloud-link tag-link-510 tag-link-position-29" style="font-size: 12.948275862069pt;" aria-label="regsvr32 (12 items)">regsvr32</a>
+<a href="http://cknotes.com/tag/release-notes/" class="tag-cloud-link tag-link-471 tag-link-position-30" style="font-size: 22pt;" aria-label="release notes (71 items)">release notes</a>
+<a href="http://cknotes.com/tag/rsa/" class="tag-cloud-link tag-link-460 tag-link-position-31" style="font-size: 9.8103448275862pt;" aria-label="RSA (6 items)">RSA</a>
+<a href="http://cknotes.com/tag/sftp/" class="tag-cloud-link tag-link-487 tag-link-position-32" style="font-size: 18.620689655172pt;" aria-label="SFTP (37 items)">SFTP</a>
+<a href="http://cknotes.com/tag/smtp/" class="tag-cloud-link tag-link-426 tag-link-position-33" style="font-size: 16.810344827586pt;" aria-label="SMTP (26 items)">SMTP</a>
+<a href="http://cknotes.com/tag/smtpq/" class="tag-cloud-link tag-link-439 tag-link-position-34" style="font-size: 8.9655172413793pt;" aria-label="smtpq (5 items)">smtpq</a>
+<a href="http://cknotes.com/tag/socket/" class="tag-cloud-link tag-link-488 tag-link-position-35" style="font-size: 12.103448275862pt;" aria-label="socket (10 items)">socket</a>
+<a href="http://cknotes.com/tag/ssh/" class="tag-cloud-link tag-link-476 tag-link-position-36" style="font-size: 16.448275862069pt;" aria-label="SSH (24 items)">SSH</a>
+<a href="http://cknotes.com/tag/ssl/" class="tag-cloud-link tag-link-453 tag-link-position-37" style="font-size: 10.413793103448pt;" aria-label="SSL (7 items)">SSL</a>
+<a href="http://cknotes.com/tag/tls/" class="tag-cloud-link tag-link-454 tag-link-position-38" style="font-size: 8.9655172413793pt;" aria-label="TLS (5 items)">TLS</a>
+<a href="http://cknotes.com/tag/tunnel/" class="tag-cloud-link tag-link-114 tag-link-position-39" style="font-size: 10.413793103448pt;" aria-label="tunnel (7 items)">tunnel</a>
+<a href="http://cknotes.com/tag/upload/" class="tag-cloud-link tag-link-456 tag-link-position-40" style="font-size: 9.8103448275862pt;" aria-label="upload (6 items)">upload</a>
+<a href="http://cknotes.com/tag/vbnet/" class="tag-cloud-link tag-link-505 tag-link-position-41" style="font-size: 8.9655172413793pt;" aria-label="VB.NET (5 items)">VB.NET</a>
+<a href="http://cknotes.com/tag/vb6/" class="tag-cloud-link tag-link-474 tag-link-position-42" style="font-size: 11.620689655172pt;" aria-label="vb6 (9 items)">vb6</a>
+<a href="http://cknotes.com/tag/vc/" class="tag-cloud-link tag-link-520 tag-link-position-43" style="font-size: 10.413793103448pt;" aria-label="VC++ (7 items)">VC++</a>
+<a href="http://cknotes.com/tag/x64/" class="tag-cloud-link tag-link-467 tag-link-position-44" style="font-size: 11.620689655172pt;" aria-label="x64 (9 items)">x64</a>
+<a href="http://cknotes.com/tag/zip/" class="tag-cloud-link tag-link-478 tag-link-position-45" style="font-size: 14.034482758621pt;" aria-label="zip (15 items)">zip</a></div>
+</aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-421"><a href="http://cknotes.com/category/net/" >.NET</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="http://cknotes.com/category/3des/" >3DES</a>
+</li>
+	<li class="cat-item cat-item-295"><a href="http://cknotes.com/category/40-framework/" >4.0 Framework</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="http://cknotes.com/category/activex/" >ActiveX</a>
+</li>
+	<li class="cat-item cat-item-97"><a href="http://cknotes.com/category/aes/" >aes</a>
+</li>
+	<li class="cat-item cat-item-69"><a href="http://cknotes.com/category/amazon-s3/" >Amazon S3</a>
+</li>
+	<li class="cat-item cat-item-316"><a href="http://cknotes.com/category/android/" >Android</a>
+</li>
+	<li class="cat-item cat-item-304"><a href="http://cknotes.com/category/announcements/" >announcements</a>
+</li>
+	<li class="cat-item cat-item-561"><a href="http://cknotes.com/category/any-cpu/" >Any CPU</a>
+</li>
+	<li class="cat-item cat-item-60"><a href="http://cknotes.com/category/asp/" >asp</a>
+</li>
+	<li class="cat-item cat-item-282"><a href="http://cknotes.com/category/asp-ftp/" >ASP FTP</a>
+</li>
+	<li class="cat-item cat-item-48"><a href="http://cknotes.com/category/asp-upload/" >ASP Upload</a>
+</li>
+	<li class="cat-item cat-item-27"><a href="http://cknotes.com/category/aspnet/" >asp.net</a>
+</li>
+	<li class="cat-item cat-item-28"><a href="http://cknotes.com/category/assembly/" >assembly</a>
+</li>
+	<li class="cat-item cat-item-597"><a href="http://cknotes.com/category/async/" >async</a>
+</li>
+	<li class="cat-item cat-item-165"><a href="http://cknotes.com/category/asynchronous/" >asynchronous</a>
+</li>
+	<li class="cat-item cat-item-112"><a href="http://cknotes.com/category/atl/" >ATL</a>
+</li>
+	<li class="cat-item cat-item-133"><a href="http://cknotes.com/category/attachments/" >attachments</a>
+</li>
+	<li class="cat-item cat-item-330"><a href="http://cknotes.com/category/azure/" >Azure</a>
+</li>
+	<li class="cat-item cat-item-279"><a href="http://cknotes.com/category/bcc/" >BCC</a>
+</li>
+	<li class="cat-item cat-item-25"><a href="http://cknotes.com/category/blowfish/" >blowfish</a>
+</li>
+	<li class="cat-item cat-item-159"><a href="http://cknotes.com/category/bounce/" >bounce</a>
+</li>
+	<li class="cat-item cat-item-158"><a href="http://cknotes.com/category/bounced-email/" >Bounced Email</a>
+</li>
+	<li class="cat-item cat-item-345"><a href="http://cknotes.com/category/c-language/" >C language</a>
+</li>
+	<li class="cat-item cat-item-47"><a href="http://cknotes.com/category/c/" >C#</a>
+</li>
+	<li class="cat-item cat-item-291"><a href="http://cknotes.com/category/c-builder/" >C++ Builder</a>
+</li>
+	<li class="cat-item cat-item-333"><a href="http://cknotes.com/category/cades/" >CAdES</a>
+</li>
+	<li class="cat-item cat-item-578"><a href="http://cknotes.com/category/callbacks/" >callbacks</a>
+</li>
+	<li class="cat-item cat-item-419"><a href="http://cknotes.com/category/certchain/" >CertChain</a>
+</li>
+	<li class="cat-item cat-item-182"><a href="http://cknotes.com/category/certificate/" >certificate</a>
+</li>
+	<li class="cat-item cat-item-204"><a href="http://cknotes.com/category/certificates/" >certificates</a>
+</li>
+	<li class="cat-item cat-item-104"><a href="http://cknotes.com/category/character/" >character</a>
+</li>
+	<li class="cat-item cat-item-107"><a href="http://cknotes.com/category/charset/" >charset</a>
+</li>
+	<li class="cat-item cat-item-220"><a href="http://cknotes.com/category/ckstring/" >CkString</a>
+</li>
+	<li class="cat-item cat-item-603"><a href="http://cknotes.com/category/classic-asp/" >classic ASP</a>
+</li>
+	<li class="cat-item cat-item-331"><a href="http://cknotes.com/category/cocoa/" >cocoa</a>
+</li>
+	<li class="cat-item cat-item-188"><a href="http://cknotes.com/category/compression/" >compression</a>
+</li>
+	<li class="cat-item cat-item-343"><a href="http://cknotes.com/category/cpp/" >cpp</a>
+</li>
+	<li class="cat-item cat-item-178"><a href="http://cknotes.com/category/createobject/" >CreateObject</a>
+</li>
+	<li class="cat-item cat-item-169"><a href="http://cknotes.com/category/csp/" >csp</a>
+</li>
+	<li class="cat-item cat-item-161"><a href="http://cknotes.com/category/debugging/" >debugging</a>
+</li>
+	<li class="cat-item cat-item-249"><a href="http://cknotes.com/category/delphi/" >Delphi</a>
+</li>
+	<li class="cat-item cat-item-39"><a href="http://cknotes.com/category/deployment/" >deployment</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="http://cknotes.com/category/des-encryption/" >DES Encryption</a>
+</li>
+	<li class="cat-item cat-item-129"><a href="http://cknotes.com/category/diffie-hellman/" >Diffie-Hellman</a>
+</li>
+	<li class="cat-item cat-item-237"><a href="http://cknotes.com/category/dispose/" >Dispose</a>
+</li>
+	<li class="cat-item cat-item-210"><a href="http://cknotes.com/category/dkim/" >DKIM</a>
+</li>
+	<li class="cat-item cat-item-191"><a href="http://cknotes.com/category/dll/" >DLL</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="http://cknotes.com/category/dsn/" >DSN</a>
+</li>
+	<li class="cat-item cat-item-369"><a href="http://cknotes.com/category/dso/" >DSO</a>
+</li>
+	<li class="cat-item cat-item-410"><a href="http://cknotes.com/category/edifact/" >edifact</a>
+</li>
+	<li class="cat-item cat-item-101"><a href="http://cknotes.com/category/email/" >email</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://cknotes.com/category/encoding/" >Encoding</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="http://cknotes.com/category/encryption/" >Encryption</a>
+</li>
+	<li class="cat-item cat-item-23"><a href="http://cknotes.com/category/error-messages/" >error messages</a>
+</li>
+	<li class="cat-item cat-item-35"><a href="http://cknotes.com/category/events/" >events</a>
+</li>
+	<li class="cat-item cat-item-67"><a href="http://cknotes.com/category/exchange-server/" >exchange server</a>
+</li>
+	<li class="cat-item cat-item-75"><a href="http://cknotes.com/category/file-io/" >FILE IO</a>
+</li>
+	<li class="cat-item cat-item-349"><a href="http://cknotes.com/category/forum/" >forum</a>
+</li>
+	<li class="cat-item cat-item-34"><a href="http://cknotes.com/category/foxpro/" >FoxPro</a>
+</li>
+	<li class="cat-item cat-item-31"><a href="http://cknotes.com/category/ftp/" >FTP</a>
+</li>
+	<li class="cat-item cat-item-179"><a href="http://cknotes.com/category/gmail/" >GMail</a>
+</li>
+	<li class="cat-item cat-item-613"><a href="http://cknotes.com/category/google/" >Google</a>
+</li>
+	<li class="cat-item cat-item-126"><a href="http://cknotes.com/category/gzip/" >gzip</a>
+</li>
+	<li class="cat-item cat-item-198"><a href="http://cknotes.com/category/hashing/" >Hashing</a>
+</li>
+	<li class="cat-item cat-item-68"><a href="http://cknotes.com/category/hmac/" >HMAC</a>
+</li>
+	<li class="cat-item cat-item-53"><a href="http://cknotes.com/category/html-email/" >HTML Email</a>
+</li>
+	<li class="cat-item cat-item-236"><a href="http://cknotes.com/category/html-to-text/" >HTML-to-Text</a>
+</li>
+	<li class="cat-item cat-item-124"><a href="http://cknotes.com/category/html-to-xml/" >HTML-to-XML</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://cknotes.com/category/http/" >HTTP</a>
+</li>
+	<li class="cat-item cat-item-87"><a href="http://cknotes.com/category/iis/" >IIS</a>
+</li>
+	<li class="cat-item cat-item-55"><a href="http://cknotes.com/category/imap/" >IMAP</a>
+</li>
+	<li class="cat-item cat-item-280"><a href="http://cknotes.com/category/incorrect-format/" >incorrect format</a>
+</li>
+	<li class="cat-item cat-item-323"><a href="http://cknotes.com/category/ios/" >IOS</a>
+</li>
+	<li class="cat-item cat-item-253"><a href="http://cknotes.com/category/japanese/" >Japanese</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="http://cknotes.com/category/java/" >Java</a>
+</li>
+	<li class="cat-item cat-item-276"><a href="http://cknotes.com/category/java-digital-signature/" >Java digital signature</a>
+</li>
+	<li class="cat-item cat-item-609"><a href="http://cknotes.com/category/json/" >JSON</a>
+</li>
+	<li class="cat-item cat-item-163"><a href="http://cknotes.com/category/lasterrortext/" >LastErrorText</a>
+</li>
+	<li class="cat-item cat-item-322"><a href="http://cknotes.com/category/licensing/" >licensing</a>
+</li>
+	<li class="cat-item cat-item-49"><a href="http://cknotes.com/category/linking/" >Linking</a>
+</li>
+	<li class="cat-item cat-item-308"><a href="http://cknotes.com/category/linux/" >Linux</a>
+</li>
+	<li class="cat-item cat-item-311"><a href="http://cknotes.com/category/mac-os-x/" >MAC OS X</a>
+</li>
+	<li class="cat-item cat-item-284"><a href="http://cknotes.com/category/managed-c/" >managed C++</a>
+</li>
+	<li class="cat-item cat-item-119"><a href="http://cknotes.com/category/mht/" >MHT</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://cknotes.com/category/mime/" >MIME</a>
+</li>
+	<li class="cat-item cat-item-313"><a href="http://cknotes.com/category/mingw/" >MinGW</a>
+</li>
+	<li class="cat-item cat-item-403"><a href="http://cknotes.com/category/mono/" >Mono</a>
+</li>
+	<li class="cat-item cat-item-572"><a href="http://cknotes.com/category/msi/" >msi</a>
+</li>
+	<li class="cat-item cat-item-568"><a href="http://cknotes.com/category/multi-hop/" >multi-hop</a>
+</li>
+	<li class="cat-item cat-item-94"><a href="http://cknotes.com/category/multi-threading/" >multi-threading</a>
+</li>
+	<li class="cat-item cat-item-565"><a href="http://cknotes.com/category/node-js/" >Node.js</a>
+</li>
+	<li class="cat-item cat-item-382"><a href="http://cknotes.com/category/nuget/" >nuget</a>
+</li>
+	<li class="cat-item cat-item-307"><a href="http://cknotes.com/category/oauth/" >OAUTH</a>
+</li>
+	<li class="cat-item cat-item-593"><a href="http://cknotes.com/category/oauth2/" >OAuth2</a>
+</li>
+	<li class="cat-item cat-item-327"><a href="http://cknotes.com/category/objective-c/" >Objective-C</a>
+</li>
+	<li class="cat-item cat-item-310"><a href="http://cknotes.com/category/openssl/" >openssl</a>
+</li>
+	<li class="cat-item cat-item-66"><a href="http://cknotes.com/category/outlook/" >outlook</a>
+</li>
+	<li class="cat-item cat-item-411"><a href="http://cknotes.com/category/p7m/" >p7m</a>
+</li>
+	<li class="cat-item cat-item-202"><a href="http://cknotes.com/category/performance/" >performance</a>
+</li>
+	<li class="cat-item cat-item-166"><a href="http://cknotes.com/category/perl/" >Perl</a>
+</li>
+	<li class="cat-item cat-item-181"><a href="http://cknotes.com/category/pfx/" >pfx</a>
+</li>
+	<li class="cat-item cat-item-45"><a href="http://cknotes.com/category/php/" >PHP</a>
+</li>
+	<li class="cat-item cat-item-122"><a href="http://cknotes.com/category/pki/" >PKI</a>
+</li>
+	<li class="cat-item cat-item-318"><a href="http://cknotes.com/category/pocket-pc-2003/" >Pocket PC 2003</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="http://cknotes.com/category/pop3/" >pop3</a>
+</li>
+	<li class="cat-item cat-item-115"><a href="http://cknotes.com/category/port-forwarding/" >port-forwarding</a>
+</li>
+	<li class="cat-item cat-item-231"><a href="http://cknotes.com/category/powershell/" >PowerShell</a>
+</li>
+	<li class="cat-item cat-item-371"><a href="http://cknotes.com/category/pre-release-notes/" >pre-release notes</a>
+</li>
+	<li class="cat-item cat-item-180"><a href="http://cknotes.com/category/private-key/" >private key</a>
+</li>
+	<li class="cat-item cat-item-85"><a href="http://cknotes.com/category/progress-monitoring/" >progress monitoring</a>
+</li>
+	<li class="cat-item cat-item-79"><a href="http://cknotes.com/category/proxy/" >Proxy</a>
+</li>
+	<li class="cat-item cat-item-309"><a href="http://cknotes.com/category/python/" >Python</a>
+</li>
+	<li class="cat-item cat-item-205"><a href="http://cknotes.com/category/regsvr32/" >regsvr32</a>
+</li>
+	<li class="cat-item cat-item-100"><a href="http://cknotes.com/category/release-notes/" >release notes</a>
+</li>
+	<li class="cat-item cat-item-72"><a href="http://cknotes.com/category/rsa/" >RSA</a>
+</li>
+	<li class="cat-item cat-item-203"><a href="http://cknotes.com/category/ruby/" >Ruby</a>
+</li>
+	<li class="cat-item cat-item-243"><a href="http://cknotes.com/category/sample-code/" >sample code</a>
+</li>
+	<li class="cat-item cat-item-157"><a href="http://cknotes.com/category/self-extracting-exe/" >self-extracting EXE</a>
+</li>
+	<li class="cat-item cat-item-137"><a href="http://cknotes.com/category/sftp/" >SFTP</a>
+</li>
+	<li class="cat-item cat-item-298"><a href="http://cknotes.com/category/signature/" >Signature</a>
+</li>
+	<li class="cat-item cat-item-170"><a href="http://cknotes.com/category/smartcard/" >smartcard</a>
+</li>
+	<li class="cat-item cat-item-281"><a href="http://cknotes.com/category/sms/" >SMS</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://cknotes.com/category/smtp/" >SMTP</a>
+</li>
+	<li class="cat-item cat-item-30"><a href="http://cknotes.com/category/smtpq/" >smtpq</a>
+</li>
+	<li class="cat-item cat-item-423"><a href="http://cknotes.com/category/soap/" >SOAP</a>
+</li>
+	<li class="cat-item cat-item-138"><a href="http://cknotes.com/category/socket/" >socket</a>
+</li>
+	<li class="cat-item cat-item-218"><a href="http://cknotes.com/category/socks-proxy-server/" >SOCKS Proxy Server</a>
+</li>
+	<li class="cat-item cat-item-317"><a href="http://cknotes.com/category/solaris/" >Solaris</a>
+</li>
+	<li class="cat-item cat-item-358"><a href="http://cknotes.com/category/sql/" >SQL</a>
+</li>
+	<li class="cat-item cat-item-113"><a href="http://cknotes.com/category/ssh/" >SSH</a>
+</li>
+	<li class="cat-item cat-item-242"><a href="http://cknotes.com/category/ssh-keys/" >SSH keys</a>
+</li>
+	<li class="cat-item cat-item-136"><a href="http://cknotes.com/category/ssh-tunnel/" >SSH Tunnel</a>
+</li>
+	<li class="cat-item cat-item-206"><a href="http://cknotes.com/category/ssis/" >ssis</a>
+</li>
+	<li class="cat-item cat-item-56"><a href="http://cknotes.com/category/ssl/" >SSL</a>
+</li>
+	<li class="cat-item cat-item-96"><a href="http://cknotes.com/category/stream/" >stream</a>
+</li>
+	<li class="cat-item cat-item-162"><a href="http://cknotes.com/category/support/" >support</a>
+</li>
+	<li class="cat-item cat-item-251"><a href="http://cknotes.com/category/tchar/" >TCHAR</a>
+</li>
+	<li class="cat-item cat-item-321"><a href="http://cknotes.com/category/tcpip/" >TCP/IP</a>
+</li>
+	<li class="cat-item cat-item-58"><a href="http://cknotes.com/category/tls/" >TLS</a>
+</li>
+	<li class="cat-item cat-item-415"><a href="http://cknotes.com/category/trustedroots/" >TrustedRoots</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://cknotes.com/category/uncategorized/" >Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-32"><a href="http://cknotes.com/category/unicode/" >unicode</a>
+</li>
+	<li class="cat-item cat-item-187"><a href="http://cknotes.com/category/unlockcomponent/" >UnlockComponent</a>
+</li>
+	<li class="cat-item cat-item-61"><a href="http://cknotes.com/category/upload/" >upload</a>
+</li>
+	<li class="cat-item cat-item-287"><a href="http://cknotes.com/category/user-interface/" >user-interface</a>
+</li>
+	<li class="cat-item cat-item-117"><a href="http://cknotes.com/category/utf-8/" >utf-8</a>
+</li>
+	<li class="cat-item cat-item-190"><a href="http://cknotes.com/category/vbnet/" >VB.NET</a>
+</li>
+	<li class="cat-item cat-item-108"><a href="http://cknotes.com/category/vb6/" >vb6</a>
+</li>
+	<li class="cat-item cat-item-15"><a href="http://cknotes.com/category/vbscript/" >VBScript</a>
+</li>
+	<li class="cat-item cat-item-270"><a href="http://cknotes.com/category/vc/" >VC++</a>
+</li>
+	<li class="cat-item cat-item-88"><a href="http://cknotes.com/category/vista/" >Vista</a>
+</li>
+	<li class="cat-item cat-item-366"><a href="http://cknotes.com/category/visual-studio/" >Visual Studio</a>
+</li>
+	<li class="cat-item cat-item-352"><a href="http://cknotes.com/category/webdav/" >WebDAV</a>
+</li>
+	<li class="cat-item cat-item-354"><a href="http://cknotes.com/category/website/" >website</a>
+</li>
+	<li class="cat-item cat-item-347"><a href="http://cknotes.com/category/windows-8/" >Windows 8</a>
+</li>
+	<li class="cat-item cat-item-588"><a href="http://cknotes.com/category/windows-firewall/" >Windows Firewall</a>
+</li>
+	<li class="cat-item cat-item-396"><a href="http://cknotes.com/category/windows-phone/" >Windows Phone</a>
+</li>
+	<li class="cat-item cat-item-132"><a href="http://cknotes.com/category/wsaewouldblock/" >WSAEWOULDBLOCK</a>
+</li>
+	<li class="cat-item cat-item-93"><a href="http://cknotes.com/category/x64/" >x64</a>
+</li>
+	<li class="cat-item cat-item-324"><a href="http://cknotes.com/category/xcode/" >XCode</a>
+</li>
+	<li class="cat-item cat-item-91"><a href="http://cknotes.com/category/xml/" >XML</a>
+</li>
+	<li class="cat-item cat-item-420"><a href="http://cknotes.com/category/xmlcertvault/" >XmlCertVault</a>
+</li>
+	<li class="cat-item cat-item-116"><a href="http://cknotes.com/category/zip/" >zip</a>
+</li>
+		</ul>
+</aside>		</div><!-- #secondary .widget-area -->
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="https://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+	<div style="display:none">
+	</div>
+<script type='text/javascript' src='http://cknotes.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://cknotes.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://cknotes.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://cknotes.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js?ver=3.0.9b'></script>
+<script type='text/javascript' src='http://cknotes.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js?ver=3.0.9b'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://cknotes.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://cknotes.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type='text/javascript' src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201738'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2017Sepaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://cknotes.com/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://cknotes.com/wp-includes/js/wp-embed.min.js?ver=4.8.1'></script>
+<script type='text/javascript' src='https://stats.wp.com/e-201738.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:5.1',blog:'1',post:'0',tz:'-7',srv:'cknotes.com'} ]);
+	_stq.push([ 'clickTrackerInit', '1', '0' ]);
+</script>
+
+</body>
+</html>

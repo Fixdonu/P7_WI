@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) & !(IE 7) & !(IE 8)]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Encryption | Chilkat Tech Notes</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="http://cknotes.com/wp-content/themes/twentyeleven/style.css" />
+<link rel="pingback" href="http://cknotes.com/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="http://cknotes.com/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//s.gravatar.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Chilkat Tech Notes &raquo; Feed" href="http://cknotes.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Chilkat Tech Notes &raquo; Comments Feed" href="http://cknotes.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Chilkat Tech Notes &raquo; Encryption Category Feed" href="http://cknotes.com/category/encryption/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/cknotes.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.1"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b===c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='jetpack_css-css'  href='http://cknotes.com/wp-content/plugins/jetpack/css/jetpack.css?ver=5.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://cknotes.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://cknotes.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='http://cknotes.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://cknotes.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://cknotes.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.8.1" />
+
+<link rel='dns-prefetch' href='//v0.wordpress.com'>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+<link rel="icon" href="http://cknotes.com/wp-content/uploads/2016/10/cropped-dudeNpm-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="http://cknotes.com/wp-content/uploads/2016/10/cropped-dudeNpm-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="http://cknotes.com/wp-content/uploads/2016/10/cropped-dudeNpm-180x180.jpg" />
+<meta name="msapplication-TileImage" content="http://cknotes.com/wp-content/uploads/2016/10/cropped-dudeNpm-270x270.jpg" />
+</head>
+
+<body class="archive category category-encryption category-14 single-author two-column right-sidebar">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="http://cknotes.com/" rel="home">Chilkat Tech Notes</a></span></h1>
+				<h2 id="site-description">Chilkat Software Tech Notes</h2>
+			</hgroup>
+
+			
+								<form method="get" id="searchform" action="http://cknotes.com/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search" />
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+	</form>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="#content">Skip to primary content</a></div>
+									<div class="skip-link"><a class="assistive-text" href="#secondary">Skip to secondary content</a></div>
+												<div class="menu"><ul>
+<li ><a href="http://cknotes.com/">Home</a></li></ul></div>
+			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<section id="primary">
+			<div id="content" role="main">
+
+			
+				<header class="page-header">
+					<h1 class="page-title">Category Archives: <span>Encryption</span></h1>
+
+									</header>
+
+						<nav id="nav-above">
+			<h3 class="assistive-text">Post navigation</h3>
+			<div class="nav-previous"><a href="http://cknotes.com/category/encryption/page/2/" ><span class="meta-nav">&larr;</span> Older posts</a></div>
+			<div class="nav-next"></div>
+		</nav><!-- #nav-above -->
+	
+								
+					
+	<article id="post-504" class="post-504 post type-post status-publish format-standard hentry category-charset category-encryption category-unicode category-utf-8 tag-charset tag-encoding tag-encrypt tag-string">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/understanding-encryptstringenc-and-decryptstringenc-in-python-and-cc/" rel="bookmark">Understanding EncryptStringENC and DecryptStringENC in Python and C/C++</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/understanding-encryptstringenc-and-decryptstringenc-in-python-and-cc/" title="7:10 am" rel="bookmark"><time class="entry-date" datetime="2013-09-16T07:10:03+00:00">September 16, 2013</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>Chilkat provides API&#8217;s that are identical across a variety of different programming languages.  One difficulty in doing this is in handling strings.  Different programming languages pass strings in different ways.  In some programming languages, such as Python or C/C++, a &#8220;string&#8221; is simply a sequence of bytes terminated by a null.   (I&#8217;m referring to &#8220;multibyte&#8221; strings, not Unicode (utf-16) strings. The term &#8220;multibyte&#8221; means any charset such that each letter or symbol is represented by one or more bytes without using nulls.)   A Python or C/C++ application must indicate how the bytes are going to be interpreted.  There are two choices: ANSI or utf-8.  Each Chilkat class has a &#8220;Utf8&#8221; property that controls whether the bytes are interpreted as ANSI or utf-8.  Note: The Utf8 property only exists in programming languages where strings are passed as a sequence of bytes.  For example, in .NET strings are objects and are always passed as objects (and returned as objects).  If the ActiveX is used, then strings are always passed as utf-16.  However, in the case of Python or C/C++, strings are simply sequences of bytes and some additional mechanism must be used to indicate how the bytes are to be interpreted.</p>
+<p>To encrypt a string, we must precisely specify the exact byte representation of the string we want to be encrypted.  This is achieved via the Charset property.  For example, maybe it is the ANSI byte representation that is to be encrypted.  Or maybe it is the utf-16 byte representation.  Or maybe utf-8, or anything else.  The mechanism to specify the byte representation of the string to be encrypted must be entirely separate from the mechanism used to unambiguously pass the string to the Chilkat method.  These are two separate things.  Therefore, string encryption/decryption happens in these steps:</p>
+<p><strong>Encrypting a String (EncryptStringENC)</strong></p>
+<p>1) Unambiguously pass the string to the EncryptStringENC method.<br />
+2) (Internal to the Chilkat method) Convert the string to the byte representation specified by the Charset property.<br />
+3) Encrypt<br />
+4) Encode the binary encrypted bytes according to the EncodingMode property (which can be base64, hex, etc.) and return this string.</p>
+<p><strong>Decrypting a String (DecryptStringENC)</strong></p>
+<p>1) Pass the encoded string to DecryptStringENC method.  Note that all possible encodings (base64, hex, etc.) use only us-ascii chars. In all multibyte charsets, it is only the non-us-ascii chars that are different.  us-ascii chars are always represented by a single byte that is less than 0x80.   Therefore, the Utf8 property can be either true or false because us-ascii chars have the same byte representation in both utf-8 and ANSI.<br />
+2) (Internal to the Chilkat method) Decode the base64/hex/etc. to get the binary encrypted bytes.<br />
+3) Decrypt to get the string in the byte representation as was indicated by the Charset property when encrypting.  (The Charset property must be set to this same value when decrypting.)<br />
+4) Unambiguously return the string.  For a languages such as Python or C/C++, this means examining the Utf8 property setting, and performing whatever conversion is necessary (if any) to convert from the charset indicated by the Charset property, to return the string in the ANSI or utf-8 encoding.  (For languages such as C#, Chilkat will convert as appropriate to return as string object to the .NET language.)</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/charset/" rel="category tag">charset</a>, <a href="http://cknotes.com/category/encryption/" rel="category tag">Encryption</a>, <a href="http://cknotes.com/category/unicode/" rel="category tag">unicode</a>, <a href="http://cknotes.com/category/utf-8/" rel="category tag">utf-8</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/charset/" rel="tag">charset</a>, <a href="http://cknotes.com/tag/encoding/" rel="tag">Encoding</a>, <a href="http://cknotes.com/tag/encrypt/" rel="tag">encrypt</a>, <a href="http://cknotes.com/tag/string/" rel="tag">string</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-504 -->
+
+				
+					
+	<article id="post-430" class="post-430 post type-post status-publish format-standard hentry category-encryption tag-encryption">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/posts-about-matching-encryption-output-for-different-systems/" rel="bookmark">Posts about Matching Encryption Output for Different Systems</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/posts-about-matching-encryption-output-for-different-systems/" title="9:20 am" rel="bookmark"><time class="entry-date" datetime="2012-07-31T09:20:32+00:00">July 31, 2012</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><a href="http://www.chilkatsoft.com/p/p_123.asp">http://www.chilkatsoft.com/p/p_123.asp</a></p>
+<p><a href="http://www.chilkatsoft.com/p/p_506.asp">http://www.chilkatsoft.com/p/p_506.asp<br />
+</a><br />
+<a href="http://www.chilkatsoft.com/p/p_103.asp">http://www.chilkatsoft.com/p/p_103.asp</a></p>
+<p><a href="http://www.chilkatsoft.com/p/p_459.asp">http://www.chilkatsoft.com/p/p_459.asp</a></p>
+<p><a href="http://www.chilkatsoft.com/p/p_458.asp">http://www.chilkatsoft.com/p/p_458.asp</a></p>
+<p><a href="http://www.chilkatsoft.com/p/p_457.asp">http://www.chilkatsoft.com/p/p_457.asp</a></p>
+<p><a href="http://www.chilkatsoft.com/p/p_355.asp">http://www.chilkatsoft.com/p/p_355.asp<br />
+</a><br />
+<a href="http://www.chilkatsoft.com/p/p_160.asp">http://www.chilkatsoft.com/p/p_160.asp</a></p>
+<p><a href="http://www.chilkatsoft.com/p/p_102.asp">http://www.chilkatsoft.com/p/p_102.asp</a></p>
+<p><a href="http://www.chilkatsoft.com/p/php_aes.asp ">http://www.chilkatsoft.com/p/php_aes.asp </a></p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/encryption/" rel="category tag">Encryption</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/encryption/" rel="tag">Encryption</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-430 -->
+
+				
+					
+	<article id="post-388" class="post-388 post type-post status-publish format-standard hentry category-aes category-blowfish category-encryption tag-encryption">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/format-of-aes-blowfish-twofish-3des-etc-symmetric-encrypted-data/" rel="bookmark">Format of AES, Blowfish, Twofish, 3DES, etc. Symmetric Encrypted Data?</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/format-of-aes-blowfish-twofish-3des-etc-symmetric-encrypted-data/" title="7:11 am" rel="bookmark"><time class="entry-date" datetime="2011-11-08T07:11:18+00:00">November 8, 2011</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><strong>Question:</strong></p>
+<p>I know it isn’t listed in the documentation, but is there any method to  test whether a file has been previously encrypted or not?  I would like  to perform decryption on a file, but only if it is already encrypted.</p>
+<p><strong>Answer:</strong></p>
+<p>A symmetric encryption algorithm is simply a transformation of bytes such that the output has the properties of randomly generated byte data.  There is no file format, and each byte value from 0x00 to 0xFF is virtually equally probable.</p>
+<p>There is no single test that can be performed to determine if a file is already encrypted.  There are two solutions:</p>
+<ol>
+<li>Create your own test based on the  type of file being encrypted.  For example, if XML files are encrypted, then test to see if &#8220;&lt;xml&#8221; is found in the beginning.</li>
+<li>Create your own simple &#8220;encrytped file format&#8221;.  For example, it could be as easy as writing a 4-byte &#8220;marker&#8221; at the beginning of every file containing encrypted data.  The marker would be a constant value, such as 0x01020304.  Your application could read the 1st 4 bytes of a file, and if equal to 0x01, 0x02, 0x03, 0x04, then it discards the marker and knows the remainder is the encrypted file data..</li>
+</ol>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/aes/" rel="category tag">aes</a>, <a href="http://cknotes.com/category/blowfish/" rel="category tag">blowfish</a>, <a href="http://cknotes.com/category/encryption/" rel="category tag">Encryption</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/encryption/" rel="tag">Encryption</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-388 -->
+
+				
+					
+	<article id="post-364" class="post-364 post type-post status-publish format-standard hentry category-encryption category-hmac category-signature tag-google-maps tag-url-signature">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/how-to-compute-a-url-signature-for-the-google-maps-api/" rel="bookmark">How to Compute a URL Signature for the Google Maps API</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/how-to-compute-a-url-signature-for-the-google-maps-api/" title="7:46 am" rel="bookmark"><time class="entry-date" datetime="2011-04-08T07:46:35+00:00">April 8, 2011</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>Examples for computing a URL signature for the Google Maps API:</p>
+<p><a href="http://www.example-code.com/asp/url_sign_google_maps.asp">ASP: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/sql/url_sign_google_maps.asp">SQL Server: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/csharp/url_sign_google_maps.asp">C#: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/vcpp/url_sign_google_maps.asp">C++: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/objc/url_sign_google_maps.asp">Objective-C: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/powershell/url_sign_google_maps.asp">PowerShell: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/mfc/url_sign_google_maps.asp">MFC: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/C/url_sign_google_maps.asp">C: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/delphi/url_sign_google_maps.asp">Delphi: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/foxpro/url_sign_google_maps.asp">Visual FoxPro: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/java/url_sign_google_maps.asp">Java: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/perl/url_sign_google_maps.asp">Perl: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/php/url_sign_google_maps.asp">PHP: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/python/url_sign_google_maps.asp">Python: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/ruby/url_sign_google_maps.asp">Ruby: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/vbdotnet/url_sign_google_maps.asp">VB.NET: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/vb/url_sign_google_maps.asp">Visual Basic: URL Signing for Google Maps API</a><br />
+<a href="http://www.example-code.com/vbscript/url_sign_google_maps.asp">VBScript: URL Signing for Google Maps API</a></p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/encryption/" rel="category tag">Encryption</a>, <a href="http://cknotes.com/category/hmac/" rel="category tag">HMAC</a>, <a href="http://cknotes.com/category/signature/" rel="category tag">Signature</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/google-maps/" rel="tag">google maps</a>, <a href="http://cknotes.com/tag/url-signature/" rel="tag">url signature</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-364 -->
+
+				
+					
+	<article id="post-352" class="post-352 post type-post status-publish format-standard hentry category-encryption tag-encryption">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/how-to-tell-if-data-is-aes-encrypted-data/" rel="bookmark">How to tell if Data is AES Encrypted Data?</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/how-to-tell-if-data-is-aes-encrypted-data/" title="9:26 am" rel="bookmark"><time class="entry-date" datetime="2010-12-13T09:26:36+00:00">December 13, 2010</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><strong>Question:</strong></p>
+<p>I really like your component but there&#8217;s one problem with Crypt2. Is  there anyway to verify if the file is encrypted before decrypt? I&#8217;m  asking this question is because if I try to decrypt an unencrypted file,  that file will be corrupted.</p>
+<p><strong>Answer:</strong></p>
+<p>The output of any Chilkat Crypt2 method that does <strong>symmetric encryption</strong> (AES, Blowfish, Triple-DES, etc.) is simply encrypted data.  There is no file format.  Encrypted data will resemble random binary data where all byte values (from 0 to 0xFF) are used.   The typical way to determine if a file is already encrypted is to use knowledge about the file that was encrypted.  For example, if HTML was encrypted, one might first load the file and check to see if common HTML tags are present  &#8212; if so, then the HTML file is not encrypted.   You&#8217;ll need to devise your own ad-hoc method for determining whether data is encrypted or not.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/encryption/" rel="category tag">Encryption</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/encryption/" rel="tag">Encryption</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-352 -->
+
+				
+					
+	<article id="post-290" class="post-290 post type-post status-publish format-standard hentry category-aes category-encryption tag-aes tag-encryption">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/getting-started-with-aes-decryption/" rel="bookmark">Getting Started with AES Decryption</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/getting-started-with-aes-decryption/" title="7:00 am" rel="bookmark"><time class="entry-date" datetime="2010-03-01T07:00:43+00:00">March 1, 2010</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><strong>This is a common question: </strong> You receive encrypted data and a key and want to decrypt.  The person providing the encrypted data has provided little information, perhaps only that the encryption algorithm is AES.  Where to do you begin, and what additional information, if any, do you need?</p>
+<p><strong>Answer:</strong></p>
+<p>AES encryption comes in 3 key sizes:  128-bit, 192-bit, and 256-bit.  Look at the key you received.  Which of the following does it look like:</p>
+<ol>
+<li>zxcv1234abcdQWER</li>
+<li>7A786376313233346162636451574552</li>
+<li>enhjdjEyMzRhYmNkUVdFUg==</li>
+</ol>
+<p>The strings above are all the same key encoded differently.</p>
+<p>#1 is a us-ascii string that is exactly 16 characters.  This is a clue that the person gave you a 128-bit key (16 bytes * 8 bits/byte = 128) and that the bytes used for the key are the ascii values of the characters in the string.</p>
+<p>#2 is a hexidecimal representation of #1.  If you have a hexidecimal representation of the key, you&#8217;ll notice that only the characters 0-9 and A-F (or a-f) are used.  Each byte of the key is represented by 2 ascii bytes.  If your hex string is 32 characters, you have a 16-byte key (and therefore 128-bit encryption).</p>
+<p>#3 is a base64 encoded representation of #1.  The tell-tale signs of Base64 are:  It is often a string ending in &#8220;=&#8221; or &#8220;==&#8221;, and it is not a multiple of 16 characters in length, and it uses characters not valid in a hex string.  A base64 string will be about 1/3rd longer than the binary bytes it represents.  Thus it is longer than our ascii representation, but shorter than the hex representation.  Therfore, if it&#8217;s between 16 and 32 bytes, you can guess 128-bit encryption.  if longer than 32-bytes, it&#8217;s 256-bit encryption.</p>
+<p>So&#8230; once you understand the key, you can set the KeyLength and secret key:</p>
+<pre>cryptObject.KeyLength = 128;
+
+// If the key is represented as an ascii string:
+cryptObject.SetEncodedKey(keyStr, "ascii");
+
+// If the key is represented as an hexidecimal string:
+cryptObject.SetEncodedKey(keyStr, "hex");
+
+// If the key is represented as an base64 string:
+cryptObject.SetEncodedKey(keyStr, "base64");</pre>
+<p>OK, the KeyLength and the secret key are specified.  What&#8217;s left?<br />
+You need to know the following:</p>
+<ul>
+<li>CBC or ECB mode?</li>
+<li>If CBC mode, what is the initialization vector (IV)</li>
+<li>Padding scheme?</li>
+<li>Format of your encrypted data?</li>
+</ul>
+<p>Chances are more likely that it is CBC mode (which stands for cipher block chaining).  If so, you need an initialization vector.  This will <strong>always</strong> be 16 bytes long, regardless of the key length.  If no IV is provided, then it&#8217;s probable that it is assumed to be all NULL bytes, and this is the default w/ the Chilkat component.</p>
+<p>If you have the IV, then examine it just like you did for the key, and call <strong>SetEncodedIV </strong>just like you called SetEncodedKey, passing the correct encoding (&#8220;ascii&#8221;, &#8220;hex&#8221;, or &#8220;base64&#8221;) for the 2nd argument.</p>
+<p>If ECB mode is used, then set the CipherMode property = &#8220;ecb&#8221;</p>
+<pre>cryptObject.CipherMode = "ecb";</pre>
+<p>The PaddingScheme property may be initially left at the default value (which is the most commonly used).  My suggestion is to test with an amount of data that is more than 16 bytes.  The reason is that if everything is correct *except* the PaddingScheme, then your decrypted output will be correct except for the very last 16 bytes.  Once you know that all is correct except for the padding scheme, you can test with different PaddingScheme values.  If you only have a very short amount of data for testing, then it&#8217;s not possible to make this distinction.</p>
+<p>Finally, look at the encrypted data itself.  Is it hex or base64?  If it is a &#8220;string&#8221; it must be one or the other.  You&#8217;ll want to set the EncodingMode property equal to the encoding of the encrypted data:</p>
+<pre>cryptObject.EncodingMode = "hex";</pre>
+<p>Assuming the decrypted result is a string, you&#8217;ll call DecryptStringENC.  The &#8220;ENC&#8221; in the function name indicates that the input is an encoded string and that the encoding is specified by the EncodingMode property.  It returns a string &#8212; your decrypted data.</p>
+<pre>
+string decryptedStr = cryptObject.DecryptStringENC(encryptedStr);
+</pre>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/aes/" rel="category tag">aes</a>, <a href="http://cknotes.com/category/encryption/" rel="category tag">Encryption</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/aes/" rel="tag">aes</a>, <a href="http://cknotes.com/tag/encryption/" rel="tag">Encryption</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-290 -->
+
+				
+					
+	<article id="post-281" class="post-281 post type-post status-publish format-standard hentry category-encryption category-events tag-encryption tag-events tag-progress-monitoring">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/encryption-progress-monitoring/" rel="bookmark">Encryption Progress Monitoring</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/encryption-progress-monitoring/" title="7:18 am" rel="bookmark"><time class="entry-date" datetime="2010-02-10T07:18:48+00:00">February 10, 2010</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><strong>Question:</strong></p>
+<p>Is there a way to encrypt a file with progress monitoring?  Huge files can take a while and it seems like the app is hanging.</p>
+<p><strong>Answer:</strong></p>
+<p>Yes, here is the sample VB6 code:</p>
+<pre>
+Public WithEvents myCrypt As ChilkatCrypt2
+
+' ....
+
+Private Sub myCrypt_PercentDone(ByVal pctDone As Long)
+
+    ProgressBar1.Value = pctDone
+    
+End Sub
+
+Private Sub Command2_Click()
+
+    Set myCrypt = New ChilkatCrypt2
+    
+    success = myCrypt.UnlockComponent("test")
+    
+    ' ...
+
+    success = myCrypt.CkEncryptFile("c:/temp/big.txt", "c:/temp/bigEncrypted.dat")
+        
+End Sub
+
+</pre>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/encryption/" rel="category tag">Encryption</a>, <a href="http://cknotes.com/category/events/" rel="category tag">events</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/encryption/" rel="tag">Encryption</a>, <a href="http://cknotes.com/tag/events/" rel="tag">events</a>, <a href="http://cknotes.com/tag/progress-monitoring/" rel="tag">progress monitoring</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-281 -->
+
+				
+					
+	<article id="post-141" class="post-141 post type-post status-publish format-standard hentry category-encryption tag-aes tag-encryption tag-mysql">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/matching-mysqls-aes_encrypt-functions/" rel="bookmark">Matching MySQL&#8217;s AES_ENCRYPT Functions</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/matching-mysqls-aes_encrypt-functions/" title="9:19 am" rel="bookmark"><time class="entry-date" datetime="2009-02-28T09:19:10+00:00">February 28, 2009</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p>The following example programs demonstrate how to match MySQL&#8217;s AES_ENCRYPT function in different programming languages:</p>
+<p><a href="http://www.example-code.com/asp/mysql_aes_encrypt.asp">ASP: Match MySQL AES_ENCRYPT Function</a></p>
+<p><a href="http://www.example-code.com/sql/mysql_aes_encrypt.asp">SQL Server: Match MySQL AES_ENCRYPT Function</a></p>
+<p><a href="http://www.example-code.com/csharp/mysql_aes_encrypt.asp">C#: Match MySQL AES_ENCRYPT Function</a></p>
+<p><a href="http://www.example-code.com/vcpp/mysql_aes_encrypt.asp">C++: Match MySQL AES_ENCRYPT Function</a></p>
+<p><a href="http://www.example-code.com/mfc/mysql_aes_encrypt.asp">MFC: Match MySQL AES_ENCRYPT Function</a></p>
+<p><a href="http://www.example-code.com/C/mysql_aes_encrypt.asp">C: Match MySQL AES_ENCRYPT Function</a></p>
+<p><a href="http://www.example-code.com/delphi/mysql_aes_encrypt.asp">Delphi: Match MySQL AES_ENCRYPT Function</a></p>
+<p><a href="http://www.example-code.com/foxpro/mysql_aes_encrypt.asp">Visual FoxPro: Match MySQL AES_ENCRYPT Function</a></p>
+<p><a href="http://www.example-code.com/java/mysql_aes_encrypt.asp">Java: Match MySQL AES_ENCRYPT Function</a></p>
+<p><a href="http://www.example-code.com/perl/mysql_aes_encrypt.asp">Perl: Match MySQL AES_ENCRYPT Function</a></p>
+<p><a href="http://www.example-code.com/php/mysql_aes_encrypt.asp">PHP: Match MySQL AES_ENCRYPT Function</a></p>
+<p><a href="http://www.example-code.com/python/mysql_aes_encrypt.asp">Python: Match MySQL AES_ENCRYPT Function</a></p>
+<p><a href="http://www.example-code.com/ruby/mysql_aes_encrypt.asp">Ruby: Match MySQL AES_ENCRYPT Function</a></p>
+<p><a href="http://www.example-code.com/vbdotnet/mysql_aes_encrypt.asp">VB.NET: Match MySQL AES_ENCRYPT Function</a></p>
+<p><a href="http://www.example-code.com/vb/mysql_aes_encrypt.asp">Visual Basic: Match MySQL AES_ENCRYPT Function</a></p>
+<p><a href="http://www.example-code.com/vbscript/mysql_aes_encrypt.asp">VBScript: Match MySQL AES_ENCRYPT Function</a></p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/encryption/" rel="category tag">Encryption</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/aes/" rel="tag">aes</a>, <a href="http://cknotes.com/tag/encryption/" rel="tag">Encryption</a>, <a href="http://cknotes.com/tag/mysql/" rel="tag">MySQL</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-141 -->
+
+				
+					
+	<article id="post-134" class="post-134 post type-post status-publish format-standard hentry category-encryption tag-encryption">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/block-encryption-algorithms-and-encoding/" rel="bookmark">Block Encryption Algorithms and Encoding</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/block-encryption-algorithms-and-encoding/" title="2:09 pm" rel="bookmark"><time class="entry-date" datetime="2009-02-18T14:09:53+00:00">February 18, 2009</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><strong>Question:</strong><br />
+In our application we have the need to encrypt a 19 character simple string value.<br />
+When running through the sample test program I found that the resulting<br />
+encrypted string varied in size from at least 44 to 64 characters depending<br />
+on the encoding type parameter.</p>
+<p>Is there a way to generate an encrypted value that will generate a string of<br />
+the same length as the input string? If that was the case we could just<br />
+replace the clear text with the cipher text.</p>
+<p>If not, will the resulting encrypted value always be the same length so that<br />
+we can expand the database to house a new string value of constant size?<br />
+<strong><br />
+Answer:</strong></p>
+<p>All block encryption algorithms, such as AES, Triple-DES, Blowfish, etc. will produce encrypted output that is a multiple of the algorithm&#8217;s block size.  For AES, the block size is 16 bytes.  For Triple-DES and Blowfish, the block-size is 8 bytes.  Regardless of the key length (128-bit, 256-bit, etc.) the block size is constant for the algorithm.  </p>
+<p>Therefore, if you encrypt 19 bytes using AES encryption, the result will be 32 bytes.</p>
+<p>All encryption algorithms produce output that resembles random binary data.  In other words, all byte values (0x00 &#8211; 0xFF) are equally likely in the output.  Obviously, if you want the encrypted output in printable string format, it must be encoded using an encoding algorithm such as Base64 or Hexadecimalization.  Base64 is the most efficient means of encoding binary data to printable strings.  Base64 encoding uses 4 printable characters for every 3 binary characters.  Depending on what&#8217;s leftover at the end (if the amount of binary data is not evenly divisible by 3), one or two extra characters will be output (these are the &#8220;=&#8221; characters you typically see at the end of Base64 encoded output). </p>
+<p>Therefore, 19 bytes encrypted using AES results in 32 binary bytes.  The 32 bytes represented as a printable string in Base64 is 44 characters.  In summary:  Encrypting 19 bytes with AES will always result in a 44-character Base64 string.</p>
+<p>You may wonder: how is it possible to know the length of the original data when decrypting?  The PaddingScheme property defaults to a value of 1, which specifies RFC 1423 padding, also known as PKCS7 padding.  In this scheme, the last block of data is padded with bytes having a value equal to the number of padding bytes.  If the original data is already a multiple of the block size, then a full extra block of padding is added.  Decrypting software would examine the last byte of the decrypted output and discard this many bytes to arrive at the exact original data (in both content and length).<br />
+(This is exactly what the Chilkat decryption methods do when the PaddingScheme = 1.)</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/encryption/" rel="category tag">Encryption</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/encryption/" rel="tag">Encryption</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-134 -->
+
+				
+					
+	<article id="post-120" class="post-120 post type-post status-publish format-standard hentry category-encryption tag-encoding tag-encryption">
+		<header class="entry-header">
+						<h1 class="entry-title"><a href="http://cknotes.com/encrypting-chinese-characters/" rel="bookmark">Encrypting Chinese Characters</a></h1>
+			
+						<div class="entry-meta">
+				<span class="sep">Posted on </span><a href="http://cknotes.com/encrypting-chinese-characters/" title="6:27 am" rel="bookmark"><time class="entry-date" datetime="2009-01-26T06:27:41+00:00">January 26, 2009</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://cknotes.com/author/admin/" title="View all posts by admin" rel="author">admin</a></span></span>			</div><!-- .entry-meta -->
+			
+					</header><!-- .entry-header -->
+
+				<div class="entry-content">
+			<p><strong>Question:</strong><br />
+Why is it the return is blank when encrypting chinese characters?<br />
+Here&#8217;s a snippet of my code:</p>
+<pre>  crypt.KeyLength := 256;
+  crypt.SecretKey := Password;
+  crypt.CryptAlgorithm := 'aes';
+  crypt.EncodingMode := 'base64';
+  OutPutStr := crypt.EncryptStringENC(StringToEncrypt);</pre>
+<p><strong>Answer:</strong></p>
+<p>Strings in some programming languages such as Visual Basic, C#, VB.NET, Delphi, Foxpro, etc. should be thought of as objects.  The object contains a string (i.e. a sequence of characters that renders to a sequence of glyphs).  The representation of the string within the object is private &#8212; the application shouldn&#8217;t care.  For these languages it happens to be Unicode (the 2-byte per char encoding), so the string object is capable of containing characters in any spoken language.  (Of course, just because the string may contain characters in any spoken language doesn&#8217;t mean glyphs of any language are renderable, and this is a big problem in older programming languages such as VB6, Delphi, etc. where the visual controls are not capable of mixing glyphs of any language &#8212; i.e. they are not Unicode capable controls even though the string data type (i.e. object) holds characters represented internally in Unicode.</p>
+<p>OK, back to the main point&#8230;</p>
+<p>The representation of the string (i.e. the encoding used to represent each character as a sequence of 1 or more bytes) within the string object is private &#8212; the application shouldn&#8217;t care.   With encryption however, it matters greatly.  Encryption algorithms operate on bytes.  (The same goes for hash algorithms)   Therefore, when you encrypt Chinese characters, did you intend to encrypt 2-byte per char Unicode?  Did you intend to encrypt the utf-8 representation of the characters?  What about the &#8220;big5&#8221; or &#8220;gb2312&#8221; character encoding representations?  All would provide different results (of course).</p>
+<p>The Crypt.Charset property controls the charset (character encoding) used for encrypting strings.  The string passed to EncryptString* is first converted (internally) to a byte array using the specified character encoding, and then this byte array is encrypted.  The default value for Crypt.Charset is &#8220;ANSI&#8221;.  In most cases, this is what you expect &#8212; you&#8217;re expecting a typical European accented character to be represented as a single byte in the default charset of the computer.  This doesn&#8217;t work with Chinese (or other Asian languages), or any language that doesn&#8217;t match the locale of the computer.  The internal conversion from Unicode to ANSI is dropping the characters where there is no 1-byte/char representation.</p>
+<p>The solution:  Set Crypt.Charset equal to the encoding desired.  For Chinese it would be one of the following:  &#8220;utf-8&#8221;, &#8220;Unicode&#8221;, &#8220;big5&#8221;, &#8220;gb2312&#8221;.</p>
+					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+												<span class="cat-links">
+				<span class="entry-utility-prep entry-utility-prep-cat-links">Posted in</span> <a href="http://cknotes.com/category/encryption/" rel="category tag">Encryption</a>			</span>
+															<span class="sep"> | </span>
+							<span class="tag-links">
+				<span class="entry-utility-prep entry-utility-prep-tag-links">Tagged</span> <a href="http://cknotes.com/tag/encoding/" rel="tag">Encoding</a>, <a href="http://cknotes.com/tag/encryption/" rel="tag">Encryption</a>			</span>
+						
+			
+					</footer><!-- .entry-meta -->
+	</article><!-- #post-120 -->
+
+				
+						<nav id="nav-below">
+			<h3 class="assistive-text">Post navigation</h3>
+			<div class="nav-previous"><a href="http://cknotes.com/category/encryption/page/2/" ><span class="meta-nav">&larr;</span> Older posts</a></div>
+			<div class="nav-next"></div>
+		</nav><!-- #nav-above -->
+	
+			
+			</div><!-- #content -->
+		</section><!-- #primary -->
+
+		<div id="secondary" class="widget-area" role="complementary">
+			<aside id="linkcat-2" class="widget widget_links"><h3 class="widget-title">Blogroll</h3>
+	<ul class='xoxo blogroll'>
+<li><a href="http://cknotes.com/chilkat-binary-encoding-list/" title="Lists the Encoding Modes Supported by the Chilkat API.">Chilkat Binary Encodings</a></li>
+<li><a href="http://cknotes.com/chilkat-charsets-character-encodings-supported/" title="Lists the Charsets (Character Encodings) supported by the Chilkat API.">Chilkat Character Encodings</a></li>
+<li><a href="http://www.chilkatforum.com" title="Chilkat Forum">Chilkat Forum</a></li>
+<li><a href="http://www.chilkatsoft.com/" title="Chilkat Software Home Page">Chilkat Home</a></li>
+<li><a href="http://www.example-code.com/" title="Programming Examples">Example Code</a></li>
+<li><a href="http://cknotes.com/?p=282" title="How to Determine FTP2 Connection Settings">How to Determine FTP Connection Settings</a></li>
+<li><a href="http://cknotes.com/?p=361" title="How to Register ActiveX DLLs using regsvr32">How To Register ActiveX DLLs</a></li>
+<li><a href="http://cknotes.com/chilkat-net-assemblies-matching-visual-studio-versions-to-net-framework-versions-to-vc-runtime-versions/" title="Chilkat .NET Assemblies – Matching Visual Studio versions to .NET Framework Versions to VC++ Runtime Versions.">MSVC Runtimes for .NET Assemblies</a></li>
+<li><a href="http://www.chilkatsoft.com/p/pIndex.asp" title="More Chilkat Technical Notes">Old Blog Posts</a></li>
+<li><a href="http://www.chilkatsoft.com/refdoc" title="Chilkat Reference Documentation">Reference Documentation</a></li>
+<li><a href="http://cknotes.com/?cat=100" title="Release Notes">Release Notes</a></li>
+<li><a href="http://cknotes.com/?p=302" title="Must-Know Concepts for Socket Programming">Socket Programming Must-Know Concepts</a></li>
+
+	</ul>
+</aside>
+<aside id="tag_cloud-2" class="widget widget_tag_cloud"><h3 class="widget-title">Tags</h3><div class="tagcloud"><a href="http://cknotes.com/tag/net/" class="tag-cloud-link tag-link-84 tag-link-position-1" style="font-size: 8.9655172413793pt;" aria-label=".NET (5 items)">.NET</a>
+<a href="http://cknotes.com/tag/64-bit/" class="tag-cloud-link tag-link-99 tag-link-position-2" style="font-size: 8.9655172413793pt;" aria-label="64-bit (5 items)">64-bit</a>
+<a href="http://cknotes.com/tag/activex/" class="tag-cloud-link tag-link-433 tag-link-position-3" style="font-size: 15.965517241379pt;" aria-label="ActiveX (22 items)">ActiveX</a>
+<a href="http://cknotes.com/tag/asp/" class="tag-cloud-link tag-link-455 tag-link-position-4" style="font-size: 9.8103448275862pt;" aria-label="asp (6 items)">asp</a>
+<a href="http://cknotes.com/tag/async/" class="tag-cloud-link tag-link-425 tag-link-position-5" style="font-size: 9.8103448275862pt;" aria-label="async (6 items)">async</a>
+<a href="http://cknotes.com/tag/asynchronous/" class="tag-cloud-link tag-link-494 tag-link-position-6" style="font-size: 11.620689655172pt;" aria-label="asynchronous (9 items)">asynchronous</a>
+<a href="http://cknotes.com/tag/c/" class="tag-cloud-link tag-link-448 tag-link-position-7" style="font-size: 16.448275862069pt;" aria-label="C# (24 items)">C#</a>
+<a href="http://cknotes.com/tag/charset/" class="tag-cloud-link tag-link-473 tag-link-position-8" style="font-size: 8.9655172413793pt;" aria-label="charset (5 items)">charset</a>
+<a href="http://cknotes.com/tag/delphi/" class="tag-cloud-link tag-link-517 tag-link-position-9" style="font-size: 9.8103448275862pt;" aria-label="Delphi (6 items)">Delphi</a>
+<a href="http://cknotes.com/tag/email/" class="tag-cloud-link tag-link-472 tag-link-position-10" style="font-size: 14.396551724138pt;" aria-label="email (16 items)">email</a>
+<a href="http://cknotes.com/tag/encryption/" class="tag-cloud-link tag-link-431 tag-link-position-11" style="font-size: 13.793103448276pt;" aria-label="Encryption (14 items)">Encryption</a>
+<a href="http://cknotes.com/tag/error-messages/" class="tag-cloud-link tag-link-435 tag-link-position-12" style="font-size: 18.862068965517pt;" aria-label="error messages (39 items)">error messages</a>
+<a href="http://cknotes.com/tag/errors/" class="tag-cloud-link tag-link-174 tag-link-position-13" style="font-size: 8.9655172413793pt;" aria-label="errors (5 items)">errors</a>
+<a href="http://cknotes.com/tag/events/" class="tag-cloud-link tag-link-443 tag-link-position-14" style="font-size: 15.48275862069pt;" aria-label="events (20 items)">events</a>
+<a href="http://cknotes.com/tag/exchange-server/" class="tag-cloud-link tag-link-458 tag-link-position-15" style="font-size: 10.413793103448pt;" aria-label="exchange server (7 items)">exchange server</a>
+<a href="http://cknotes.com/tag/ftp/" class="tag-cloud-link tag-link-440 tag-link-position-16" style="font-size: 19.103448275862pt;" aria-label="FTP (41 items)">FTP</a>
+<a href="http://cknotes.com/tag/gmail/" class="tag-cloud-link tag-link-499 tag-link-position-17" style="font-size: 8.9655172413793pt;" aria-label="GMail (5 items)">GMail</a>
+<a href="http://cknotes.com/tag/http/" class="tag-cloud-link tag-link-428 tag-link-position-18" style="font-size: 17.896551724138pt;" aria-label="HTTP (32 items)">HTTP</a>
+<a href="http://cknotes.com/tag/imap/" class="tag-cloud-link tag-link-452 tag-link-position-19" style="font-size: 16.810344827586pt;" aria-label="IMAP (26 items)">IMAP</a>
+<a href="http://cknotes.com/tag/ios/" class="tag-cloud-link tag-link-541 tag-link-position-20" style="font-size: 12.586206896552pt;" aria-label="IOS (11 items)">IOS</a>
+<a href="http://cknotes.com/tag/java/" class="tag-cloud-link tag-link-430 tag-link-position-21" style="font-size: 12.586206896552pt;" aria-label="Java (11 items)">Java</a>
+<a href="http://cknotes.com/tag/lasterrortext/" class="tag-cloud-link tag-link-493 tag-link-position-22" style="font-size: 8.9655172413793pt;" aria-label="LastErrorText (5 items)">LastErrorText</a>
+<a href="http://cknotes.com/tag/linking/" class="tag-cloud-link tag-link-450 tag-link-position-23" style="font-size: 12.103448275862pt;" aria-label="Linking (10 items)">Linking</a>
+<a href="http://cknotes.com/tag/mht/" class="tag-cloud-link tag-link-480 tag-link-position-24" style="font-size: 9.8103448275862pt;" aria-label="MHT (6 items)">MHT</a>
+<a href="http://cknotes.com/tag/mime/" class="tag-cloud-link tag-link-429 tag-link-position-25" style="font-size: 8pt;" aria-label="MIME (4 items)">MIME</a>
+<a href="http://cknotes.com/tag/pop3/" class="tag-cloud-link tag-link-445 tag-link-position-26" style="font-size: 15.241379310345pt;" aria-label="pop3 (19 items)">pop3</a>
+<a href="http://cknotes.com/tag/port-forwarding/" class="tag-cloud-link tag-link-477 tag-link-position-27" style="font-size: 10.413793103448pt;" aria-label="port-forwarding (7 items)">port-forwarding</a>
+<a href="http://cknotes.com/tag/pre-release/" class="tag-cloud-link tag-link-372 tag-link-position-28" style="font-size: 9.8103448275862pt;" aria-label="pre-release (6 items)">pre-release</a>
+<a href="http://cknotes.com/tag/regsvr32/" class="tag-cloud-link tag-link-510 tag-link-position-29" style="font-size: 12.948275862069pt;" aria-label="regsvr32 (12 items)">regsvr32</a>
+<a href="http://cknotes.com/tag/release-notes/" class="tag-cloud-link tag-link-471 tag-link-position-30" style="font-size: 22pt;" aria-label="release notes (71 items)">release notes</a>
+<a href="http://cknotes.com/tag/rsa/" class="tag-cloud-link tag-link-460 tag-link-position-31" style="font-size: 9.8103448275862pt;" aria-label="RSA (6 items)">RSA</a>
+<a href="http://cknotes.com/tag/sftp/" class="tag-cloud-link tag-link-487 tag-link-position-32" style="font-size: 18.620689655172pt;" aria-label="SFTP (37 items)">SFTP</a>
+<a href="http://cknotes.com/tag/smtp/" class="tag-cloud-link tag-link-426 tag-link-position-33" style="font-size: 16.810344827586pt;" aria-label="SMTP (26 items)">SMTP</a>
+<a href="http://cknotes.com/tag/smtpq/" class="tag-cloud-link tag-link-439 tag-link-position-34" style="font-size: 8.9655172413793pt;" aria-label="smtpq (5 items)">smtpq</a>
+<a href="http://cknotes.com/tag/socket/" class="tag-cloud-link tag-link-488 tag-link-position-35" style="font-size: 12.103448275862pt;" aria-label="socket (10 items)">socket</a>
+<a href="http://cknotes.com/tag/ssh/" class="tag-cloud-link tag-link-476 tag-link-position-36" style="font-size: 16.448275862069pt;" aria-label="SSH (24 items)">SSH</a>
+<a href="http://cknotes.com/tag/ssl/" class="tag-cloud-link tag-link-453 tag-link-position-37" style="font-size: 10.413793103448pt;" aria-label="SSL (7 items)">SSL</a>
+<a href="http://cknotes.com/tag/tls/" class="tag-cloud-link tag-link-454 tag-link-position-38" style="font-size: 8.9655172413793pt;" aria-label="TLS (5 items)">TLS</a>
+<a href="http://cknotes.com/tag/tunnel/" class="tag-cloud-link tag-link-114 tag-link-position-39" style="font-size: 10.413793103448pt;" aria-label="tunnel (7 items)">tunnel</a>
+<a href="http://cknotes.com/tag/upload/" class="tag-cloud-link tag-link-456 tag-link-position-40" style="font-size: 9.8103448275862pt;" aria-label="upload (6 items)">upload</a>
+<a href="http://cknotes.com/tag/vbnet/" class="tag-cloud-link tag-link-505 tag-link-position-41" style="font-size: 8.9655172413793pt;" aria-label="VB.NET (5 items)">VB.NET</a>
+<a href="http://cknotes.com/tag/vb6/" class="tag-cloud-link tag-link-474 tag-link-position-42" style="font-size: 11.620689655172pt;" aria-label="vb6 (9 items)">vb6</a>
+<a href="http://cknotes.com/tag/vc/" class="tag-cloud-link tag-link-520 tag-link-position-43" style="font-size: 10.413793103448pt;" aria-label="VC++ (7 items)">VC++</a>
+<a href="http://cknotes.com/tag/x64/" class="tag-cloud-link tag-link-467 tag-link-position-44" style="font-size: 11.620689655172pt;" aria-label="x64 (9 items)">x64</a>
+<a href="http://cknotes.com/tag/zip/" class="tag-cloud-link tag-link-478 tag-link-position-45" style="font-size: 14.034482758621pt;" aria-label="zip (15 items)">zip</a></div>
+</aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-421"><a href="http://cknotes.com/category/net/" >.NET</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="http://cknotes.com/category/3des/" >3DES</a>
+</li>
+	<li class="cat-item cat-item-295"><a href="http://cknotes.com/category/40-framework/" >4.0 Framework</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="http://cknotes.com/category/activex/" >ActiveX</a>
+</li>
+	<li class="cat-item cat-item-97"><a href="http://cknotes.com/category/aes/" >aes</a>
+</li>
+	<li class="cat-item cat-item-69"><a href="http://cknotes.com/category/amazon-s3/" >Amazon S3</a>
+</li>
+	<li class="cat-item cat-item-316"><a href="http://cknotes.com/category/android/" >Android</a>
+</li>
+	<li class="cat-item cat-item-304"><a href="http://cknotes.com/category/announcements/" >announcements</a>
+</li>
+	<li class="cat-item cat-item-561"><a href="http://cknotes.com/category/any-cpu/" >Any CPU</a>
+</li>
+	<li class="cat-item cat-item-60"><a href="http://cknotes.com/category/asp/" >asp</a>
+</li>
+	<li class="cat-item cat-item-282"><a href="http://cknotes.com/category/asp-ftp/" >ASP FTP</a>
+</li>
+	<li class="cat-item cat-item-48"><a href="http://cknotes.com/category/asp-upload/" >ASP Upload</a>
+</li>
+	<li class="cat-item cat-item-27"><a href="http://cknotes.com/category/aspnet/" >asp.net</a>
+</li>
+	<li class="cat-item cat-item-28"><a href="http://cknotes.com/category/assembly/" >assembly</a>
+</li>
+	<li class="cat-item cat-item-597"><a href="http://cknotes.com/category/async/" >async</a>
+</li>
+	<li class="cat-item cat-item-165"><a href="http://cknotes.com/category/asynchronous/" >asynchronous</a>
+</li>
+	<li class="cat-item cat-item-112"><a href="http://cknotes.com/category/atl/" >ATL</a>
+</li>
+	<li class="cat-item cat-item-133"><a href="http://cknotes.com/category/attachments/" >attachments</a>
+</li>
+	<li class="cat-item cat-item-330"><a href="http://cknotes.com/category/azure/" >Azure</a>
+</li>
+	<li class="cat-item cat-item-279"><a href="http://cknotes.com/category/bcc/" >BCC</a>
+</li>
+	<li class="cat-item cat-item-25"><a href="http://cknotes.com/category/blowfish/" >blowfish</a>
+</li>
+	<li class="cat-item cat-item-159"><a href="http://cknotes.com/category/bounce/" >bounce</a>
+</li>
+	<li class="cat-item cat-item-158"><a href="http://cknotes.com/category/bounced-email/" >Bounced Email</a>
+</li>
+	<li class="cat-item cat-item-345"><a href="http://cknotes.com/category/c-language/" >C language</a>
+</li>
+	<li class="cat-item cat-item-47"><a href="http://cknotes.com/category/c/" >C#</a>
+</li>
+	<li class="cat-item cat-item-291"><a href="http://cknotes.com/category/c-builder/" >C++ Builder</a>
+</li>
+	<li class="cat-item cat-item-333"><a href="http://cknotes.com/category/cades/" >CAdES</a>
+</li>
+	<li class="cat-item cat-item-578"><a href="http://cknotes.com/category/callbacks/" >callbacks</a>
+</li>
+	<li class="cat-item cat-item-419"><a href="http://cknotes.com/category/certchain/" >CertChain</a>
+</li>
+	<li class="cat-item cat-item-182"><a href="http://cknotes.com/category/certificate/" >certificate</a>
+</li>
+	<li class="cat-item cat-item-204"><a href="http://cknotes.com/category/certificates/" >certificates</a>
+</li>
+	<li class="cat-item cat-item-104"><a href="http://cknotes.com/category/character/" >character</a>
+</li>
+	<li class="cat-item cat-item-107"><a href="http://cknotes.com/category/charset/" >charset</a>
+</li>
+	<li class="cat-item cat-item-220"><a href="http://cknotes.com/category/ckstring/" >CkString</a>
+</li>
+	<li class="cat-item cat-item-603"><a href="http://cknotes.com/category/classic-asp/" >classic ASP</a>
+</li>
+	<li class="cat-item cat-item-331"><a href="http://cknotes.com/category/cocoa/" >cocoa</a>
+</li>
+	<li class="cat-item cat-item-188"><a href="http://cknotes.com/category/compression/" >compression</a>
+</li>
+	<li class="cat-item cat-item-343"><a href="http://cknotes.com/category/cpp/" >cpp</a>
+</li>
+	<li class="cat-item cat-item-178"><a href="http://cknotes.com/category/createobject/" >CreateObject</a>
+</li>
+	<li class="cat-item cat-item-169"><a href="http://cknotes.com/category/csp/" >csp</a>
+</li>
+	<li class="cat-item cat-item-161"><a href="http://cknotes.com/category/debugging/" >debugging</a>
+</li>
+	<li class="cat-item cat-item-249"><a href="http://cknotes.com/category/delphi/" >Delphi</a>
+</li>
+	<li class="cat-item cat-item-39"><a href="http://cknotes.com/category/deployment/" >deployment</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="http://cknotes.com/category/des-encryption/" >DES Encryption</a>
+</li>
+	<li class="cat-item cat-item-129"><a href="http://cknotes.com/category/diffie-hellman/" >Diffie-Hellman</a>
+</li>
+	<li class="cat-item cat-item-237"><a href="http://cknotes.com/category/dispose/" >Dispose</a>
+</li>
+	<li class="cat-item cat-item-210"><a href="http://cknotes.com/category/dkim/" >DKIM</a>
+</li>
+	<li class="cat-item cat-item-191"><a href="http://cknotes.com/category/dll/" >DLL</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="http://cknotes.com/category/dsn/" >DSN</a>
+</li>
+	<li class="cat-item cat-item-369"><a href="http://cknotes.com/category/dso/" >DSO</a>
+</li>
+	<li class="cat-item cat-item-410"><a href="http://cknotes.com/category/edifact/" >edifact</a>
+</li>
+	<li class="cat-item cat-item-101"><a href="http://cknotes.com/category/email/" >email</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://cknotes.com/category/encoding/" >Encoding</a>
+</li>
+	<li class="cat-item cat-item-14 current-cat"><a href="http://cknotes.com/category/encryption/" >Encryption</a>
+</li>
+	<li class="cat-item cat-item-23"><a href="http://cknotes.com/category/error-messages/" >error messages</a>
+</li>
+	<li class="cat-item cat-item-35"><a href="http://cknotes.com/category/events/" >events</a>
+</li>
+	<li class="cat-item cat-item-67"><a href="http://cknotes.com/category/exchange-server/" >exchange server</a>
+</li>
+	<li class="cat-item cat-item-75"><a href="http://cknotes.com/category/file-io/" >FILE IO</a>
+</li>
+	<li class="cat-item cat-item-349"><a href="http://cknotes.com/category/forum/" >forum</a>
+</li>
+	<li class="cat-item cat-item-34"><a href="http://cknotes.com/category/foxpro/" >FoxPro</a>
+</li>
+	<li class="cat-item cat-item-31"><a href="http://cknotes.com/category/ftp/" >FTP</a>
+</li>
+	<li class="cat-item cat-item-179"><a href="http://cknotes.com/category/gmail/" >GMail</a>
+</li>
+	<li class="cat-item cat-item-613"><a href="http://cknotes.com/category/google/" >Google</a>
+</li>
+	<li class="cat-item cat-item-126"><a href="http://cknotes.com/category/gzip/" >gzip</a>
+</li>
+	<li class="cat-item cat-item-198"><a href="http://cknotes.com/category/hashing/" >Hashing</a>
+</li>
+	<li class="cat-item cat-item-68"><a href="http://cknotes.com/category/hmac/" >HMAC</a>
+</li>
+	<li class="cat-item cat-item-53"><a href="http://cknotes.com/category/html-email/" >HTML Email</a>
+</li>
+	<li class="cat-item cat-item-236"><a href="http://cknotes.com/category/html-to-text/" >HTML-to-Text</a>
+</li>
+	<li class="cat-item cat-item-124"><a href="http://cknotes.com/category/html-to-xml/" >HTML-to-XML</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://cknotes.com/category/http/" >HTTP</a>
+</li>
+	<li class="cat-item cat-item-87"><a href="http://cknotes.com/category/iis/" >IIS</a>
+</li>
+	<li class="cat-item cat-item-55"><a href="http://cknotes.com/category/imap/" >IMAP</a>
+</li>
+	<li class="cat-item cat-item-280"><a href="http://cknotes.com/category/incorrect-format/" >incorrect format</a>
+</li>
+	<li class="cat-item cat-item-323"><a href="http://cknotes.com/category/ios/" >IOS</a>
+</li>
+	<li class="cat-item cat-item-253"><a href="http://cknotes.com/category/japanese/" >Japanese</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="http://cknotes.com/category/java/" >Java</a>
+</li>
+	<li class="cat-item cat-item-276"><a href="http://cknotes.com/category/java-digital-signature/" >Java digital signature</a>
+</li>
+	<li class="cat-item cat-item-609"><a href="http://cknotes.com/category/json/" >JSON</a>
+</li>
+	<li class="cat-item cat-item-163"><a href="http://cknotes.com/category/lasterrortext/" >LastErrorText</a>
+</li>
+	<li class="cat-item cat-item-322"><a href="http://cknotes.com/category/licensing/" >licensing</a>
+</li>
+	<li class="cat-item cat-item-49"><a href="http://cknotes.com/category/linking/" >Linking</a>
+</li>
+	<li class="cat-item cat-item-308"><a href="http://cknotes.com/category/linux/" >Linux</a>
+</li>
+	<li class="cat-item cat-item-311"><a href="http://cknotes.com/category/mac-os-x/" >MAC OS X</a>
+</li>
+	<li class="cat-item cat-item-284"><a href="http://cknotes.com/category/managed-c/" >managed C++</a>
+</li>
+	<li class="cat-item cat-item-119"><a href="http://cknotes.com/category/mht/" >MHT</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://cknotes.com/category/mime/" >MIME</a>
+</li>
+	<li class="cat-item cat-item-313"><a href="http://cknotes.com/category/mingw/" >MinGW</a>
+</li>
+	<li class="cat-item cat-item-403"><a href="http://cknotes.com/category/mono/" >Mono</a>
+</li>
+	<li class="cat-item cat-item-572"><a href="http://cknotes.com/category/msi/" >msi</a>
+</li>
+	<li class="cat-item cat-item-568"><a href="http://cknotes.com/category/multi-hop/" >multi-hop</a>
+</li>
+	<li class="cat-item cat-item-94"><a href="http://cknotes.com/category/multi-threading/" >multi-threading</a>
+</li>
+	<li class="cat-item cat-item-565"><a href="http://cknotes.com/category/node-js/" >Node.js</a>
+</li>
+	<li class="cat-item cat-item-382"><a href="http://cknotes.com/category/nuget/" >nuget</a>
+</li>
+	<li class="cat-item cat-item-307"><a href="http://cknotes.com/category/oauth/" >OAUTH</a>
+</li>
+	<li class="cat-item cat-item-593"><a href="http://cknotes.com/category/oauth2/" >OAuth2</a>
+</li>
+	<li class="cat-item cat-item-327"><a href="http://cknotes.com/category/objective-c/" >Objective-C</a>
+</li>
+	<li class="cat-item cat-item-310"><a href="http://cknotes.com/category/openssl/" >openssl</a>
+</li>
+	<li class="cat-item cat-item-66"><a href="http://cknotes.com/category/outlook/" >outlook</a>
+</li>
+	<li class="cat-item cat-item-411"><a href="http://cknotes.com/category/p7m/" >p7m</a>
+</li>
+	<li class="cat-item cat-item-202"><a href="http://cknotes.com/category/performance/" >performance</a>
+</li>
+	<li class="cat-item cat-item-166"><a href="http://cknotes.com/category/perl/" >Perl</a>
+</li>
+	<li class="cat-item cat-item-181"><a href="http://cknotes.com/category/pfx/" >pfx</a>
+</li>
+	<li class="cat-item cat-item-45"><a href="http://cknotes.com/category/php/" >PHP</a>
+</li>
+	<li class="cat-item cat-item-122"><a href="http://cknotes.com/category/pki/" >PKI</a>
+</li>
+	<li class="cat-item cat-item-318"><a href="http://cknotes.com/category/pocket-pc-2003/" >Pocket PC 2003</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="http://cknotes.com/category/pop3/" >pop3</a>
+</li>
+	<li class="cat-item cat-item-115"><a href="http://cknotes.com/category/port-forwarding/" >port-forwarding</a>
+</li>
+	<li class="cat-item cat-item-231"><a href="http://cknotes.com/category/powershell/" >PowerShell</a>
+</li>
+	<li class="cat-item cat-item-371"><a href="http://cknotes.com/category/pre-release-notes/" >pre-release notes</a>
+</li>
+	<li class="cat-item cat-item-180"><a href="http://cknotes.com/category/private-key/" >private key</a>
+</li>
+	<li class="cat-item cat-item-85"><a href="http://cknotes.com/category/progress-monitoring/" >progress monitoring</a>
+</li>
+	<li class="cat-item cat-item-79"><a href="http://cknotes.com/category/proxy/" >Proxy</a>
+</li>
+	<li class="cat-item cat-item-309"><a href="http://cknotes.com/category/python/" >Python</a>
+</li>
+	<li class="cat-item cat-item-205"><a href="http://cknotes.com/category/regsvr32/" >regsvr32</a>
+</li>
+	<li class="cat-item cat-item-100"><a href="http://cknotes.com/category/release-notes/" >release notes</a>
+</li>
+	<li class="cat-item cat-item-72"><a href="http://cknotes.com/category/rsa/" >RSA</a>
+</li>
+	<li class="cat-item cat-item-203"><a href="http://cknotes.com/category/ruby/" >Ruby</a>
+</li>
+	<li class="cat-item cat-item-243"><a href="http://cknotes.com/category/sample-code/" >sample code</a>
+</li>
+	<li class="cat-item cat-item-157"><a href="http://cknotes.com/category/self-extracting-exe/" >self-extracting EXE</a>
+</li>
+	<li class="cat-item cat-item-137"><a href="http://cknotes.com/category/sftp/" >SFTP</a>
+</li>
+	<li class="cat-item cat-item-298"><a href="http://cknotes.com/category/signature/" >Signature</a>
+</li>
+	<li class="cat-item cat-item-170"><a href="http://cknotes.com/category/smartcard/" >smartcard</a>
+</li>
+	<li class="cat-item cat-item-281"><a href="http://cknotes.com/category/sms/" >SMS</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://cknotes.com/category/smtp/" >SMTP</a>
+</li>
+	<li class="cat-item cat-item-30"><a href="http://cknotes.com/category/smtpq/" >smtpq</a>
+</li>
+	<li class="cat-item cat-item-423"><a href="http://cknotes.com/category/soap/" >SOAP</a>
+</li>
+	<li class="cat-item cat-item-138"><a href="http://cknotes.com/category/socket/" >socket</a>
+</li>
+	<li class="cat-item cat-item-218"><a href="http://cknotes.com/category/socks-proxy-server/" >SOCKS Proxy Server</a>
+</li>
+	<li class="cat-item cat-item-317"><a href="http://cknotes.com/category/solaris/" >Solaris</a>
+</li>
+	<li class="cat-item cat-item-358"><a href="http://cknotes.com/category/sql/" >SQL</a>
+</li>
+	<li class="cat-item cat-item-113"><a href="http://cknotes.com/category/ssh/" >SSH</a>
+</li>
+	<li class="cat-item cat-item-242"><a href="http://cknotes.com/category/ssh-keys/" >SSH keys</a>
+</li>
+	<li class="cat-item cat-item-136"><a href="http://cknotes.com/category/ssh-tunnel/" >SSH Tunnel</a>
+</li>
+	<li class="cat-item cat-item-206"><a href="http://cknotes.com/category/ssis/" >ssis</a>
+</li>
+	<li class="cat-item cat-item-56"><a href="http://cknotes.com/category/ssl/" >SSL</a>
+</li>
+	<li class="cat-item cat-item-96"><a href="http://cknotes.com/category/stream/" >stream</a>
+</li>
+	<li class="cat-item cat-item-162"><a href="http://cknotes.com/category/support/" >support</a>
+</li>
+	<li class="cat-item cat-item-251"><a href="http://cknotes.com/category/tchar/" >TCHAR</a>
+</li>
+	<li class="cat-item cat-item-321"><a href="http://cknotes.com/category/tcpip/" >TCP/IP</a>
+</li>
+	<li class="cat-item cat-item-58"><a href="http://cknotes.com/category/tls/" >TLS</a>
+</li>
+	<li class="cat-item cat-item-415"><a href="http://cknotes.com/category/trustedroots/" >TrustedRoots</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://cknotes.com/category/uncategorized/" >Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-32"><a href="http://cknotes.com/category/unicode/" >unicode</a>
+</li>
+	<li class="cat-item cat-item-187"><a href="http://cknotes.com/category/unlockcomponent/" >UnlockComponent</a>
+</li>
+	<li class="cat-item cat-item-61"><a href="http://cknotes.com/category/upload/" >upload</a>
+</li>
+	<li class="cat-item cat-item-287"><a href="http://cknotes.com/category/user-interface/" >user-interface</a>
+</li>
+	<li class="cat-item cat-item-117"><a href="http://cknotes.com/category/utf-8/" >utf-8</a>
+</li>
+	<li class="cat-item cat-item-190"><a href="http://cknotes.com/category/vbnet/" >VB.NET</a>
+</li>
+	<li class="cat-item cat-item-108"><a href="http://cknotes.com/category/vb6/" >vb6</a>
+</li>
+	<li class="cat-item cat-item-15"><a href="http://cknotes.com/category/vbscript/" >VBScript</a>
+</li>
+	<li class="cat-item cat-item-270"><a href="http://cknotes.com/category/vc/" >VC++</a>
+</li>
+	<li class="cat-item cat-item-88"><a href="http://cknotes.com/category/vista/" >Vista</a>
+</li>
+	<li class="cat-item cat-item-366"><a href="http://cknotes.com/category/visual-studio/" >Visual Studio</a>
+</li>
+	<li class="cat-item cat-item-352"><a href="http://cknotes.com/category/webdav/" >WebDAV</a>
+</li>
+	<li class="cat-item cat-item-354"><a href="http://cknotes.com/category/website/" >website</a>
+</li>
+	<li class="cat-item cat-item-347"><a href="http://cknotes.com/category/windows-8/" >Windows 8</a>
+</li>
+	<li class="cat-item cat-item-588"><a href="http://cknotes.com/category/windows-firewall/" >Windows Firewall</a>
+</li>
+	<li class="cat-item cat-item-396"><a href="http://cknotes.com/category/windows-phone/" >Windows Phone</a>
+</li>
+	<li class="cat-item cat-item-132"><a href="http://cknotes.com/category/wsaewouldblock/" >WSAEWOULDBLOCK</a>
+</li>
+	<li class="cat-item cat-item-93"><a href="http://cknotes.com/category/x64/" >x64</a>
+</li>
+	<li class="cat-item cat-item-324"><a href="http://cknotes.com/category/xcode/" >XCode</a>
+</li>
+	<li class="cat-item cat-item-91"><a href="http://cknotes.com/category/xml/" >XML</a>
+</li>
+	<li class="cat-item cat-item-420"><a href="http://cknotes.com/category/xmlcertvault/" >XmlCertVault</a>
+</li>
+	<li class="cat-item cat-item-116"><a href="http://cknotes.com/category/zip/" >zip</a>
+</li>
+		</ul>
+</aside>		</div><!-- #secondary .widget-area -->
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="https://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+	<div style="display:none">
+	</div>
+<script type='text/javascript' src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201738'></script>
+<script type='text/javascript' src='http://s.gravatar.com/js/gprofiles.js?ver=2017Sepaa'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://cknotes.com/wp-content/plugins/jetpack/modules/wpgroho.js?ver=4.8.1'></script>
+<script type='text/javascript' src='http://cknotes.com/wp-includes/js/wp-embed.min.js?ver=4.8.1'></script>
+<script type='text/javascript' src='https://stats.wp.com/e-201738.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:5.1',blog:'1',post:'0',tz:'-7',srv:'cknotes.com'} ]);
+	_stq.push([ 'clickTrackerInit', '1', '0' ]);
+</script>
+
+</body>
+</html>
