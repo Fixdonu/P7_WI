@@ -71,6 +71,8 @@ namespace MyCrawler
 
                     response.Close();
                     readStream.Close();
+                    response.Dispose();
+                    readStream.Dispose();
                 }
             }
             catch (Exception e)

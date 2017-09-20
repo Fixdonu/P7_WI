@@ -29,7 +29,7 @@ namespace MyCrawler
 
         void Crawl()
         {
-            while (crawledPages < 40 || frontierP.Count == 0)
+            while (crawledPages < 1000 || frontierP.Count == 0)
             {
                 string url = frontierP.First.Value;
                 frontierP.RemoveFirst();
@@ -71,6 +71,8 @@ namespace MyCrawler
                     }
                     response.Close();
                     readStream.Close();
+                    response.Dispose();
+                    readStream.Dispose();
                     crawledPages++;
                 }
             }
@@ -86,18 +88,18 @@ namespace MyCrawler
             //page.txt
 
             //not a relative path
-            string path = @"C:/Users/Ejer/Desktop/WebCrawlerFolder";
-            string filename = "/file" + n;
+            //string path = @"C:/Users/Ejer/Desktop/WebCrawlerFolder";
+          string path = @"..\..\Resources";
+            string filename = @"\file" + n + url.Replace(":","").Replace("/","") + ".txt";
             Console.WriteLine("creating file:" + path + filename);
             if (!File.Exists(path + filename))
             {
                 // Create a file to write to.
                 string createText = page.txt;
-                File.WriteAllText(path, createText);
-                n++;
+                File.WriteAllText(path + filename, createText);
+                
             }
-            System.Threading.Thread.Sleep(12000);
-
+            n++;
             string parsedLink;
             string regex = "<a .*?href=([\"'])(?<Link>.*?)\\1.*?>";
             //string regex2 = "href =\"[a-zA-Z./:&\\d_-]+\"";
