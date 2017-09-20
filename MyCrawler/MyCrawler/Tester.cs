@@ -13,6 +13,8 @@ namespace MyCrawler
             this.url = url;
             IsContained(url);
             //Console.WriteLine(CreateBaseP(url));
+           
+            
         }
 
         string url;

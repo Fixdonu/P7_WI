@@ -24,7 +24,8 @@ namespace MyCrawler
             this.rtp = rtp;
             lp = new LinkParser(rtp);
             frontierP.AddLast("http://cknotes.com");
-            Crawl();
+      //Crawl();
+      HTMLExterminator();
         }
 
         void Crawl()
@@ -55,10 +56,10 @@ namespace MyCrawler
         {
             try
             {
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+        HttpWebRequest request = (HttpWebRequest) WebRequest.Create(url);
                 request.UserAgent = crawlerName;
                 //request.Credentials
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+        HttpWebResponse response = (HttpWebResponse) request.GetResponse();
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
@@ -89,8 +90,8 @@ namespace MyCrawler
 
             //not a relative path
             //string path = @"C:/Users/Ejer/Desktop/WebCrawlerFolder";
-            string path = @"..\..\Resources";
-            string filename = @"\file" + n + url.Replace(":","").Replace("/","") + ".txt";
+      string path = @"..\..\Resources\RawCrawl";
+      string filename = @"\file" + n + url.Replace(":", "").Replace("/", "") + ".txt";
             Console.WriteLine("creating file:" + path + filename);
             if (!File.Exists(path + filename))
             {
@@ -124,6 +125,35 @@ namespace MyCrawler
                 System.Threading.Thread.Sleep(1000);
             }
 
+    }
+
+    void HTMLExterminator()
+    {
+      string rawPath = @"..\..\Resources\RawCrawl";
+      string[] rawFiles = Directory.GetFiles(rawPath);
+      string noHTMLPath = @"..\..\Resources\NoHTML";
+      //string noHTMLfilename;
+      Regex regexRipHTML = new Regex(@"(<([^>]+)>)", RegexOptions.Compiled | RegexOptions.Singleline);
+      string currentDoc;
+      int i = 0;
+      foreach (var x in rawFiles)
+      {
+        //Console.WriteLine(x); 
+        using (StreamReader sr = new StreamReader(x))
+        {
+          //noHTMLfilename = x.Substring(x.IndexOf(@"\") + 1);
+          currentDoc = sr.ReadToEnd();
+          currentDoc = regexRipHTML.Replace(currentDoc, " ");
+          if (!File.Exists(noHTMLPath + @"\" + Path.GetFileName(x)))
+          {
+            Console.WriteLine(noHTMLPath + @"\" + Path.GetFileName(x));
+            File.WriteAllText(noHTMLPath + @"\" + Path.GetFileName(x), currentDoc);
+          }
+
+          sr.Close();
+          sr.Dispose();
+        }
+      }
         }
     }
 }
