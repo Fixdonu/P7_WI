@@ -89,7 +89,7 @@ namespace MyCrawler
 
             //not a relative path
             //string path = @"C:/Users/Ejer/Desktop/WebCrawlerFolder";
-          string path = @"..\..\Resources";
+            string path = @"..\..\Resources";
             string filename = @"\file" + n + url.Replace(":","").Replace("/","") + ".txt";
             Console.WriteLine("creating file:" + path + filename);
             if (!File.Exists(path + filename))
