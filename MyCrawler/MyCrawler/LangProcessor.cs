@@ -15,6 +15,7 @@ namespace MyCrawler
         {
             stopDict =  new Dictionary<string, int>();
             CreateStopDict();
+
             RemoveStopWord(TokenFromFile(fp));
         }
 
@@ -176,7 +177,7 @@ namespace MyCrawler
 
         string[] TokenFromFile(string filepath)
         {
-            string[] tokenList = File.ReadAllText(filepath).Split(' ');
+            string[] tokenList = File.ReadAllText(filepath).ToLower().Split(' ');
 
             return tokenList;
         }
