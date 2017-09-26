@@ -15,10 +15,13 @@ namespace MyCrawler
             //Tester t = new Tester(test);
             
             string crawlerName = "sw709Bot";
+            //LangProcessor lp = new LangProcessor();
+            //lp.BinIndex(@"..\..\Resources\NoHTML");
+
 
             RobotTxtParser rtp = new RobotTxtParser(crawlerName);
             Crawler c = new Crawler(rtp, crawlerName);
-
+            
             
         }
     }

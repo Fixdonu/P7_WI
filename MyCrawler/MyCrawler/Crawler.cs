@@ -24,8 +24,8 @@ namespace MyCrawler
             this.rtp = rtp;
             lp = new LinkParser(rtp);
             frontierP.AddLast("http://cknotes.com");
-      //Crawl();
-      HTMLExterminator();
+            //Crawl();
+            HTMLExterminator();
         }
 
         void Crawl()
@@ -45,7 +45,7 @@ namespace MyCrawler
 
                 Console.WriteLine("Crawled: " + crawledPages);
                 System.Threading.Thread.Sleep(crawlerDelay);
-            }        
+            }
 
             Console.WriteLine(frontierP.Count);
 
@@ -56,10 +56,10 @@ namespace MyCrawler
         {
             try
             {
-        HttpWebRequest request = (HttpWebRequest) WebRequest.Create(url);
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
                 request.UserAgent = crawlerName;
                 //request.Credentials
-        HttpWebResponse response = (HttpWebResponse) request.GetResponse();
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
@@ -86,24 +86,21 @@ namespace MyCrawler
         void ParsePage(StreamReader r, string url)
         {
             Page page = new Page(url, r.ReadToEnd());
-            //page.txt
 
-            //not a relative path
-            //string path = @"C:/Users/Ejer/Desktop/WebCrawlerFolder";
-      string path = @"..\..\Resources\RawCrawl";
-      string filename = @"\file" + n + url.Replace(":", "").Replace("/", "") + ".txt";
+            string path = @"..\..\Resources\RawCrawl";
+            string filename = @"\file" + n + url.Replace(":", "").Replace("/", "") + ".txt";
             Console.WriteLine("creating file:" + path + filename);
             if (!File.Exists(path + filename))
             {
                 // Create a file to write to.
                 string createText = page.txt;
                 File.WriteAllText(path + filename, createText);
-                
+
             }
+
             n++;
             string parsedLink;
             string regex = "<a .*?href=([\"'])(?<Link>.*?)\\1.*?>";
-            //string regex2 = "href =\"[a-zA-Z./:&\\d_-]+\"";
 
             Regex reg = new Regex(regex);
             MatchCollection matches = reg.Matches(page.txt);
@@ -119,41 +116,50 @@ namespace MyCrawler
                     {
                         frontierP.AddLast(parsedLink);
                     }
-                    
+
                 }
 
                 System.Threading.Thread.Sleep(1000);
             }
 
-    }
-
-    void HTMLExterminator()
-    {
-      string rawPath = @"..\..\Resources\RawCrawl";
-      string[] rawFiles = Directory.GetFiles(rawPath);
-      string noHTMLPath = @"..\..\Resources\NoHTML";
-      //string noHTMLfilename;
-      Regex regexRipHTML = new Regex(@"(<([^>]+)>)", RegexOptions.Compiled | RegexOptions.Singleline);
-      string currentDoc;
-      int i = 0;
-      foreach (var x in rawFiles)
-      {
-        //Console.WriteLine(x); 
-        using (StreamReader sr = new StreamReader(x))
-        {
-          //noHTMLfilename = x.Substring(x.IndexOf(@"\") + 1);
-          currentDoc = sr.ReadToEnd();
-          currentDoc = regexRipHTML.Replace(currentDoc, " ");
-          if (!File.Exists(noHTMLPath + @"\" + Path.GetFileName(x)))
-          {
-            Console.WriteLine(noHTMLPath + @"\" + Path.GetFileName(x));
-            File.WriteAllText(noHTMLPath + @"\" + Path.GetFileName(x), currentDoc);
-          }
-
-          sr.Close();
-          sr.Dispose();
         }
-      }
+        
+        
+        void HTMLExterminator()
+        {
+            string rawPath = @"..\..\Resources\RawCrawl";
+            //string rawPath = @"C:\Users\Ejer\Documents\GitHub\P7_WI\MyCrawler\MyCrawler\Resources\RawCrawl";
+            string[] rawFiles = Directory.GetFiles(rawPath);
+            string noHTMLPath = @"..\..\Resources\NoHTML";
+            //string noHTMLPath = @"C:\Users\Ejer\Documents\GitHub\P7_WI\MyCrawler\MyCrawler\Resources\NoHTML";
+            
+            Regex regexRipHTML = new Regex(" < body(?:[ ][^>]*)?>(?<contents>.*?)</body>",
+                                 RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.Singleline);
+
+            string currentDoc;
+            int i = 0;
+            foreach (var x in rawFiles)
+            {
+                Console.WriteLine(x); 
+                using (StreamReader sr = new StreamReader(x))
+                {
+                    currentDoc = sr.ReadToEnd();
+                    currentDoc = regexRipHTML.Replace(currentDoc, " ");
+
+                    //if (!File.Exists(noHTMLPath + @"\" + Path.GetFileName(x)))
+                    //{
+                        Console.WriteLine("entered");
+                        Console.WriteLine(noHTMLPath + @"\" + Path.GetFileName(x));
+                        //File.WriteAllText(@"C:\Users\Ejer\Documents\GitHub\P7_WI\MyCrawler\MyCrawler\Resources\NoHTML\text" + i, currentDoc);
+                        File.WriteAllText(noHTMLPath + @"\" + i +Path.GetFileName(x), currentDoc);
+                        System.Threading.Thread.Sleep(599);
+                    //}
+
+                    sr.Close();
+                    sr.Dispose();
+                }
+                i++;
+            }
         }
     }
 }

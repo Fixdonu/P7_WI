@@ -3,3 +3,8 @@ c:\Users\Ejer\Documents\Visual Studio 2015\Projects\MyCrawler\MyCrawler\bin\Debu
 c:\Users\Ejer\Documents\Visual Studio 2015\Projects\MyCrawler\MyCrawler\bin\Debug\MyCrawler.pdb
 c:\Users\Ejer\Documents\Visual Studio 2015\Projects\MyCrawler\MyCrawler\obj\Debug\MyCrawler.exe
 c:\Users\Ejer\Documents\Visual Studio 2015\Projects\MyCrawler\MyCrawler\obj\Debug\MyCrawler.pdb
+C:\Users\Ejer\Documents\GitHub\P7_WI\MyCrawler\MyCrawler\bin\Debug\MyCrawler.exe.config
+C:\Users\Ejer\Documents\GitHub\P7_WI\MyCrawler\MyCrawler\bin\Debug\MyCrawler.exe
+C:\Users\Ejer\Documents\GitHub\P7_WI\MyCrawler\MyCrawler\bin\Debug\MyCrawler.pdb
+C:\Users\Ejer\Documents\GitHub\P7_WI\MyCrawler\MyCrawler\obj\Debug\MyCrawler.exe
+C:\Users\Ejer\Documents\GitHub\P7_WI\MyCrawler\MyCrawler\obj\Debug\MyCrawler.pdb

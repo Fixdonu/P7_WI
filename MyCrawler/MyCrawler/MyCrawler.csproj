@@ -44,7 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Crawler.cs" />
-    <Compile Include="LangProcessor.cs" />
+    <Compile Include="Indexer\LangProcessor.cs" />
+    <Compile Include="Indexer\Ranker.cs" />
     <Compile Include="LinkParser.cs" />
     <Compile Include="Page.cs" />
     <Compile Include="Program.cs" />
