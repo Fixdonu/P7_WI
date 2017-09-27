@@ -10,19 +10,19 @@ namespace MyCrawler
     {
         static void Main(string[] args)
         {
-            
+
             //string test = "http://www.cknotes.com/ghe/ajax/goaj";
             //Tester t = new Tester(test);
-            
             string crawlerName = "sw709Bot";
-            //LangProcessor lp = new LangProcessor();
-            //lp.BinIndex(@"..\..\Resources\NoHTML");
+
+
 
 
             RobotTxtParser rtp = new RobotTxtParser(crawlerName);
             Crawler c = new Crawler(rtp, crawlerName);
-            
-            
+
+            LangProcessor lp = new LangProcessor();
+            lp.BinIndex(@"..\..\Resources\NoHTML");
         }
     }
 }

@@ -270,13 +270,15 @@ namespace MyCrawler
                 fNo++;
             }
 
-            foreach (var list in binInverse.Values)
+            foreach (var term in binInverse.Keys)
             {
-                foreach (var item in list)
+                Console.WriteLine("Term: " + term + " Frequency and DocNo: ");
+                foreach (var item in binInverse[term])
                 {
                     Console.Write(item + " ");
                 }
                 Console.WriteLine("");
+                System.Threading.Thread.Sleep(2000);
             }
 
         }
