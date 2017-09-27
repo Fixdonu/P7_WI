@@ -18,11 +18,11 @@ namespace MyCrawler
 
 
 
-            RobotTxtParser rtp = new RobotTxtParser(crawlerName);
-            Crawler c = new Crawler(rtp, crawlerName);
+            //RobotTxtParser rtp = new RobotTxtParser(crawlerName);
+            //Crawler c = new Crawler(rtp, crawlerName);
 
             LangProcessor lp = new LangProcessor();
-            lp.BinIndex(@"..\..\Resources\NoHTML");
+            lp.InverseTuple(@"..\..\Resources\NoHTML");
         }
     }
 }

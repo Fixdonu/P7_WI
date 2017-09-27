@@ -13,8 +13,24 @@ namespace MyCrawler
         string _dirpath;
         Dictionary<string, List<int>> binInverse = new Dictionary<string, List<int>>();
         Dictionary<string, List<Tuple<int,int>>> inverse = new Dictionary<string, List<Tuple<int,int>>>();
-        
-        public LangProcessor()
+
+    public Dictionary<string, List<int>> BinInverse
+    {
+      get
+      {
+        return binInverse;
+      }
+    }
+
+    public Dictionary<string, List<Tuple<int, int>>> Inverse
+    {
+      get
+      {
+        return inverse;
+      }
+    }
+
+    public LangProcessor()
         {
             stopDict =  new Dictionary<string, int>();
             CreateStopDict();
@@ -196,48 +212,93 @@ namespace MyCrawler
             }
             return noStopTokenList;
         }
-        /* wip
-        public void Index(String dirPath)
+
+    /* wip
+    public void Index(String dirPath)
+    {
+        int fNo = 0;
+
+        foreach (var fp in Directory.GetFiles(dirPath))
         {
-            int fNo = 0;
-
-            foreach (var fp in Directory.GetFiles(dirPath))
+            foreach (var item in RemoveStopWord(TokenFromFile(fp)))
             {
-                foreach (var item in RemoveStopWord(TokenFromFile(fp)))
+                int freq;
+                List<Tuple<int, int>> docList;
+
+                if (inverse.TryGetValue(item, out docList))
                 {
-                    int freq;
-                    List<Tuple<int, int>> docList;
 
-                    if (inverse.TryGetValue(item, out docList))
-                    {
- 
-                        
-                           
-                               
-                    }
-                    else
-                    {
-                        docList = new List<Tuple<int, int>>();
 
-                        docList.Add(new Tuple<int, int>(fNo, 1));
-                        inverse.Add(item, docList);
-                    }
+
+
                 }
-                fNo++;
-            }
-
-            foreach (var list in binInverse.Values)
-            {
-                foreach (var item in list)
+                else
                 {
-                    Console.Write(item + " ");
-                }
-                Console.WriteLine("");
-            }
+                    docList = new List<Tuple<int, int>>();
 
+                    docList.Add(new Tuple<int, int>(fNo, 1));
+                    inverse.Add(item, docList);
+                }
+            }
+            fNo++;
         }
-        */
 
+        foreach (var list in binInverse.Values)
+        {
+            foreach (var item in list)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine("");
+        }
+
+    }
+    */
+
+    public void InverseTuple(String dirPath)
+      {
+      int fNo = 0;
+
+      foreach (var fp in Directory.GetFiles(dirPath))
+      {
+        foreach (var item in RemoveStopWord(TokenFromFile(fp)))
+        {
+          List <Tuple<int, int>> docList;
+
+          if (Inverse.TryGetValue(item, out docList))
+          {
+            
+            if (docList.Last().Item1 != fNo)
+            {
+              docList.Add(Tuple.Create(fNo,1));
+            }
+            else
+            {
+              
+              docList[docList.Count()-1] = Tuple.Create(fNo, docList.Last().Item2 + 1);
+            }
+            Inverse[item] = docList;
+          }
+          else
+          {
+            docList = new List<Tuple<int,int>>();
+            docList.Add(new Tuple<int, int>(fNo,1));
+            Inverse.Add(item, docList);
+          }
+        }
+        fNo++;
+      }
+
+      foreach (var term in Inverse.Keys)
+      {
+        Console.Write("Term: " + term);
+        foreach (Tuple<int,int> item in Inverse[term])
+        {
+          Console.Write(" ({0} : {1}) ", item.Item1, item.Item2);
+        }
+        Console.WriteLine();
+      }
+    }
 
 
         public void BinIndex(String dirPath)
