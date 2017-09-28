@@ -23,6 +23,8 @@ namespace MyCrawler
 
             LangProcessor lp = new LangProcessor();
             lp.InverseTuple(@"..\..\Resources\NoHTML");
+
+            QueryController q = new QueryController(lp);
         }
     }
 }
