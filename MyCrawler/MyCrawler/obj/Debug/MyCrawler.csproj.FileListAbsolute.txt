@@ -8,3 +8,6 @@ C:\Users\Ejer\Documents\GitHub\P7_WI\MyCrawler\MyCrawler\bin\Debug\MyCrawler.exe
 C:\Users\Ejer\Documents\GitHub\P7_WI\MyCrawler\MyCrawler\bin\Debug\MyCrawler.pdb
 C:\Users\Ejer\Documents\GitHub\P7_WI\MyCrawler\MyCrawler\obj\Debug\MyCrawler.exe
 C:\Users\Ejer\Documents\GitHub\P7_WI\MyCrawler\MyCrawler\obj\Debug\MyCrawler.pdb
+D:\GitGudHub\P7_WI\MyCrawler\MyCrawler\bin\Debug\MyCrawler.exe.config
+D:\GitGudHub\P7_WI\MyCrawler\MyCrawler\obj\Debug\MyCrawler.exe
+D:\GitGudHub\P7_WI\MyCrawler\MyCrawler\obj\Debug\MyCrawler.pdb
